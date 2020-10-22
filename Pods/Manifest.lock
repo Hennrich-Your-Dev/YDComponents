@@ -1,0 +1,16 @@
+PODS:
+  - YDExtensions (1.0.1)
+
+DEPENDENCIES:
+  - YDExtensions
+
+SPEC REPOS:
+  "git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git":
+    - YDExtensions
+
+SPEC CHECKSUMS:
+  YDExtensions: 7c97285ef2301fc3e81c0d1dcf664ce23aa262ca
+
+PODFILE CHECKSUM: b2bd01b2f291978df6275143a902bc44d9609649
+
+COCOAPODS: 1.10.0
