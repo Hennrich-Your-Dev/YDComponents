@@ -86,7 +86,8 @@ public class YDMessageField: UIView {
   }
 
   private func instanceXib() {
-    contentView = YDMessageField.loadFromNib()
+    let bundle = Bundle.init(for: Self.self)
+    contentView = YDMessageField.loadFromNib(bundle: bundle)
     addSubview(contentView)
 
     contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +107,7 @@ public class YDMessageField: UIView {
     }
 
     if actionButtonType == .like {
-      
+      delegate?.onLike()
       return
     }
 
