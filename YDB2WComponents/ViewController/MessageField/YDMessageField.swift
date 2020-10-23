@@ -25,7 +25,7 @@ public class YDMessageField: UIView {
   }
 
   // MARK: Properties
-  weak var delegate: YDMessageFieldDelegate?
+  public weak var delegate: YDMessageFieldDelegate?
 
   var hasUserPhoto: Bool = false
 
@@ -82,7 +82,7 @@ public class YDMessageField: UIView {
     instanceXib()
   }
 
-  required init?(coder: NSCoder) {
+  public required init?(coder: NSCoder) {
     super.init(coder: coder)
     instanceXib()
   }
