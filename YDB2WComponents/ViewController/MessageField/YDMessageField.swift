@@ -26,7 +26,9 @@ public class YDMessageField: UIView {
 
   // MARK: Properties
   weak var delegate: YDMessageFieldDelegate?
+
   var hasUserPhoto: Bool = false
+
   var actionButtonType: ActionButtonType = .like {
     didSet {
       if actionButtonType == .sending {
@@ -86,8 +88,7 @@ public class YDMessageField: UIView {
   }
 
   private func instanceXib() {
-    let bundle = Bundle.init(for: Self.self)
-    contentView = YDMessageField.loadFromNib(bundle: bundle)
+    contentView = loadNib()
     addSubview(contentView)
 
     contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -113,7 +114,6 @@ public class YDMessageField: UIView {
 
     if let message = messageField.text, !message.isEmpty {
       delegate?.sendMessage(message)
-
       changeStage(.sending)
     }
   }
@@ -131,7 +131,7 @@ public class YDMessageField: UIView {
       sendingStage()
 
     case .error:
-      break
+      errorStage()
     }
   }
 
@@ -175,19 +175,6 @@ extension YDMessageField {
 
 // MARK: Text Field Delegate && Text Field stuffs
 extension YDMessageField: UITextFieldDelegate {
-
-  public func textFieldDidBeginEditing(_ textField: UITextField) {
-    if !hasUserPhoto {
-      userPhoto.image = UIImage.Icon.defaultUser
-    }
-  }
-
-  public func textFieldDidEndEditing(_ textField: UITextField) {
-    if !hasUserPhoto {
-      userPhoto.image = UIImage.Icon.defaultUserOff
-    }
-  }
-
   @objc func onTextFieldChange(_ textField: UITextField) {
     if textField.text?.isEmpty ?? true {
       actionButton.setImage(UIImage.Icon.thumbsUp, for: .normal)

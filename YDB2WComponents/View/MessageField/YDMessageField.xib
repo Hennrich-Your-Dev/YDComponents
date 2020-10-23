@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YDMessageField" customModule="YDB2WComponents" customModuleProvider="target">
             <connections>
-                <outlet property="actionButton" destination="A1J-OY-T6j" id="c9q-Lk-6BQ"/>
+                <outlet property="actionButton" destination="A1J-OY-T6j" id="HXN-x0-3W4"/>
                 <outlet property="activityIndicator" destination="VnL-jA-iZn" id="l3K-oj-ydB"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="vav-Qd-QeX"/>
                 <outlet property="errorMessageLabel" destination="zjv-FG-Zjj" id="cxA-XE-LZg"/>
@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconsCircleDefaultOff" translatesAutoresizingMaskIntoConstraints="NO" id="uHy-R1-VUh">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconsCircleDefault" translatesAutoresizingMaskIntoConstraints="NO" id="uHy-R1-VUh">
                     <rect key="frame" x="16" y="12" width="32" height="32"/>
                     <color key="tintColor" red="0.56268896329999996" green="0.56946834840000005" blue="0.56946834840000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -48,7 +48,7 @@
                         <action selector="onAction:" destination="-1" eventType="touchUpInside" id="OKe-Um-N2p"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-FG-Zjj">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-FG-Zjj">
                     <rect key="frame" x="257" y="16" width="105" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="105" id="ihZ-y0-REf"/>
@@ -90,7 +90,7 @@ toque para reenviar!</string>
     </objects>
     <resources>
         <image name="iconsChatSend" width="24" height="24"/>
-        <image name="iconsCircleDefaultOff" width="32" height="32"/>
+        <image name="iconsCircleDefault" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
