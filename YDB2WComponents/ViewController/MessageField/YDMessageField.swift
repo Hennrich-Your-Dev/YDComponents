@@ -70,6 +70,7 @@ public class YDMessageField: UIView {
 
       messageField.addTarget(self, action: #selector(onTextFieldChange), for: .editingChanged)
       messageField.addTarget(self, action: #selector(onTextFieldFocus), for: .editingDidBegin)
+      messageField.addTarget(self, action: #selector(onTextFieldBlur), for: .editingDidEnd)
     }
   }
 
@@ -190,9 +191,7 @@ extension YDMessageField {
 // MARK: Text Field Delegate
 extension YDMessageField: UITextFieldDelegate {
   @objc func onTextFieldChange(_ textField: UITextField) {
-    if textField.text?.isEmpty ?? true {
-      actionButton.setImage(UIImage.Icon.thumbsUp, for: .normal)
-    } else if textField.text?.count == 1 {
+    if textField.text?.count == 1 {
       changeStage(.typing)
     } else {
       if actionButtonType == .reload {
@@ -205,6 +204,12 @@ extension YDMessageField: UITextFieldDelegate {
 
   @objc func onTextFieldFocus() {
     changeStage(.typing)
+  }
+
+  @objc func onTextFieldBlur() {
+    if messageField.text?.count == 0 {
+      changeStage(.normal)
+    }
   }
 
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
