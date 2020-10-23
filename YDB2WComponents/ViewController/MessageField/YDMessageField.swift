@@ -10,14 +10,14 @@ import YDExtensions
 
 public class YDMessageField: UIView {
   // MARK: Enum
-  public enum FieldStage {
+  public enum FieldStage: String {
     case normal
     case typing
     case sending
     case error
   }
 
-  enum ActionButtonType {
+  enum ActionButtonType: String {
     case send
     case like
     case reload
@@ -31,6 +31,10 @@ public class YDMessageField: UIView {
 
   var actionButtonType: ActionButtonType = .like {
     didSet {
+      if oldValue == .reload {
+        messageFieldTrailingConstraint.constant += 105
+      }
+
       if actionButtonType == .sending {
         actionButton.isHidden = true
         messageField.textColor = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)
@@ -113,12 +117,21 @@ public class YDMessageField: UIView {
     }
 
     if let message = messageField.text, !message.isEmpty {
-      delegate?.sendMessage(message)
       changeStage(.sending)
+      delegate?.sendMessage(message)
     }
   }
 
   // MARK: Actions
+  private func onReloadAction() {
+    changeStage(.sending)
+
+    if let message = messageField.text {
+      delegate?.sendMessage(message)
+    }
+  }
+
+  // MARK: Public actions
   public func changeStage(_ stage: FieldStage) {
     switch stage {
     case .normal:
@@ -135,13 +148,8 @@ public class YDMessageField: UIView {
     }
   }
 
-  private func onReloadAction() {
-    messageFieldTrailingConstraint.constant += 105
-    changeStage(.sending)
-
-    if let message = messageField.text {
-      delegate?.sendMessage(message)
-    }
+  public func config(username: String) {
+    messageField.placeholder = "Escreva algo; \(username)..."
   }
 }
 
@@ -149,8 +157,10 @@ public class YDMessageField: UIView {
 extension YDMessageField {
   func normalStage() {
     activityIndicator.stopAnimating()
-    actionButtonType = .send
+    actionButtonType = .like
     errorMessageLabel.isHidden = true
+    messageField.text = nil
+    messageField.endEditing(true)
   }
 
   func typingStage() {
@@ -163,6 +173,7 @@ extension YDMessageField {
     activityIndicator.startAnimating()
     actionButtonType = .sending
     errorMessageLabel.isHidden = true
+    messageField.endEditing(true)
   }
 
   func errorStage() {
@@ -170,10 +181,11 @@ extension YDMessageField {
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
     messageFieldTrailingConstraint.constant -= 105
+    messageField.endEditing(true)
   }
 }
 
-// MARK: Text Field Delegate && Text Field stuffs
+// MARK: Text Field Delegate
 extension YDMessageField: UITextFieldDelegate {
   @objc func onTextFieldChange(_ textField: UITextField) {
     if textField.text?.isEmpty ?? true {
@@ -181,7 +193,11 @@ extension YDMessageField: UITextFieldDelegate {
     } else if textField.text?.count == 1 {
       changeStage(.typing)
     } else {
-      actionButton.setImage(UIImage.Icon.send, for: .normal)
+      if actionButtonType == .reload {
+        messageFieldTrailingConstraint.constant += 105
+      }
+
+      actionButtonType = .send
     }
   }
 }

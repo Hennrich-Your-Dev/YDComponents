@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,11 +30,12 @@
                         <constraint firstAttribute="width" constant="32" id="1Cs-iF-RsF"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo; Felipe Moreno..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf">
                     <rect key="frame" x="56" y="21" width="308" height="14"/>
+                    <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1J-OY-T6j">
                     <rect key="frame" x="370" y="16" width="24" height="24"/>
@@ -68,7 +68,7 @@ toque para reenviar!</string>
                     <color key="color" red="0.90196078431372551" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="zjv-FG-Zjj" secondAttribute="bottom" constant="18" id="27S-cF-Yok"/>
                 <constraint firstItem="zjv-FG-Zjj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="5Pw-gY-xJZ"/>
@@ -91,8 +91,5 @@ toque para reenviar!</string>
     <resources>
         <image name="iconsCircleDefault" width="32" height="32"/>
         <image name="iconsSocialThumbUp" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
