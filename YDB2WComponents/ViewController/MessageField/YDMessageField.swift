@@ -69,6 +69,7 @@ public class YDMessageField: UIView {
       messageField.delegate = self
 
       messageField.addTarget(self, action: #selector(onTextFieldChange), for: .editingChanged)
+      messageField.addTarget(self, action: #selector(onTextFieldFocus), for: .editingDidBegin)
     }
   }
 
@@ -200,6 +201,10 @@ extension YDMessageField: UITextFieldDelegate {
 
       actionButtonType = .send
     }
+  }
+
+  @objc func onTextFieldFocus() {
+    changeStage(.typing)
   }
 
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
