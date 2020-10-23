@@ -112,6 +112,7 @@ public class YDMessageField: UIView {
     }
 
     if actionButtonType == .like {
+      actionButton.setImage(UIImage.Icon.thumbsUpRed, for: .normal)
       delegate?.onLike()
       return
     }
@@ -160,7 +161,7 @@ extension YDMessageField {
     actionButtonType = .like
     errorMessageLabel.isHidden = true
     messageField.text = nil
-    messageField.endEditing(true)
+    messageField.resignFirstResponder()
   }
 
   func typingStage() {
@@ -173,7 +174,7 @@ extension YDMessageField {
     activityIndicator.startAnimating()
     actionButtonType = .sending
     errorMessageLabel.isHidden = true
-    messageField.endEditing(true)
+    messageField.resignFirstResponder()
   }
 
   func errorStage() {
@@ -181,7 +182,7 @@ extension YDMessageField {
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
     messageFieldTrailingConstraint.constant -= 105
-    messageField.endEditing(true)
+    messageField.resignFirstResponder()
   }
 }
 
@@ -194,10 +195,15 @@ extension YDMessageField: UITextFieldDelegate {
       changeStage(.typing)
     } else {
       if actionButtonType == .reload {
-        messageFieldTrailingConstraint.constant += 105
+        errorMessageLabel.isHidden = true
       }
 
       actionButtonType = .send
     }
+  }
+
+  public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    onAction(nil)
+    return true
   }
 }

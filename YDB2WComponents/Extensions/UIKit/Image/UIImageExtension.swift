@@ -14,6 +14,11 @@ extension UIImage {
       return UIImage(named: "iconsSocialThumbUp", in: bundle, compatibleWith: nil)
     }
 
+    static var thumbsUpRed: UIImage? {
+      let bundle = Bundle.init(for: YDMessageField.self)
+      return UIImage(named: "iconsSocialThumbUpRed", in: bundle, compatibleWith: nil)
+    }
+
     static var thumbsDown: UIImage? {
       let bundle = Bundle.init(for: YDMessageField.self)
       return UIImage(named: "iconsSocialThumbDown", in: bundle, compatibleWith: nil)
