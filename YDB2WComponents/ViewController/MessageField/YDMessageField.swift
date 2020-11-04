@@ -28,6 +28,8 @@ public class YDMessageField: UIView {
   // MARK: Properties
   public weak var delegate: YDMessageFieldDelegate?
 
+  public var delayInterval: TimeInterval = 5
+
   var hasUserPhoto: Bool = false
 
   var actionButtonType: ActionButtonType = .like {
@@ -193,7 +195,7 @@ extension YDMessageField {
 
     sendTimer?.invalidate()
     sendTimer = Timer.scheduledTimer(
-      withTimeInterval: 5,
+      withTimeInterval: delayInterval,
       repeats: false,
       block: { [weak self] _ in
         self?.changeStage(.delay)
