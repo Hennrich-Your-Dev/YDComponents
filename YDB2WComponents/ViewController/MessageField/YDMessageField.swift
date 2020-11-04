@@ -36,7 +36,7 @@ public class YDMessageField: UIView {
   var actionButtonType: ActionButtonType = .like {
     didSet {
       if oldValue == .reload || oldValue == .delay {
-        messageFieldTrailingConstraint.constant += 105
+        messageFieldTrailingConstraint.constant -= 108
       }
 
       if actionButtonType == .delay {
@@ -212,7 +212,7 @@ extension YDMessageField {
     actionButtonType = .delay
     errorMessageLabel.isHidden = true
     delayMessageLabel.isHidden = false
-    messageFieldTrailingConstraint.constant -= 105
+    messageFieldTrailingConstraint.constant += 108
   }
 
   func errorStage() {
@@ -220,7 +220,7 @@ extension YDMessageField {
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
     delayMessageLabel.isHidden = true
-    messageFieldTrailingConstraint.constant -= 105
+    messageFieldTrailingConstraint.constant += 108
     messageField.resignFirstResponder()
     sendTimer?.invalidate()
   }
