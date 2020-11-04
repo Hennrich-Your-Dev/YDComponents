@@ -23,6 +23,7 @@ public class YDMessageField: UIView {
     case like
     case reload
     case sending
+    case delay
   }
 
   // MARK: Properties
@@ -34,8 +35,12 @@ public class YDMessageField: UIView {
 
   var actionButtonType: ActionButtonType = .like {
     didSet {
-      if oldValue == .reload {
+      if oldValue == .reload || oldValue == .delay {
         messageFieldTrailingConstraint.constant += 105
+      }
+
+      if actionButtonType == .delay {
+        return
       }
 
       if actionButtonType == .sending {
@@ -204,6 +209,7 @@ extension YDMessageField {
   }
 
   func delayStage() {
+    actionButtonType = .delay
     errorMessageLabel.isHidden = true
     delayMessageLabel.isHidden = false
     messageFieldTrailingConstraint.constant -= 105
