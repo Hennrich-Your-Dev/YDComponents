@@ -15,6 +15,7 @@ public class YDMessageField: UIView {
     case typing
     case sending
     case error
+    case delay
   }
 
   enum ActionButtonType: String {
@@ -59,6 +60,8 @@ public class YDMessageField: UIView {
     }
   }
 
+  var sendTimer: Timer?
+
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
 
@@ -81,6 +84,8 @@ public class YDMessageField: UIView {
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
   @IBOutlet weak var errorMessageLabel: UILabel!
+
+  @IBOutlet weak var delayMessageLabel: UILabel!
 
   // MARK: Life cycle
   public override init(frame: CGRect) {
@@ -146,6 +151,9 @@ public class YDMessageField: UIView {
     case .sending:
       sendingStage()
 
+    case .delay:
+      delayStage()
+
     case .error:
       errorStage()
     }
@@ -162,29 +170,51 @@ extension YDMessageField {
     activityIndicator.stopAnimating()
     actionButtonType = .like
     errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
     messageField.text = nil
     messageField.resignFirstResponder()
+    sendTimer?.invalidate()
   }
 
   func typingStage() {
     activityIndicator.stopAnimating()
     actionButtonType = .send
     errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
+    sendTimer?.invalidate()
   }
 
   func sendingStage() {
     activityIndicator.startAnimating()
     actionButtonType = .sending
     errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
     messageField.resignFirstResponder()
+
+    sendTimer?.invalidate()
+    sendTimer = Timer.scheduledTimer(
+      withTimeInterval: 5,
+      repeats: false,
+      block: { [weak self] _ in
+        self?.changeStage(.delay)
+      }
+    )
+  }
+
+  func delayStage() {
+    errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = false
+    messageFieldTrailingConstraint.constant -= 105
   }
 
   func errorStage() {
     activityIndicator.stopAnimating()
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
+    delayMessageLabel.isHidden = true
     messageFieldTrailingConstraint.constant -= 105
     messageField.resignFirstResponder()
+    sendTimer?.invalidate()
   }
 }
 
@@ -207,7 +237,7 @@ extension YDMessageField: UITextFieldDelegate {
   }
 
   @objc func onTextFieldBlur() {
-    if messageField.text?.count == 0 {
+    if messageField.text?.isEmpty ?? true {
       changeStage(.normal)
     }
   }

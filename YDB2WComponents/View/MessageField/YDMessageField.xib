@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +11,7 @@
                 <outlet property="actionButton" destination="A1J-OY-T6j" id="HXN-x0-3W4"/>
                 <outlet property="activityIndicator" destination="VnL-jA-iZn" id="l3K-oj-ydB"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="vav-Qd-QeX"/>
+                <outlet property="delayMessageLabel" destination="iTM-OV-HzB" id="qKG-To-hMm"/>
                 <outlet property="errorMessageLabel" destination="zjv-FG-Zjj" id="cxA-XE-LZg"/>
                 <outlet property="messageField" destination="Ao4-HG-Drf" id="Ezj-ak-OKC"/>
                 <outlet property="messageFieldTrailingConstraint" destination="dJR-3h-0yV" id="0pG-wQ-gu2"/>
@@ -48,7 +49,7 @@
                         <action selector="onAction:" destination="-1" eventType="touchUpInside" id="OKe-Um-N2p"/>
                     </connections>
                 </button>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-FG-Zjj">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-FG-Zjj">
                     <rect key="frame" x="257" y="16" width="105" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="105" id="ihZ-y0-REf"/>
@@ -67,6 +68,15 @@ toque para reenviar!</string>
                     </constraints>
                     <color key="color" red="0.90196078431372551" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ops…esta demorando um pouco!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTM-OV-HzB">
+                    <rect key="frame" x="257" y="16" width="105" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="3ja-Ne-Pwc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="0.27058823529411763" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -82,6 +92,8 @@ toque para reenviar!</string>
                 <constraint firstAttribute="trailing" secondItem="A1J-OY-T6j" secondAttribute="trailing" constant="20" id="ein-ua-1xB"/>
                 <constraint firstItem="uHy-R1-VUh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="gRQ-R9-qh6"/>
                 <constraint firstItem="Ao4-HG-Drf" firstAttribute="leading" secondItem="uHy-R1-VUh" secondAttribute="trailing" constant="8" id="nJC-SG-Jjf"/>
+                <constraint firstAttribute="trailing" secondItem="iTM-OV-HzB" secondAttribute="trailing" constant="52" id="qec-mE-zWS"/>
+                <constraint firstItem="iTM-OV-HzB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="sVE-NF-dJc"/>
                 <constraint firstAttribute="bottom" secondItem="Ao4-HG-Drf" secondAttribute="bottom" constant="23" id="xhF-gI-v3x"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
