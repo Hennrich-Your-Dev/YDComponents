@@ -1,5 +1,5 @@
 PODS:
-  - YDExtensions (1.0.2)
+  - YDExtensions (1.0.10)
 
 DEPENDENCIES:
   - YDExtensions
@@ -9,7 +9,7 @@ SPEC REPOS:
     - YDExtensions
 
 SPEC CHECKSUMS:
-  YDExtensions: f35a7850de47b369b4d8aa6d9eec028a9ab13b51
+  YDExtensions: d45fbc5aa4350aae130f059428fa86d752866f64
 
 PODFILE CHECKSUM: b2bd01b2f291978df6275143a902bc44d9609649
 

@@ -7,31 +7,31 @@
 // swiftlint:disable force_unwrapping force_cast
 import UIKit
 
-extension UIView {
+public extension UIView {
 
-  public class var identifier: String {
+  class var identifier: String {
     return String(describing: self)
   }
 
-  public func loadNib() -> UIView {
+  func loadNib() -> UIView {
     let bundle = Bundle.init(for: type(of: self))
     let nibName = Self.description().components(separatedBy: ".").last!
     let nib = UINib(nibName: nibName, bundle: bundle)
     return nib.instantiate(withOwner: self, options: nil).first as! UIView
   }
 
-  public class func loadFromNibNamed(
+  class func loadFromNibNamed(
     _ nibNamed: String,
     _ bundle: Bundle? = Bundle.main
   ) -> UINib {
     return UINib(nibName: nibNamed, bundle: bundle)
   }
 
-  public class func loadNib(_ bundle: Bundle? = Bundle.main) -> UINib {
+  class func loadNib(_ bundle: Bundle? = Bundle.main) -> UINib {
     return loadFromNibNamed(self.identifier, bundle)
   }
 
-  public class func loadFromNib(bundle: Bundle? = Bundle.main) -> UIView? {
+  class func loadFromNib(bundle: Bundle? = Bundle.main) -> UIView? {
     return loadFromNibNamed(self.identifier, bundle).instantiate(
       withOwner: nil,
       options: nil
@@ -39,10 +39,10 @@ extension UIView {
   }
 }
 
-extension UIView {
+public extension UIView {
 
   // MARK: Loading
-  public func startLoader(message: String? = nil) {
+  func startLoader(message: String? = nil) {
     let viewLoading = UIView(frame: self.frame)
     viewLoading.tag = 99999
     viewLoading.backgroundColor = .white
@@ -59,11 +59,24 @@ extension UIView {
     self.bringSubviewToFront(viewLoading)
   }
 
-  public func stopLoader() {
+  func stopLoader() {
     self.subviews.forEach { view in
       if view.tag == 99999 {
         view.removeFromSuperview()
       }
     }
+  }
+
+  // MARK: Corner round
+  func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    let path = UIBezierPath(
+      roundedRect: bounds,
+      byRoundingCorners: corners,
+      cornerRadii: CGSize(width: radius, height: radius)
+    )
+    
+    let mask = CAShapeLayer()
+    mask.path = path.cgPath
+    layer.mask = mask
   }
 }

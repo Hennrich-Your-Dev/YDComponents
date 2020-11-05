@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		69C13FE1158B77A587209B52 /* Pods_YDB2WComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EC3EDA5DFCF68EC9C363E4 /* Pods_YDB2WComponents.framework */; };
 		C10399262541C0C900FF6CAD /* YDB2WComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C10399242541C0C900FF6CAD /* YDB2WComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */; };
+		C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */; };
+		C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */; };
+		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
 		C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FC70F22541D4010036AFD7 /* YDMessageField.xib */; };
 		C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70F62541D4330036AFD7 /* YDMessageField.swift */; };
 		C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */; };
@@ -22,6 +26,10 @@
 		C10399212541C0C900FF6CAD /* YDB2WComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDB2WComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10399242541C0C900FF6CAD /* YDB2WComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDB2WComponents.h; sourceTree = "<group>"; };
 		C10399252541C0C900FF6CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDLoginDialogViewController.storyboard; sourceTree = "<group>"; };
+		C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewController.swift; sourceTree = "<group>"; };
+		C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogCoordinator.swift; sourceTree = "<group>"; };
+		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
 		C1FC70F22541D4010036AFD7 /* YDMessageField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDMessageField.xib; sourceTree = "<group>"; };
 		C1FC70F62541D4330036AFD7 /* YDMessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageField.swift; sourceTree = "<group>"; };
 		C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageFieldDelegate.swift; sourceTree = "<group>"; };
@@ -73,9 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				C1FC710A2541F91B0036AFD7 /* Extensions */,
-				C1FC70B82541C2C60036AFD7 /* ViewModel */,
-				C1FC70B72541C2BF0036AFD7 /* ViewController */,
-				C1FC70B62541C2B80036AFD7 /* View */,
+				C11A378A2553766100D85F29 /* MessageField */,
+				C11A37892553765300D85F29 /* LoginDialog */,
 				C1FC71062541F8AD0036AFD7 /* Assets.xcassets */,
 				C10399242541C0C900FF6CAD /* YDB2WComponents.h */,
 				C10399252541C0C900FF6CAD /* Info.plist */,
@@ -83,10 +90,63 @@
 			path = YDB2WComponents;
 			sourceTree = "<group>";
 		};
+		C11A37892553765300D85F29 /* LoginDialog */ = {
+			isa = PBXGroup;
+			children = (
+				C11A3795255385E200D85F29 /* Coordinator */,
+				C183B7C125541E9200A0EAAA /* ViewModel */,
+				C11A3790255384E700D85F29 /* ViewController */,
+				C11A378C255384A800D85F29 /* View */,
+			);
+			path = LoginDialog;
+			sourceTree = "<group>";
+		};
+		C11A378A2553766100D85F29 /* MessageField */ = {
+			isa = PBXGroup;
+			children = (
+				C1FC70B82541C2C60036AFD7 /* ViewModel */,
+				C1FC70B72541C2BF0036AFD7 /* ViewController */,
+				C1FC70B62541C2B80036AFD7 /* View */,
+			);
+			path = MessageField;
+			sourceTree = "<group>";
+		};
+		C11A378C255384A800D85F29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C11A3790255384E700D85F29 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C11A3795255385E200D85F29 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C183B7C125541E9200A0EAAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C1FC70B62541C2B80036AFD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C1FC70B92541C8190036AFD7 /* MessageField */,
+				C1FC70F22541D4010036AFD7 /* YDMessageField.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,7 +154,7 @@
 		C1FC70B72541C2BF0036AFD7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C1FC70F52541D4130036AFD7 /* MessageField */,
+				C1FC70F62541D4330036AFD7 /* YDMessageField.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -102,33 +162,9 @@
 		C1FC70B82541C2C60036AFD7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C1FC70FB2541EBF00036AFD7 /* MessageField */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		C1FC70B92541C8190036AFD7 /* MessageField */ = {
-			isa = PBXGroup;
-			children = (
-				C1FC70F22541D4010036AFD7 /* YDMessageField.xib */,
-			);
-			path = MessageField;
-			sourceTree = "<group>";
-		};
-		C1FC70F52541D4130036AFD7 /* MessageField */ = {
-			isa = PBXGroup;
-			children = (
-				C1FC70F62541D4330036AFD7 /* YDMessageField.swift */,
-			);
-			path = MessageField;
-			sourceTree = "<group>";
-		};
-		C1FC70FB2541EBF00036AFD7 /* MessageField */ = {
-			isa = PBXGroup;
-			children = (
 				C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */,
 			);
-			path = MessageField;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C1FC710A2541F91B0036AFD7 /* Extensions */ = {
@@ -236,6 +272,7 @@
 			files = (
 				C1FC71072541F8AD0036AFD7 /* Assets.xcassets in Resources */,
 				C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */,
+				C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
+				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
 				C1FC710F2541FA2A0036AFD7 /* UIImageExtension.swift in Sources */,
+				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

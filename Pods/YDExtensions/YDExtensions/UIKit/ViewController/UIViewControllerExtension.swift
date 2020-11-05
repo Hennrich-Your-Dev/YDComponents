@@ -7,13 +7,13 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
 
-  public class var identifier: String {
+  class var identifier: String {
     return String(describing: self)
   }
 
-  public class func initializeFromStoryboard() -> Self? {
+  class func initializeFromStoryboard() -> Self? {
     let bundle = Bundle.init(for: Self.self)
     let storyboard = UIStoryboard(
       name: NSStringFromClass(Self.self)
@@ -25,7 +25,7 @@ extension UIViewController {
     return storyboard.instantiateViewController(withIdentifier: self.identifier) as? Self
   }
 
-  public func topMostViewController() -> UIViewController? {
+  func topMostViewController() -> UIViewController? {
     if self.presentedViewController == nil {
       return self
     }

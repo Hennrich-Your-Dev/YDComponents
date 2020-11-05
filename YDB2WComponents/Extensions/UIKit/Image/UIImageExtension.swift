@@ -48,5 +48,10 @@ extension UIImage {
       let bundle = Bundle.init(for: YDMessageField.self)
       return UIImage(named: "iconsChatSend", in: bundle, compatibleWith: nil)
     }
+
+    static var userRed: UIImage? {
+      let bundle = Bundle.init(for: YDMessageField.self)
+      return UIImage(named: "iconsActionUser", in: bundle, compatibleWith: nil)
+    }
   }
 }
