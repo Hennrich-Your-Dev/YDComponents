@@ -13,7 +13,12 @@ class YDLoginDialogViewController: UIViewController {
   var viewModel: YDLoginDialogViewModelDelegate?
 
   // MARK: IBOutlets
-  @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var contentView: UIView! {
+    didSet {
+      contentView.layer.cornerRadius = 6
+      contentView.layer.applyShadow(alpha: 0.08, blur: 20, spread: -1)
+    }
+  }
 
   @IBOutlet weak var loginButton: UIButton! {
     didSet {
