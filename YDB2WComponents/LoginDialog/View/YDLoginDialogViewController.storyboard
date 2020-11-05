@@ -11,7 +11,7 @@
         <!--Login Dialog View Controller-->
         <scene sceneID="gs0-TB-FHQ">
             <objects>
-                <viewController storyboardIdentifier="YDLoginDialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AYG-3c-EOe" customClass="YDLoginDialogViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YDLoginDialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AYG-3c-EOe" customClass="YDLoginDialogViewController" customModule="YDB2WComponents" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ltG-pf-A9N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

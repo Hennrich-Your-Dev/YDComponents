@@ -40,7 +40,7 @@ public class YDLoginDialogCoordinator {
       fatalError("YDLoginDialogViewController.initializeFromStoryboard")
     }
 
-    let topViewController = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?
+    let topViewController = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?
       .rootViewController?.topMostViewController()
 
     let viewModel = YDLoginDialogViewModel(navigation: self)
