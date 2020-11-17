@@ -131,6 +131,9 @@ public class YDMessageField: UIView {
     if actionButtonType == .like {
       actionButton.setImage(UIImage.Icon.thumbsUpRed, for: .normal)
       delegate?.onLike()
+      Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { [weak self] _ in
+        self?.normalStage()
+      }
       return
     }
 
