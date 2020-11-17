@@ -61,6 +61,7 @@ public class YDMessageField: UIView {
         return UIImage.Icon.reload
       }()
 
+      actionButton.setImage(actionButtonType == .like ? UIImage.Icon.thumbsUpRed : nil, for: .selected)
       actionButton.setImage(icon, for: .normal)
       actionButton.isHidden = false
       messageField.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
@@ -119,6 +120,8 @@ public class YDMessageField: UIView {
       contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
       contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
     ])
+
+    changeStage(.normal)
   }
 
   // MARK: IBActions
@@ -129,10 +132,11 @@ public class YDMessageField: UIView {
     }
 
     if actionButtonType == .like {
-      actionButton.setImage(UIImage.Icon.thumbsUpRed, for: .normal)
+      actionButton.isSelected = true
       delegate?.onLike()
+
       Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { [weak self] _ in
-        self?.normalStage()
+        self?.actionButton.isSelected = false
       }
       return
     }
@@ -183,12 +187,16 @@ public class YDMessageField: UIView {
 // MARK: Stages
 extension YDMessageField {
   func normalStage() {
-    activityIndicator.stopAnimating()
     actionButtonType = .like
+
+    activityIndicator.stopAnimating()
+
     errorMessageLabel.isHidden = true
     delayMessageLabel.isHidden = true
+
     messageField.text = nil
     messageField.resignFirstResponder()
+
     sendTimer?.invalidate()
   }
 

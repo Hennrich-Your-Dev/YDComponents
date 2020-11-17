@@ -17,19 +17,19 @@ class YDAnimationBlock: UIView {
   public init() {
     let rect = CGRect(x: 0, y: 0, width: 60, height: 420)
     super.init(frame: rect)
-    commonInit()
+    instanceXib()
   }
 
   public required init?(coder: NSCoder) {
     super.init(coder: coder)
-    commonInit()
+    instanceXib()
   }
 
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
 
   // MARK: Actions
-  private func commonInit() {
+  private func instanceXib() {
     contentView = loadNib()
     addSubview(contentView)
 
