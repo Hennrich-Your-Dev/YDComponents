@@ -72,8 +72,6 @@ public class YDMessageField: UIView {
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
 
-  @IBOutlet weak var userPhoto: UIImageView!
-
   @IBOutlet weak var messageField: UITextField! {
     didSet {
       messageField.delegate = self
@@ -81,6 +79,11 @@ public class YDMessageField: UIView {
       messageField.addTarget(self, action: #selector(onTextFieldChange), for: .editingChanged)
       messageField.addTarget(self, action: #selector(onTextFieldFocus), for: .editingDidBegin)
       messageField.addTarget(self, action: #selector(onTextFieldBlur), for: .editingDidEnd)
+
+      messageField.attributedPlaceholder = NSAttributedString(
+        string: "Escreva algo...",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+      )
     }
   }
 
@@ -167,7 +170,10 @@ public class YDMessageField: UIView {
   }
 
   public func config(username: String) {
-    messageField.placeholder = "Escreva algo; \(username)..."
+    messageField.attributedPlaceholder = NSAttributedString(
+      string: "Escreva algo, \(username)...",
+      attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+    )
   }
 }
 
