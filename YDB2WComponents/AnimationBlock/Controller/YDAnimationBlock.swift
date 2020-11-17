@@ -8,51 +8,48 @@
 import UIKit
 import YDExtensions
 
-class YDAnimationBlock: UIView {
+public class YDAnimationBlock: UIView {
   // MARK: Properties
-  var currentIcon: UIImage? = UIImage.Icon.thumbsUpRed
-  var columns: [CGFloat] = []
+  var icons: [UIImage?] = []
+  let sizes: [CGFloat] = [24, 20, 18, 12]
+  var columns: [CGFloat] = [-10, 10, 20, 30, 40, 50]
 
   // MARK: Init
   public init() {
     let rect = CGRect(x: 0, y: 0, width: 60, height: 420)
     super.init(frame: rect)
-    instanceXib()
+    backgroundColor = .clear
   }
 
   public required init?(coder: NSCoder) {
     super.init(coder: coder)
-    instanceXib()
+    backgroundColor = .clear
   }
 
-  // MARK: IBOutlets
-  @IBOutlet var contentView: UIView!
-
-  // MARK: Actions
-  private func instanceXib() {
-    contentView = loadNib()
-    addSubview(contentView)
-
-    contentView.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate([
-      contentView.topAnchor.constraint(equalTo: self.topAnchor),
-      contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-    ])
+  public func config(iconsToSort: [UIImage?]) {
+    self.icons = iconsToSort
   }
 
-  private func calculateColumns() {
-    let width = contentView.frame.width
-    let half = width / 2
-    let divided = width / 4
+  public func addIcon() {
+    let size = sizes.randomElement() ?? 0
+    let x = columns.randomElement() ?? 0
+    let futureX = columns.randomElement() ?? 0
+    let iconImage = icons.randomElement() ?? nil
 
-    columns.append(half - (2 * divided))
-    columns.append(half - divided)
-    columns.append(half + divided)
-    columns.append(half + (2 * divided))
-    print(columns)
+    let icon = UIImageView(image: iconImage)
+    icon.frame = CGRect(x: x, y: frame.height, width: size, height: size)
+    addSubview(icon)
+
+    UIView.animate(withDuration: 3) {
+      icon.frame = CGRect(
+        x: futureX,
+        y: -50,
+        width: icon.frame.width,
+        height: icon.frame.height
+      )
+      icon.alpha = 0
+    } completion: { _ in
+      icon.removeFromSuperview()
+    }
   }
-  
 }

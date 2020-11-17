@@ -13,7 +13,6 @@
 		C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */; };
 		C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */; };
 		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
-		C1E7BF9625641388008F747A /* YDAnimationBlock.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E7BF9525641388008F747A /* YDAnimationBlock.xib */; };
 		C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7BF992564162B008F747A /* YDAnimationBlock.swift */; };
 		C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FC70F22541D4010036AFD7 /* YDMessageField.xib */; };
 		C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70F62541D4330036AFD7 /* YDMessageField.swift */; };
@@ -32,7 +31,6 @@
 		C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewController.swift; sourceTree = "<group>"; };
 		C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogCoordinator.swift; sourceTree = "<group>"; };
 		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
-		C1E7BF9525641388008F747A /* YDAnimationBlock.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDAnimationBlock.xib; sourceTree = "<group>"; };
 		C1E7BF992564162B008F747A /* YDAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAnimationBlock.swift; sourceTree = "<group>"; };
 		C1FC70F22541D4010036AFD7 /* YDMessageField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDMessageField.xib; sourceTree = "<group>"; };
 		C1FC70F62541D4330036AFD7 /* YDMessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageField.swift; sourceTree = "<group>"; };
@@ -152,17 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				C1E7BF9825641606008F747A /* Controller */,
-				C1E7BF942564136C008F747A /* View */,
 			);
 			path = AnimationBlock;
-			sourceTree = "<group>";
-		};
-		C1E7BF942564136C008F747A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C1E7BF9525641388008F747A /* YDAnimationBlock.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C1E7BF9825641606008F747A /* Controller */ = {
@@ -302,7 +291,6 @@
 			files = (
 				C1FC71072541F8AD0036AFD7 /* Assets.xcassets in Resources */,
 				C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */,
-				C1E7BF9625641388008F747A /* YDAnimationBlock.xib in Resources */,
 				C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
