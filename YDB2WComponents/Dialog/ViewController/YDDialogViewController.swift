@@ -56,6 +56,6 @@ class YDDialogViewController: UIViewController {
 
   // MARK: IBActions
   @IBAction func onAction(_ sender: UIButton) {
-    viewModel?.onButton()
+    viewModel?.onAction()
   }
 }
