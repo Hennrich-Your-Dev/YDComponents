@@ -13,7 +13,7 @@ public protocol YDDialogNavigationDelegate: AnyObject {
 }
 
 protocol YDDialogViewModelDelegate: AnyObject {
-  func onAction()
+  func onButtonAction()
 }
 
 // MARK: ViewModel
@@ -28,7 +28,7 @@ class YDDialogViewModel {
 }
 
 extension YDDialogViewModel: YDDialogViewModelDelegate {
-  func onAction() {
+  func onButtonAction() {
     navigation.onAction()
   }
 }
