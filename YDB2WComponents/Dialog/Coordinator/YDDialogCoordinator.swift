@@ -10,7 +10,7 @@ import YDExtensions
 
 // MARK: Delegate
 public protocol YDDialogCoordinatorDelegate: AnyObject {
-  func onAction()
+  func onActionYDDialog()
 }
 
 public typealias YDDialog = YDDialogCoordinator
@@ -55,7 +55,7 @@ public class YDDialogCoordinator {
 extension YDDialogCoordinator: YDDialogNavigationDelegate {
   public func onAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onAction()
+      self?.delegate?.onActionYDDialog()
     }
   }
 }

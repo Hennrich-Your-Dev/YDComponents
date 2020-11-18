@@ -10,8 +10,8 @@ import YDExtensions
 
 // MARK: Delegate
 public protocol YDLoginDialogDelegate: AnyObject {
-  func onLogin()
-  func onBack()
+  func onLoginYDLoginDialog()
+  func onBackYDLoginDialog()
 }
 
 public typealias YDLoginDialog = YDLoginDialogCoordinator
@@ -56,13 +56,13 @@ public class YDLoginDialogCoordinator {
 extension YDLoginDialogCoordinator: YDLoginDialogNavigationDelegate {
   func onExit() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onBack()
+      self?.delegate?.onBackYDLoginDialog()
     }
   }
 
   func onLogin() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onLogin()
+      self?.delegate?.onLoginYDLoginDialog()
     }
   }
 }
