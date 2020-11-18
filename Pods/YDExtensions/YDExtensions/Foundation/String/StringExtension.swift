@@ -54,4 +54,11 @@ public extension String {
     dateFormatter.dateFormat = format
     return dateFormatter.date(from: self)
   }
+
+  func withQueryString(params: [String: String]) -> String? {
+    var components = URLComponents(string: self)
+    components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value) }
+
+    return components?.url?.absoluteString
+  }
 }
