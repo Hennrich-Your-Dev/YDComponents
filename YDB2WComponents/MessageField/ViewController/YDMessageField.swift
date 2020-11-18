@@ -218,11 +218,10 @@ extension YDMessageField {
     sendTimer?.invalidate()
     sendTimer = Timer.scheduledTimer(
       withTimeInterval: delayInterval,
-      repeats: false,
-      block: { [weak self] _ in
-        self?.changeStage(.delay)
-      }
-    )
+      repeats: false
+    ) { [weak self] _ in
+      self?.changeStage(.delay)
+    }
   }
 
   func delayStage() {

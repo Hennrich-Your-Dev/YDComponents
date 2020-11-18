@@ -1,22 +1,21 @@
 //
-//  YDLoginDialogCoordinator.swift
+//  YDDialogCoordinator.swift
 //  YDB2WComponents
 //
-//  Created by Douglas Hennrich on 04/11/20.
+//  Created by Douglas Hennrich on 17/11/20.
 //
 
 import UIKit
 import YDExtensions
 
 // MARK: Delegate
-public protocol YDLoginDialogDelegate: AnyObject {
-  func onLogin()
-  func onBack()
+public protocol YDDialogCoordinatorDelegate: AnyObject {
+  func onAction()
 }
 
-public typealias YDLoginDialog = YDLoginDialogCoordinator
+public typealias YDDialog = YDDialogCoordinator
 
-public class YDLoginDialogCoordinator {
+public class YDDialogCoordinator {
   // MARK: Properties
   var rootViewController: UIViewController {
     return self.navigationController
@@ -29,20 +28,20 @@ public class YDLoginDialogCoordinator {
     return nav
   }()
 
-  public weak var delegate: YDLoginDialogDelegate?
+  public weak var delegate: YDDialogCoordinatorDelegate?
 
   // MARK: Init
   public init() {}
 
   // MARK: Actions
   public func start() {
-    guard let viewController = YDLoginDialogViewController.initializeFromStoryboard() else {
-      fatalError("YDLoginDialogViewController.initializeFromStoryboard")
+    guard let viewController = YDDialogViewController.initializeFromStoryboard() else {
+      fatalError("YDDialogViewController.initializeFromStoryboard")
     }
 
     let topViewController = UIWindow.keyWindow?.rootViewController?.topMostViewController()
 
-    let viewModel = YDLoginDialogViewModel(navigation: self)
+    let viewModel = YDDialogViewModel(navigation: self)
 
     viewController.viewModel = viewModel
 
@@ -53,16 +52,10 @@ public class YDLoginDialogCoordinator {
   }
 }
 
-extension YDLoginDialogCoordinator: YDLoginDialogNavigationDelegate {
-  func onExit() {
+extension YDDialogCoordinator: YDDialogNavigationDelegate {
+  public func onAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onBack()
-    }
-  }
-
-  func onLogin() {
-    rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onLogin()
+      self?.delegate?.onAction()
     }
   }
 }
