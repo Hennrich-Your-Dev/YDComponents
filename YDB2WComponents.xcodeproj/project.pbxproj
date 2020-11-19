@@ -24,6 +24,7 @@
 		C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */; };
 		C1FC71072541F8AD0036AFD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1FC71062541F8AD0036AFD7 /* Assets.xcassets */; };
 		C1FC710F2541FA2A0036AFD7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC710E2541FA2A0036AFD7 /* UIImageExtension.swift */; };
+		C1FEFDED25666B0800264C3B /* YDTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FEFDEC25666B0800264C3B /* YDTextView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageFieldDelegate.swift; sourceTree = "<group>"; };
 		C1FC71062541F8AD0036AFD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1FC710E2541FA2A0036AFD7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		C1FEFDEC25666B0800264C3B /* YDTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDTextView.xib; sourceTree = "<group>"; };
 		DB868B41038CE8E8AC5245A9 /* Pods-YDB2WComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDB2WComponents.release.xcconfig"; path = "Target Support Files/Pods-YDB2WComponents/Pods-YDB2WComponents.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				C1F3F8FB2565A74A000B56F7 /* Controller */,
+				C1FEFDEB25666ABE00264C3B /* View */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -279,6 +282,14 @@
 				C1FC710E2541FA2A0036AFD7 /* UIImageExtension.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		C1FEFDEB25666ABE00264C3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1FEFDEC25666B0800264C3B /* YDTextView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CD79E4BF79FB0BA8AE378575 /* Frameworks */ = {
@@ -363,6 +374,7 @@
 				C1E7C123256478DC008F747A /* YDDialogViewController.storyboard in Resources */,
 				C1FC71072541F8AD0036AFD7 /* Assets.xcassets in Resources */,
 				C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */,
+				C1FEFDED25666B0800264C3B /* YDTextView.xib in Resources */,
 				C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

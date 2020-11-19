@@ -10,14 +10,34 @@ import YDExtensions
 
 public protocol YDTextViewDelegate {
   func textViewDidChangeSelection(_ textView: UITextView)
-  func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeText(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
 }
 
-public class YDTextView: UITextView {
+public class YDTextView: UIView {
   // MARK: Properties
-  public var placeHolder: String = ""
+  let messageTextViewMaxHeight: CGFloat = 100
+  public var placeHolder: String = "" {
+    didSet {
+      textView.text = placeHolder
+    }
+  }
   public var defaultTextColor: UIColor? = UIColor(hex: "#666666")
-  public var customDelegate: YDTextViewDelegate?
+  public var delegate: YDTextViewDelegate?
+
+  // MARK: IBOutlets
+  @IBOutlet var contentView: UIView!
+  
+  @IBOutlet weak var textView: UITextView! {
+    didSet {
+      textView.backgroundColor = .clear
+
+      textView.layer.borderWidth = 1
+      textView.layer.borderColor = UIColor(hex: "#999999")?.cgColor
+      textView.layer.cornerRadius = 8
+
+      textView.delegate = self
+    }
+  }
 
   // MARK: Init
   init() {
@@ -28,47 +48,44 @@ public class YDTextView: UITextView {
       height: 35
     )
 
-    super.init(frame: rect,textContainer: nil)
-    commonInit()
-  }
-
-  override init(frame: CGRect, textContainer: NSTextContainer?) {
-    super.init(frame: frame, textContainer: textContainer)
-    commonInit()
+    super.init(frame: rect)
+    instanceXib()
   }
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    commonInit()
+    instanceXib()
   }
 
   // MARK: Actions
-  func commonInit() {
+  func instanceXib() {
+    contentView = loadNib()
+    addSubview(contentView)
+
+    contentView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      contentView.topAnchor.constraint(equalTo: self.topAnchor),
+      contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+      contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+      contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+    ])
+
     backgroundColor = .clear
+    contentView.backgroundColor = .clear
 
-    layer.borderWidth = 1
-    layer.borderColor = UIColor(hex: "#999999")?.cgColor
-    layer.cornerRadius = 8
-
-    isScrollEnabled = false
-
-    font = .systemFont(ofSize: 14)
-
-    delegate = self
-
-    text = placeHolder
-    textColor = .lightGray
+    textView.text = placeHolder
+    textView.textColor = .lightGray
   }
 }
 
 extension YDTextView: UITextViewDelegate {
   public func textViewDidChangeSelection(_ textView: UITextView) {
-    customDelegate?.textViewDidChangeSelection(textView)
+    delegate?.textViewDidChangeSelection(textView)
   }
 
-  public override func shouldChangeText(in range: UITextRange, replacementText text: String) -> Bool {
-    if customDelegate != nil {
-      return customDelegate?.shouldChangeText(in: range, replacementText: text) ?? false
+  public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if delegate != nil {
+      return delegate?.shouldChangeText(textView, shouldChangeTextIn: range, replacementText: text) ?? false
     }
 
     return true
