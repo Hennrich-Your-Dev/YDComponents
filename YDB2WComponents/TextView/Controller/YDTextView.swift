@@ -15,7 +15,6 @@ public protocol YDTextViewDelegate {
 
 public class YDTextView: UIView {
   // MARK: Properties
-  let messageTextViewMaxHeight: CGFloat = 100
   public var placeHolder: String = "" {
     didSet {
       textView.text = placeHolder
@@ -23,10 +22,11 @@ public class YDTextView: UIView {
   }
   public var defaultTextColor: UIColor? = UIColor(hex: "#666666")
   public var delegate: YDTextViewDelegate?
+  let messageTextViewMaxHeight: CGFloat = 69
 
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
-  
+
   @IBOutlet weak var textView: UITextView! {
     didSet {
       textView.backgroundColor = .clear
@@ -36,6 +36,14 @@ public class YDTextView: UIView {
       textView.layer.cornerRadius = 8
 
       textView.delegate = self
+
+      textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
+  }
+
+  @IBOutlet var heightConstraint: NSLayoutConstraint! {
+    didSet {
+      heightConstraint.isActive = false
     }
   }
 
@@ -73,7 +81,6 @@ public class YDTextView: UIView {
     backgroundColor = .clear
     contentView.backgroundColor = .clear
 
-    textView.text = placeHolder
     textView.textColor = .lightGray
   }
 }
@@ -81,6 +88,24 @@ public class YDTextView: UIView {
 extension YDTextView: UITextViewDelegate {
   public func textViewDidChangeSelection(_ textView: UITextView) {
     delegate?.textViewDidChangeSelection(textView)
+
+    if textView.contentSize.height >= messageTextViewMaxHeight {
+      textView.isScrollEnabled = true
+
+      if heightConstraint != nil {
+        heightConstraint.isActive = true
+        layoutIfNeeded()
+      }
+
+    } else {
+      textView.frame.size.height = textView.contentSize.height
+      textView.isScrollEnabled = false
+
+      if heightConstraint != nil {
+        heightConstraint.isActive = false
+        layoutIfNeeded()
+      }
+    }
   }
 
   public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
