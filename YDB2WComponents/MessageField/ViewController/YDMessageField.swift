@@ -135,7 +135,7 @@ public class YDMessageField: UIView {
       actionButton.isSelected = true
       delegate?.onLike()
 
-      Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { [weak self] _ in
+      Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { [weak self] _ in
         self?.actionButton.isSelected = false
       }
       return
