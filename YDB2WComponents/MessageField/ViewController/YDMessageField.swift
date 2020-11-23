@@ -187,14 +187,17 @@ public class YDMessageField: UIView {
 
   public func cleanField() {
     messageField.text = nil
+    messageLimitCount.text = "0/120"
   }
 
   public func focusField() {
     messageField.becomeFirstResponder()
+    messageLimitCount.isHidden = false
   }
 
   public func blurField() {
     messageField.resignFirstResponder()
+    messageLimitCount.isHidden = true
 
     if messageField.text?.isEmpty ?? false {
       changeStage(.normal)
@@ -288,11 +291,16 @@ extension YDMessageField: UITextFieldDelegate {
     }
   }
 
-  public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+  public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     let currentText = textField.text ?? ""
 
-    // make sure the result is under 16 characters
-    return currentText.count <= 120
+    // attempt to read the range they are trying to change, or exit if we can't
+    guard let stringRange = Range(range, in: currentText) else { return false }
+
+    // add their new text to the existing text
+    let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+
+    return updatedText.count <= 120
   }
 
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
