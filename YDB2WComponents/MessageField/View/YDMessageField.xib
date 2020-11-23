@@ -15,6 +15,7 @@
                 <outlet property="errorMessageLabel" destination="zjv-FG-Zjj" id="cxA-XE-LZg"/>
                 <outlet property="messageField" destination="Ao4-HG-Drf" id="Ezj-ak-OKC"/>
                 <outlet property="messageFieldTrailingConstraint" destination="dJR-3h-0yV" id="0pG-wQ-gu2"/>
+                <outlet property="messageLimitCount" destination="mgy-qC-UPn" id="q2Q-v3-Xak"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,6 +23,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/120" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-qC-UPn">
+                    <rect key="frame" x="16" y="7" width="25" height="11"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf">
                     <rect key="frame" x="16" y="21" width="348" height="14"/>
                     <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,6 +80,7 @@ toque para reenviar!</string>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="zjv-FG-Zjj" secondAttribute="bottom" constant="18" id="27S-cF-Yok"/>
                 <constraint firstItem="zjv-FG-Zjj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="5Pw-gY-xJZ"/>
+                <constraint firstItem="mgy-qC-UPn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6Kb-0m-2js"/>
                 <constraint firstAttribute="trailing" secondItem="zjv-FG-Zjj" secondAttribute="trailing" constant="52" id="GBp-BY-Jbq"/>
                 <constraint firstItem="A1J-OY-T6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="Ocn-bw-gLN"/>
                 <constraint firstAttribute="trailing" secondItem="VnL-jA-iZn" secondAttribute="trailing" constant="20" id="OnS-0I-oB4"/>
@@ -81,6 +89,7 @@ toque para reenviar!</string>
                 <constraint firstAttribute="trailing" secondItem="Ao4-HG-Drf" secondAttribute="trailing" constant="50" id="dJR-3h-0yV"/>
                 <constraint firstAttribute="trailing" secondItem="A1J-OY-T6j" secondAttribute="trailing" constant="20" id="ein-ua-1xB"/>
                 <constraint firstItem="Ao4-HG-Drf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kkU-oF-o0w"/>
+                <constraint firstItem="mgy-qC-UPn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="nnt-F2-QWq"/>
                 <constraint firstAttribute="trailing" secondItem="iTM-OV-HzB" secondAttribute="trailing" constant="52" id="qec-mE-zWS"/>
                 <constraint firstItem="iTM-OV-HzB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="sVE-NF-dJc"/>
                 <constraint firstAttribute="bottom" secondItem="Ao4-HG-Drf" secondAttribute="bottom" constant="23" id="xhF-gI-v3x"/>

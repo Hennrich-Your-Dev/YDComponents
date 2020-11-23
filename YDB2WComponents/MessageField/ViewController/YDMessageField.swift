@@ -88,6 +88,8 @@ public class YDMessageField: UIView {
     }
   }
 
+  @IBOutlet weak var messageLimitCount: UILabel!
+
   @IBOutlet weak var messageFieldTrailingConstraint: NSLayoutConstraint!
 
   @IBOutlet weak var actionButton: UIButton!
@@ -182,6 +184,22 @@ public class YDMessageField: UIView {
       attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
     )
   }
+
+  public func cleanField() {
+    messageField.text = nil
+  }
+
+  public func focusField() {
+    messageField.becomeFirstResponder()
+  }
+
+  public func blurField() {
+    messageField.resignFirstResponder()
+
+    if messageField.text?.isEmpty ?? false {
+      changeStage(.normal)
+    }
+  }
 }
 
 // MARK: Stages
@@ -196,6 +214,7 @@ extension YDMessageField {
 
     messageField.text = nil
     messageField.resignFirstResponder()
+    messageLimitCount.isHidden = true
 
     sendTimer?.invalidate()
   }
@@ -213,7 +232,6 @@ extension YDMessageField {
     actionButtonType = .sending
     errorMessageLabel.isHidden = true
     delayMessageLabel.isHidden = true
-    messageField.resignFirstResponder()
 
     sendTimer?.invalidate()
     sendTimer = Timer.scheduledTimer(
@@ -238,6 +256,7 @@ extension YDMessageField {
     delayMessageLabel.isHidden = true
     messageFieldTrailingConstraint.constant += 108
     messageField.resignFirstResponder()
+    messageLimitCount.isHidden = true
     sendTimer?.invalidate()
   }
 }
@@ -254,9 +273,12 @@ extension YDMessageField: UITextFieldDelegate {
 
       actionButtonType = .send
     }
+
+    messageLimitCount.text = "\(textField.text?.count ?? 0)/120"
   }
 
   @objc func onTextFieldFocus() {
+    messageLimitCount.isHidden = false
     changeStage(.typing)
   }
 
@@ -264,6 +286,13 @@ extension YDMessageField: UITextFieldDelegate {
     if messageField.text?.isEmpty ?? true {
       changeStage(.normal)
     }
+  }
+
+  public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    let currentText = textField.text ?? ""
+
+    // make sure the result is under 16 characters
+    return currentText.count <= 120
   }
 
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
