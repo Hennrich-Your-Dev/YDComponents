@@ -1,72 +1,115 @@
 //
-//  YDTextView.swift
+//  YDMessageField.swift
 //  YDB2WComponents
 //
-//  Created by Douglas Hennrich on 18/11/20.
+//  Created by Douglas Hennrich on 22/10/20.
 //
 
 import UIKit
 import YDExtensions
 
-public protocol YDTextViewDelegate {
-  func textViewDidChangeSelection(_ textView: UITextView)
-  func shouldChangeText(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
-}
+public class YDMessageField: UIView {
+  // MARK: Enum
+  public enum FieldStage: String {
+    case normal
+    case typing
+    case sending
+    case error
+    case delay
+  }
 
-public class YDTextView: UIView {
+  enum ActionButtonType: String {
+    case send
+    case like
+    case reload
+    case sending
+    case delay
+  }
+
   // MARK: Properties
-  public var placeHolder: String = "" {
+  public weak var delegate: YDMessageFieldDelegate?
+
+  public var delayInterval: TimeInterval = 5
+
+  var hasUserPhoto: Bool = false
+
+  var actionButtonType: ActionButtonType = .like {
     didSet {
-      textView.text = placeHolder
+      if oldValue == .reload || oldValue == .delay {
+        messageFieldTrailingConstraint.constant -= 108
+      }
+
+      if actionButtonType == .delay {
+        return
+      }
+
+      if actionButtonType == .sending {
+        actionButton.isHidden = true
+        messageField.textColor = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)
+        return
+      }
+
+      let icon: UIImage? = {
+        if actionButtonType == .send {
+          return UIImage.Icon.send
+        }
+
+        if actionButtonType == .like {
+          return UIImage.Icon.thumbsUp
+        }
+
+        return UIImage.Icon.reload
+      }()
+
+      actionButton.setImage(actionButtonType == .like ? UIImage.Icon.thumbsUpRed : nil, for: .selected)
+      actionButton.setImage(icon, for: .normal)
+      actionButton.isHidden = false
+      messageField.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
     }
   }
-  public var defaultTextColor: UIColor? = UIColor(hex: "#666666")
-  public var delegate: YDTextViewDelegate?
-  let messageTextViewMaxHeight: CGFloat = 69
+
+  var sendTimer: Timer?
 
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
 
-  @IBOutlet weak var textView: UITextView! {
+  @IBOutlet weak var messageField: UITextField! {
     didSet {
-      textView.backgroundColor = .clear
+      messageField.delegate = self
 
-      textView.layer.borderWidth = 1
-      textView.layer.borderColor = UIColor(hex: "#999999")?.cgColor
-      textView.layer.cornerRadius = 8
+      messageField.addTarget(self, action: #selector(onTextFieldChange), for: .editingChanged)
+      messageField.addTarget(self, action: #selector(onTextFieldFocus), for: .editingDidBegin)
+      messageField.addTarget(self, action: #selector(onTextFieldBlur), for: .editingDidEnd)
 
-      textView.delegate = self
-
-      textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+      messageField.attributedPlaceholder = NSAttributedString(
+        string: "Escreva algo...",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+      )
     }
   }
 
-  @IBOutlet var heightConstraint: NSLayoutConstraint! {
-    didSet {
-      heightConstraint.isActive = false
-    }
-  }
+  @IBOutlet weak var messageFieldTrailingConstraint: NSLayoutConstraint!
 
-  // MARK: Init
-  init() {
-    let rect = CGRect(
-      x: 0,
-      y: 0,
-      width: UIWindow.keyWindow?.frame.width ?? 0,
-      height: 35
-    )
+  @IBOutlet weak var actionButton: UIButton!
 
-    super.init(frame: rect)
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+  @IBOutlet weak var errorMessageLabel: UILabel!
+
+  @IBOutlet weak var delayMessageLabel: UILabel!
+
+  // MARK: Life cycle
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
     instanceXib()
   }
 
-  required init?(coder: NSCoder) {
+  public required init?(coder: NSCoder) {
     super.init(coder: coder)
     instanceXib()
   }
 
-  // MARK: Actions
-  func instanceXib() {
+  private func instanceXib() {
     contentView = loadNib()
     addSubview(contentView)
 
@@ -78,55 +121,153 @@ public class YDTextView: UIView {
       contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
     ])
 
-    backgroundColor = .clear
-    contentView.backgroundColor = .clear
+    changeStage(.normal)
+  }
 
-    textView.textColor = .lightGray
+  // MARK: IBActions
+  @IBAction func onAction(_ sender: UIButton?) {
+    if actionButtonType == .reload {
+      onReloadAction()
+      return
+    }
+
+    if actionButtonType == .like {
+      actionButton.isSelected = true
+      delegate?.onLike()
+
+      Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { [weak self] _ in
+        self?.actionButton.isSelected = false
+      }
+      return
+    }
+
+    if let message = messageField.text, !message.isEmpty {
+      changeStage(.sending)
+      delegate?.sendMessage(message)
+    }
+  }
+
+  // MARK: Actions
+  private func onReloadAction() {
+    changeStage(.sending)
+
+    if let message = messageField.text {
+      delegate?.sendMessage(message)
+    }
+  }
+
+  // MARK: Public actions
+  public func changeStage(_ stage: FieldStage) {
+    switch stage {
+    case .normal:
+      normalStage()
+
+    case .typing:
+      typingStage()
+
+    case .sending:
+      sendingStage()
+
+    case .delay:
+      delayStage()
+
+    case .error:
+      errorStage()
+    }
+  }
+
+  public func config(username: String) {
+    messageField.attributedPlaceholder = NSAttributedString(
+      string: "Escreva algo, \(username)...",
+      attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+    )
   }
 }
 
-extension YDTextView: UITextViewDelegate {
-  public func textViewDidChangeSelection(_ textView: UITextView) {
-    delegate?.textViewDidChangeSelection(textView)
+// MARK: Stages
+extension YDMessageField {
+  func normalStage() {
+    actionButtonType = .like
 
-    if textView.contentSize.height >= messageTextViewMaxHeight {
-      textView.isScrollEnabled = true
+    activityIndicator.stopAnimating()
 
-      if heightConstraint != nil {
-        heightConstraint.isActive = true
-        layoutIfNeeded()
-      }
+    errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
 
+    messageField.text = nil
+    messageField.resignFirstResponder()
+
+    sendTimer?.invalidate()
+  }
+
+  func typingStage() {
+    activityIndicator.stopAnimating()
+    actionButtonType = .send
+    errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
+    sendTimer?.invalidate()
+  }
+
+  func sendingStage() {
+    activityIndicator.startAnimating()
+    actionButtonType = .sending
+    errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = true
+    messageField.resignFirstResponder()
+
+    sendTimer?.invalidate()
+    sendTimer = Timer.scheduledTimer(
+      withTimeInterval: delayInterval,
+      repeats: false
+    ) { [weak self] _ in
+      self?.changeStage(.delay)
+    }
+  }
+
+  func delayStage() {
+    actionButtonType = .delay
+    errorMessageLabel.isHidden = true
+    delayMessageLabel.isHidden = false
+    messageFieldTrailingConstraint.constant += 108
+  }
+
+  func errorStage() {
+    activityIndicator.stopAnimating()
+    actionButtonType = .reload
+    errorMessageLabel.isHidden = false
+    delayMessageLabel.isHidden = true
+    messageFieldTrailingConstraint.constant += 108
+    messageField.resignFirstResponder()
+    sendTimer?.invalidate()
+  }
+}
+
+// MARK: Text Field Delegate
+extension YDMessageField: UITextFieldDelegate {
+  @objc func onTextFieldChange(_ textField: UITextField) {
+    if textField.text?.count == 1 {
+      changeStage(.typing)
     } else {
-      textView.frame.size.height = textView.contentSize.height
-      textView.isScrollEnabled = false
-
-      if heightConstraint != nil {
-        heightConstraint.isActive = false
-        layoutIfNeeded()
+      if actionButtonType == .reload {
+        errorMessageLabel.isHidden = true
       }
+
+      actionButtonType = .send
     }
   }
 
-  public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    if delegate != nil {
-      return delegate?.shouldChangeText(textView, shouldChangeTextIn: range, replacementText: text) ?? false
-    }
+  @objc func onTextFieldFocus() {
+    changeStage(.typing)
+  }
 
+  @objc func onTextFieldBlur() {
+    if messageField.text?.isEmpty ?? true {
+      changeStage(.normal)
+    }
+  }
+
+  public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    onAction(nil)
     return true
-  }
-
-  public func textViewDidBeginEditing(_ textView: UITextView) {
-    if textView.textColor == .lightGray {
-      textView.text = nil
-      textView.textColor = defaultTextColor
-    }
-  }
-
-  public func textViewDidEndEditing(_ textView: UITextView) {
-    if textView.text.isEmpty {
-      textView.text = placeHolder
-      textView.textColor = UIColor.lightGray
-    }
   }
 }

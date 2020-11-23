@@ -30,17 +30,23 @@ public class YDAnimationBlock: UIView {
     self.icons = iconsToSort
   }
 
-  public func addIcon() {
-    let size = sizes.randomElement() ?? 0
-    let x = columns.randomElement() ?? 0
+  public func addIcon(fromMyself: Bool = false, myselfIcon: UIImage? = nil) {
+    var size = sizes.randomElement() ?? 0
+    var x = columns.randomElement() ?? 0
     let futureX = columns.randomElement() ?? 0
-    let iconImage = icons.randomElement() ?? nil
+    var iconImage = icons.randomElement() ?? nil
+
+    if fromMyself {
+      size = 24
+      x = 15
+      iconImage = myselfIcon
+    }
 
     let icon = UIImageView(image: iconImage)
     icon.frame = CGRect(x: x, y: frame.height, width: size, height: size)
     addSubview(icon)
 
-    UIView.animate(withDuration: 3) {
+    UIView.animate(withDuration: 2) {
       icon.frame = CGRect(
         x: futureX,
         y: -50,
