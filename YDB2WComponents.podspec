@@ -3,7 +3,7 @@
 ####
 Pod::Spec.new do |spec|
   spec.name         = "YDB2WComponents"
-  spec.version      = "1.0.28"
+  spec.version      = "1.0.29"
   spec.summary      = "A short description of YDB2WComponents."
   spec.homepage     = "http://EXAMPLE/YDB2WComponents"
   spec.license          = "MIT"
@@ -11,7 +11,6 @@ Pod::Spec.new do |spec|
 
   spec.platform         = :ios, "11.0"
   spec.source           = { :git => "https://github.com/Hennrich-Your-Dev/YDComponents.git", :tag => "#{spec.version}" }
-#  spec.source           = { :http => 'file:' + __dir__ + "/" }
 
   spec.source_files     = "YDB2WComponents/**/*.{h,m,swift,xib,storyboard}"
   spec.resources        = ["YDB2WComponents/Assets.xcassets"]

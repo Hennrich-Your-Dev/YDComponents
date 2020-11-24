@@ -8,6 +8,16 @@
 import UIKit
 import YDExtensions
 
+class CustomUITextField: UITextField {
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+      return false
+    }
+
+    return super.canPerformAction(action, withSender: sender)
+  }
+}
+
 public class YDMessageField: UIView {
   // MARK: Enum
   public enum FieldStage: String {
@@ -73,7 +83,7 @@ public class YDMessageField: UIView {
   // MARK: IBOutlets
   @IBOutlet var contentView: UIView!
 
-  @IBOutlet weak var messageField: UITextField! {
+  @IBOutlet weak var messageField: CustomUITextField! {
     didSet {
       messageField.delegate = self
 

@@ -29,7 +29,7 @@
                     <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf" customClass="CustomUITextField" customModule="YDB2WComponents" customModuleProvider="target">
                     <rect key="frame" x="16" y="21" width="348" height="14"/>
                     <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
