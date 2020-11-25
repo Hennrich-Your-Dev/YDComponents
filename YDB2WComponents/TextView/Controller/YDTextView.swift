@@ -11,6 +11,7 @@ import YDExtensions
 public protocol YDTextViewDelegate {
   func textViewDidChangeSelection(_ textView: UITextView)
   func shouldChangeText(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+  func onNextButtonYDTextView(_ value: String?)
 }
 
 public class YDTextView: UIView {
@@ -38,6 +39,7 @@ public class YDTextView: UIView {
       textView.delegate = self
 
       textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+      textView.addButtonNext(target: self, action: #selector(onNextButton))
     }
   }
 
@@ -82,6 +84,11 @@ public class YDTextView: UIView {
     contentView.backgroundColor = .clear
 
     textView.textColor = .lightGray
+  }
+
+  @objc func onNextButton() {
+    textView.resignFirstResponder()
+    delegate?.onNextButtonYDTextView(textView.text == placeHolder ? nil : textView.text)
   }
 }
 
