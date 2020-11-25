@@ -3,7 +3,7 @@
 ####
 Pod::Spec.new do |spec|
   spec.name         = "YDB2WComponents"
-  spec.version      = "1.0.29"
+  spec.version      = "1.0.30"
   spec.summary      = "A short description of YDB2WComponents."
   spec.homepage     = "http://EXAMPLE/YDB2WComponents"
   spec.license          = "MIT"
