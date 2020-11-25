@@ -35,8 +35,27 @@ public class YDWireButton: UIButton {
 
   // MARK: Actions
   public func setUpStyle() {
+    layer.cornerRadius = 8
     layer.borderWidth = 1
     layer.borderColor = UIColor.Zeplin.redBranding.cgColor
     setTitleColor(UIColor.Zeplin.redBranding, for: .normal)
+
+    if let title = titleLabel?.text {
+      let attributedString = NSAttributedString(
+        string: title,
+        attributes: [
+          NSAttributedString.Key.foregroundColor: UIColor.Zeplin.redBranding,
+          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+        ]
+      )
+
+      setAttributedTitle(attributedString, for: .normal)
+    }
+
+    addTarget(self, action: #selector(onButtonAction), for: .touchUpOutside)
+  }
+
+  @objc func onButtonAction(_ sender: UIButton) {
+    delegate?.onActionYDWireButton(sender)
   }
 }
