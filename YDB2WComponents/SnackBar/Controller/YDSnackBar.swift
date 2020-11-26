@@ -33,7 +33,7 @@ public class YDSnackBar {
   }
 
   // MARK: Actions
-  public func showMessage(_ message: String, ofType type: YDSnackType, actionTitle: String) {
+  public func showMessage(_ message: String, ofType type: YDSnackType, actionTitle: String = "") {
     switch type {
     case .withButton:
       snackWithButton(message, actionTitle: actionTitle)
