@@ -23,7 +23,7 @@ public class YDSnackBar {
   public weak var delegate: YDSnackBarDelegate?
 
   // MARK: Init
-  init() {
+  public init() {
     let config = MDCSnackbarManager.default
     config.buttonFont = UIFont.systemFont(ofSize: 16)
     config.setButtonTitleColor(UIColor(red: 255/255, green: 205/255, blue: 39/255, alpha: 1), for: .normal)
