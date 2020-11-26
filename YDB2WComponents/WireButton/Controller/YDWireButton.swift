@@ -52,7 +52,7 @@ public class YDWireButton: UIButton {
       setAttributedTitle(attributedString, for: .normal)
     }
 
-    addTarget(self, action: #selector(onButtonAction), for: .touchUpOutside)
+    addTarget(self, action: #selector(onButtonAction), for: .touchUpInside)
   }
 
   @objc func onButtonAction(_ sender: UIButton) {
