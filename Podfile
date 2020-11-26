@@ -13,5 +13,6 @@ target 'YDB2WComponents' do
 
   # Pods for YDB2WComponents
   pod 'YDExtensions'
+  pod 'MaterialComponents/Snackbar'
 
 end
