@@ -33,8 +33,8 @@ public class YDProductLive: UIView {
       ratingView.settings.emptyImage = Images.starGrey
       ratingView.settings.filledImage = Images.starYellow
       ratingView.settings.fillMode = .full
-      ratingView.settings.starMargin = 5
-      ratingView.settings.starSize = 32
+      ratingView.settings.starMargin = 2
+      ratingView.settings.starSize = 17
       ratingView.settings.totalStars = 5
     }
   }
@@ -55,7 +55,11 @@ public class YDProductLive: UIView {
 
   @IBOutlet weak var priceConditionsLabel: UILabel!
 
-  @IBOutlet weak var liveView: UIView!
+  @IBOutlet weak var liveView: UIView! {
+    didSet {
+      liveView.layer.cornerRadius = 8
+    }
+  }
 
   // MARK: Life cycle
   public init(with config: YDLiveProductConfigurationModel) {

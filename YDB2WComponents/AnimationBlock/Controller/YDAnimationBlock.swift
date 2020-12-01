@@ -13,6 +13,7 @@ public class YDAnimationBlock: UIView {
   var icons: [UIImage?] = []
   let sizes: [CGFloat] = [24, 20, 18, 12]
   var columns: [CGFloat] = [-10, 10, 20, 30, 40, 50]
+  public var iconTintColor: UIColor? = UIColor.Zeplin.colorPrimaryLight
 
   // MARK: Init
   public init() {
@@ -44,6 +45,7 @@ public class YDAnimationBlock: UIView {
 
     let icon = UIImageView(image: iconImage)
     icon.frame = CGRect(x: x, y: frame.height, width: size, height: size)
+    icon.tintColor = iconTintColor
     addSubview(icon)
 
     UIView.animate(withDuration: 2) {
