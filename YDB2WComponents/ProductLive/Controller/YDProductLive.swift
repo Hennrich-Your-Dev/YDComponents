@@ -11,7 +11,7 @@ import Cosmos
 import YDExtensions
 import YDB2WAssets
 
-class YDProductLive: UIView {
+public class YDProductLive: UIView {
   // MARK: Properties
   var config: YDLiveProductConfigurationModel?
   public var callback: (() -> Void)?
@@ -59,6 +59,8 @@ class YDProductLive: UIView {
     super.init(frame: rect)
 
     self.config = config
+    instanceXib()
+    applyProduct()
   }
 
   required init?(coder: NSCoder) {
