@@ -32,6 +32,10 @@ public class YDProductLive: UIView {
     didSet {
       ratingView.settings.emptyImage = Images.starGrey
       ratingView.settings.filledImage = Images.starYellow
+      ratingView.settings.fillMode = .full
+      ratingView.settings.starMargin = 5
+      ratingView.settings.starSize = 32
+      ratingView.settings.totalStars = 5
     }
   }
 
