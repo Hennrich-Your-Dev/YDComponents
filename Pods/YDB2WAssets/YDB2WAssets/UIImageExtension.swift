@@ -10,7 +10,29 @@ import UIKit
 private let podsBundle = Bundle(for: Icons.self)
 
 public class Icons {
-  public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)
+  public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbUpFilled = UIImage(named: "thumbUpFilled", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let chatWired = UIImage(named: "iconChatWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let circleDefault = UIImage(named: "iconCircleDefault", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let circleDefaultOff = UIImage(named: "iconCircleDefaultOff", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let reload = UIImage(named: "iconReload", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbDownWired = UIImage(named: "iconThumbDownWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbUpWired = UIImage(named: "iconThumbUpWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+}
+
+public class Images {
+  public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
+
+  public static let starGrey = UIImage(named: "starGrey", in: podsBundle, compatibleWith: nil)
 
   public static let thumbUpFilled = UIImage(named: "thumbUpFilled", in: podsBundle, compatibleWith: nil)
 
@@ -35,10 +57,4 @@ public class Icons {
   public static let thumbUpFilledRotate24Opacity15 = UIImage(named: "thumbUpFilled24Opacity15", in: podsBundle, compatibleWith: nil)
 
   public static let thumbUpFilledRotateMinus18Opacity15 = UIImage(named: "thumbUpFilledMinus18Opacity15", in: podsBundle, compatibleWith: nil)
-}
-
-public class Images {
-  public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
-
-  public static let starGrey = UIImage(named: "starGrey", in: podsBundle, compatibleWith: nil)
 }

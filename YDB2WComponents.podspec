@@ -3,7 +3,7 @@
 ####
 Pod::Spec.new do |spec|
   spec.name         = "YDB2WComponents"
-  spec.version      = "1.0.38"
+  spec.version      = "1.0.39"
   spec.summary      = "A short description of YDB2WComponents."
   spec.homepage     = "http://EXAMPLE/YDB2WComponents"
   spec.license          = "MIT"
@@ -13,8 +13,6 @@ Pod::Spec.new do |spec|
   spec.source           = { :git => "https://github.com/Hennrich-Your-Dev/YDComponents.git", :tag => "#{spec.version}" }
 
   spec.source_files     = "YDB2WComponents/**/*.{h,m,swift,xib,storyboard}"
-  spec.resources        = ["YDB2WComponents/Assets.xcassets"]
-  spec.resource_bundles = { "YDB2WComponents" => ["YDB2WComponents/Assets.xcassets/*"] }
   spec.swift_version    = "5.0"
 
   spec.dependency       "Cosmos", "22.1.0"
