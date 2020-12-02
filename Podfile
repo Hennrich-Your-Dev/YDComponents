@@ -4,7 +4,7 @@ platform :ios, '11.0'
 install! 'cocoapods',
   :preserve_pod_file_structure => true
 
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 source 'git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git'
 
 target 'YDB2WComponents' do
