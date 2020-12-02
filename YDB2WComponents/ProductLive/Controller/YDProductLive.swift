@@ -158,28 +158,46 @@ public class YDProductLive: UIView {
 
     if !product.productAvailable {
       setUnavailable()
+    } else if product.onBasket {
+      setOnBasket()
+    } else {
+      setAvailable()
     }
   }
 
   private func changeAddToCartButtonStyle(with product: YDLiveProductModel) {
-    if product.onBasket {
-      addButton.layer.borderColor = UIColor.gray.cgColor
-      addButton.setTitle("adicionado à cesta", for: .normal)
-      addButton.setTitleColor(UIColor.gray, for: .normal)
-      addButton.isEnabled = false
+    product.onBasket ? setOnBasket() : setAvailable()
+  }
 
-    } else {
-      addButton.layer.borderColor = UIColor.Zeplin.colorPrimaryLight.cgColor
-      addButton.setTitle("adicionar a cesta", for: .normal)
-      addButton.setTitleColor(UIColor.Zeplin.colorPrimaryLight, for: .normal)
-    }
+  private func setAvailable() {
+    addButton.isEnabled = true
+    addButton.setTitle("adicionar a cesta", for: .normal)
+    addButton.setTitleColor(UIColor.Zeplin.colorPrimaryLight, for: .normal)
+    addButton.backgroundColor = UIColor.Zeplin.white
+    addButton.layer.borderColor = UIColor.Zeplin.colorPrimaryLight.cgColor
+    addButton.layer.borderWidth = 1
+    addButton.layer.cornerRadius = 4
+  }
+
+  private func setOnBasket() {
+    addButton.backgroundColor = UIColor.Zeplin.white
+    addButton.layer.borderColor = UIColor.Zeplin.greyLight.cgColor
+    addButton.layer.borderColor = UIColor.Zeplin.greyLight.cgColor
+    addButton.layer.borderWidth = 1
+    addButton.layer.cornerRadius = 4
+
+    addButton.setTitle("adicionado à cesta", for: .disabled)
+    addButton.setTitleColor(UIColor.Zeplin.greyLight, for: .disabled)
+    addButton.isEnabled = false
   }
 
   private func setUnavailable() {
     addButton.isEnabled = false
     addButton.setTitle("produto indisponível", for: .disabled)
     addButton.setTitleColor(UIColor.Zeplin.black, for: .disabled)
+
     addButton.layer.borderColor = UIColor.Zeplin.greyDisabled.cgColor
+    addButton.layer.borderColor = UIColor.clear.cgColor
     addButton.backgroundColor = UIColor.Zeplin.greyDisabled
   }
 
