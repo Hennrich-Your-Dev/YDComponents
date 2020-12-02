@@ -299,7 +299,6 @@ extension YDMessageField: UITextFieldDelegate {
     if textField.text?.count == 1 {
       actionButton.isEnabled = true
       changeStage(.typing)
-
     } else {
       if actionButtonType == .reload {
         errorMessageLabel.isHidden = true

@@ -18,7 +18,16 @@ public class YDLiveProductModel: Codable {
   public var ean: String?
   public var rating: YDLiveProductModelRating?
   public var partnerId: String?
+  public var stock: Bool = false
   public var onBasket: Bool = true
+
+  public var productAvailable: Bool {
+    if stock || price != nil || ean != nil {
+      return true
+    }
+
+    return false
+  }
 
   public init(
     description: String?,
@@ -30,6 +39,7 @@ public class YDLiveProductModel: Codable {
     ean: String?,
     rating: YDLiveProductModelRating?,
     partnerId: String?,
+    stock: String?,
     onBasket: Bool = false
   ) {
     self.description = description
@@ -42,6 +52,7 @@ public class YDLiveProductModel: Codable {
     self.rating = rating
     self.partnerId = partnerId
     self.onBasket = onBasket
+    self.stock = stock == "true"
   }
 
   required public init(from decoder: Decoder) throws {
@@ -88,7 +99,13 @@ public class YDLiveProductModel: Codable {
     )
 
     partnerId = try? container.decode(String.self, forKey: .partnerId)
-    
+
+    if let stockString = try? container.decode(String.self, forKey: .stock) {
+      stock = stockString == "true"
+    } else {
+      stock = false
+    }
+
     onBasket = false
   }
 }

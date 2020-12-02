@@ -57,7 +57,7 @@ public class YDProductLive: UIView {
 
   @IBOutlet weak var liveView: UIView! {
     didSet {
-      liveView.layer.cornerRadius = 8
+      liveView.layer.cornerRadius = liveView.frame.height / 2
     }
   }
 
@@ -78,9 +78,7 @@ public class YDProductLive: UIView {
 
   // MARK: IBActions
   @IBAction func onAddAction(_ sender: UIButton) {
-    guard let product = config?.product else {
-        return
-    }
+    guard let product = config?.product else { return }
 
     product.onBasket.toggle()
 
@@ -135,20 +133,14 @@ public class YDProductLive: UIView {
 
     if let ean = product.ean {
       skuLabel.text = "código: \(ean)"
-    } else {
-      setUnavailable()
     }
 
     if let name = product.name {
       nameLabel.text = name
-    } else {
-      nameLabel.isHidden = true
     }
 
     if let price = product.getPrice() {
       priceLabel.text = price
-    } else {
-      setUnavailable()
     }
 
     if let priceConditions = product.priceConditions {
@@ -158,10 +150,14 @@ public class YDProductLive: UIView {
     }
 
     if let rating = product.rating,
-      rating.reviews >= 1 {
+       rating.reviews >= 1 {
       ratingView.rating = rating.average
     } else {
       ratingView.isHidden = true
+    }
+
+    if !product.productAvailable {
+      setUnavailable()
     }
   }
 
@@ -181,6 +177,7 @@ public class YDProductLive: UIView {
 
   private func setUnavailable() {
     addButton.isEnabled = false
+    addButton.setTitle("produto indisponível", for: .disabled)
     addButton.setTitleColor(UIColor.Zeplin.black, for: .disabled)
     addButton.layer.borderColor = UIColor.Zeplin.greyDisabled.cgColor
     addButton.backgroundColor = UIColor.Zeplin.greyDisabled

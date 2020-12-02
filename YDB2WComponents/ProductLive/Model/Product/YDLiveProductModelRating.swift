@@ -9,17 +9,13 @@
 import Foundation
 
 public struct YDLiveProductModelRating: Codable {
-    
-    let average: Double
-    
-    let recommendations: Int
-    
-    let reviews: Int
+  let average: Double
+  let recommendations: Int
+  let reviews: Int
 
-	public init(average: Double, recommendations: Int, reviews: Int) {
-		self.average = average
-		self.recommendations = recommendations
-		self.reviews = reviews
-	}
-    
+  public init(average: Double, recommendations: Int, reviews: Int) {
+    self.average = average
+    self.recommendations = recommendations
+    self.reviews = reviews
+  }
 }
