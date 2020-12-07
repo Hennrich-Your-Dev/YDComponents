@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf" customClass="CustomUITextField" customModule="YDB2WComponents" customModuleProvider="target">
-                    <rect key="frame" x="16" y="21" width="348" height="14"/>
+                    <rect key="frame" x="16" y="5" width="348" height="45"/>
                     <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -85,14 +85,14 @@ toque para reenviar!</string>
                 <constraint firstItem="A1J-OY-T6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="Ocn-bw-gLN"/>
                 <constraint firstAttribute="trailing" secondItem="VnL-jA-iZn" secondAttribute="trailing" constant="20" id="OnS-0I-oB4"/>
                 <constraint firstItem="VnL-jA-iZn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="ZNh-fN-RVK"/>
-                <constraint firstItem="Ao4-HG-Drf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="d10-lc-Mgc"/>
+                <constraint firstItem="Ao4-HG-Drf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="d10-lc-Mgc"/>
                 <constraint firstAttribute="trailing" secondItem="Ao4-HG-Drf" secondAttribute="trailing" constant="50" id="dJR-3h-0yV"/>
                 <constraint firstAttribute="trailing" secondItem="A1J-OY-T6j" secondAttribute="trailing" constant="20" id="ein-ua-1xB"/>
                 <constraint firstItem="Ao4-HG-Drf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kkU-oF-o0w"/>
                 <constraint firstItem="mgy-qC-UPn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="nnt-F2-QWq"/>
                 <constraint firstAttribute="trailing" secondItem="iTM-OV-HzB" secondAttribute="trailing" constant="52" id="qec-mE-zWS"/>
                 <constraint firstItem="iTM-OV-HzB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="sVE-NF-dJc"/>
-                <constraint firstAttribute="bottom" secondItem="Ao4-HG-Drf" secondAttribute="bottom" constant="23" id="xhF-gI-v3x"/>
+                <constraint firstAttribute="bottom" secondItem="Ao4-HG-Drf" secondAttribute="bottom" constant="8" id="xhF-gI-v3x"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-159.42028985507247" y="134.59821428571428"/>

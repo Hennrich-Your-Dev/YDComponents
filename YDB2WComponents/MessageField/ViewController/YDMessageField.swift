@@ -283,6 +283,7 @@ extension YDMessageField {
 
   func errorStage() {
     activityIndicator.stopAnimating()
+    actionButton.isEnabled = true
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
     delayMessageLabel.isHidden = true

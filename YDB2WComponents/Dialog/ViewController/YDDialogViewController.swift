@@ -7,6 +7,7 @@
 
 import UIKit
 import YDExtensions
+import YDB2WAssets
 
 class YDDialogViewController: UIViewController {
   // MARK: Properties
@@ -23,7 +24,12 @@ class YDDialogViewController: UIViewController {
     }
   }
 
-  @IBOutlet weak var icon: UIImageView!
+  @IBOutlet weak var icon: UIImageView! {
+    didSet {
+      icon.image = Icons.thumbDownWired
+      icon.tintColor = UIColor.Zeplin.redBranding
+    }
+  }
 
   @IBOutlet weak var titleLabel: UILabel!
 
