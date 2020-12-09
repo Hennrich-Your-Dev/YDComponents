@@ -96,7 +96,7 @@ SPEC REPOS:
   "git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git":
     - YDB2WAssets
     - YDExtensions
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Cosmos
     - Kingfisher
     - KingfisherWebP
@@ -116,6 +116,6 @@ SPEC CHECKSUMS:
   YDB2WAssets: 813284b9acd581310672cf8133436360e52ba248
   YDExtensions: d13e6aaaa47a088f3d1e8292bb9392174710f6eb
 
-PODFILE CHECKSUM: 50447fc0dac83331f0d11d18f18a649a13417610
+PODFILE CHECKSUM: cf9878a9ad9e860124c121f4785b55baf8da8430
 
 COCOAPODS: 1.10.0

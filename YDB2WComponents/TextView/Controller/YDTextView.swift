@@ -39,7 +39,7 @@ public class YDTextView: UIView {
       textView.delegate = self
 
       textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-      textView.addButtonNext(target: self, action: #selector(onNextButton))
+//      textView.addButtonNext(target: self, action: #selector(onNextButton))
     }
   }
 
