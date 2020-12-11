@@ -79,7 +79,7 @@ public class YDMessageField: UIView {
       actionButton.setImage(icon, for: .normal)
       actionButton.isHidden = false
 
-      actionButton.tintColor = actionButton.isEnabled ? UIColor.Zeplin.colorPrimaryLight : UIColor.Zeplin.greyDisabled
+      actionButton.tintColor = actionButton.isEnabled ? UIColor.Zeplin.colorPrimaryLight : UIColor.Zeplin.grayDisabled
 
       messageField.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
     }
@@ -100,7 +100,7 @@ public class YDMessageField: UIView {
 
       messageField.attributedPlaceholder = NSAttributedString(
         string: "Escreva algo...",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.grayNight]
       )
     }
   }
@@ -199,7 +199,7 @@ public class YDMessageField: UIView {
   public func config(username: String) {
     messageField.attributedPlaceholder = NSAttributedString(
       string: "Escreva algo, \(username)...",
-      attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.greyNight]
+      attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.grayNight]
     )
   }
 

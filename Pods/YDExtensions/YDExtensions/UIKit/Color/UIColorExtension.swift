@@ -103,24 +103,24 @@ public extension UIColor {
       return UIColor(red: 225.0 / 255.0, green: 245.0 / 255.0, blue: 254.0 / 255.0, alpha: 1.0)
     }
 
-    // MARK: Grey
-    public static var greyDisabled: UIColor {
+    // MARK: Gray
+    public static var grayDisabled: UIColor {
       return UIColor(white: 232.0 / 255.0, alpha: 1.0)
     }
 
-    public static var greyLight: UIColor {
+    public static var grayLight: UIColor {
       return UIColor(white: 136.0 / 255.0, alpha: 1.0)
     }
 
-    public static var greyNight: UIColor {
+    public static var grayNight: UIColor {
       return UIColor(white: 204.0 / 255.0, alpha: 1.0)
     }
 
-    public static var greyOpaque: UIColor {
+    public static var grayOpaque: UIColor {
       return UIColor(white: 241.0 / 255.0, alpha: 1.0)
     }
 
-    public static var greySurface: UIColor {
+    public static var graySurface: UIColor {
       return UIColor(white: 248.0 / 255.0, alpha: 1.0)
     }
   }

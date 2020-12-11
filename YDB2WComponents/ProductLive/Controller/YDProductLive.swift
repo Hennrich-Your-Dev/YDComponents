@@ -181,13 +181,13 @@ public class YDProductLive: UIView {
 
   private func setOnBasket() {
     addButton.backgroundColor = UIColor.Zeplin.white
-    addButton.layer.borderColor = UIColor.Zeplin.greyLight.cgColor
-    addButton.layer.borderColor = UIColor.Zeplin.greyLight.cgColor
+    addButton.layer.borderColor = UIColor.Zeplin.grayLight.cgColor
+    addButton.layer.borderColor = UIColor.Zeplin.grayLight.cgColor
     addButton.layer.borderWidth = 1
     addButton.layer.cornerRadius = 4
 
     addButton.setTitle("adicionado à cesta", for: .disabled)
-    addButton.setTitleColor(UIColor.Zeplin.greyLight, for: .disabled)
+    addButton.setTitleColor(UIColor.Zeplin.grayLight, for: .disabled)
     addButton.isEnabled = false
   }
 
@@ -196,9 +196,9 @@ public class YDProductLive: UIView {
     addButton.setTitle("produto indisponível", for: .disabled)
     addButton.setTitleColor(UIColor.Zeplin.black, for: .disabled)
 
-    addButton.layer.borderColor = UIColor.Zeplin.greyDisabled.cgColor
+    addButton.layer.borderColor = UIColor.Zeplin.grayDisabled.cgColor
     addButton.layer.borderColor = UIColor.clear.cgColor
-    addButton.backgroundColor = UIColor.Zeplin.greyDisabled
+    addButton.backgroundColor = UIColor.Zeplin.grayDisabled
   }
 
   // MARK: Public Actions
