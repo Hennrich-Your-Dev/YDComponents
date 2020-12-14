@@ -28,6 +28,10 @@ public extension UIColor {
       return UIColor(red: 252.0 / 255.0, green: 13.0 / 255.0, blue: 27.0 / 255.0, alpha: 1.0)
     }
 
+    public static var colorPrimaryLightDisabled: UIColor {
+      return UIColor(red: 243.0 / 255.0, green: 128.0 / 255.0, blue: 138.0 / 255.0, alpha: 1.0)
+    }
+
     public static var redBranding: UIColor {
       return UIColor(red: 230.0 / 255.0, green: 0.0, blue: 20.0 / 255.0, alpha: 1.0)
     }

@@ -31,9 +31,13 @@ public class Icons {
 
   public static let locationPin = UIImage(named: "location-pin", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let logo = UIImage(named: "logoAcom", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
   public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let reload = UIImage(named: "iconReload", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let sadFace = UIImage(named: "iconSadFace", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let point = UIImage(named: "point", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -44,6 +48,8 @@ public class Icons {
   public static let thumbUpWired = UIImage(named: "iconThumbUpWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let whatsapp = UIImage(named: "iconWhatsapp", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 }
 
 public class Images {

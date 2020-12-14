@@ -12,6 +12,9 @@
 		C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */; };
 		C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */; };
 		C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */; };
+		C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12418CD258796BE006227D6 /* YDErrorView.xib */; };
+		C12418D325879724006227D6 /* YDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D225879724006227D6 /* YDErrorView.swift */; };
+		C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D625879755006227D6 /* YDErrorViewDelegate.swift */; };
 		C15FB2CF256FC4D10034ACE9 /* YDSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15FB2CE256FC4D10034ACE9 /* YDSnackBar.swift */; };
 		C164FD4C25759ACA007EBBC4 /* YDProductLive.xib in Resources */ = {isa = PBXBuildFile; fileRef = C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */; };
 		C164FD5025759D73007EBBC4 /* YDProductLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD4F25759D73007EBBC4 /* YDProductLive.swift */; };
@@ -42,6 +45,9 @@
 		C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDLoginDialogViewController.storyboard; sourceTree = "<group>"; };
 		C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewController.swift; sourceTree = "<group>"; };
 		C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogCoordinator.swift; sourceTree = "<group>"; };
+		C12418CD258796BE006227D6 /* YDErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDErrorView.xib; sourceTree = "<group>"; };
+		C12418D225879724006227D6 /* YDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorView.swift; sourceTree = "<group>"; };
+		C12418D625879755006227D6 /* YDErrorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorViewDelegate.swift; sourceTree = "<group>"; };
 		C15FB2CE256FC4D10034ACE9 /* YDSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSnackBar.swift; sourceTree = "<group>"; };
 		C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDProductLive.xib; sourceTree = "<group>"; };
 		C164FD4F25759D73007EBBC4 /* YDProductLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDProductLive.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 			children = (
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C1E7C11225647431008F747A /* Dialog */,
+				C12418CB258795B9006227D6 /* ErrorView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
@@ -163,6 +170,40 @@
 				C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C12418CB258795B9006227D6 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				C12418D525879745006227D6 /* Delegate */,
+				C12418D0258796E0006227D6 /* ViewController */,
+				C12418CC25879665006227D6 /* View */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		C12418CC25879665006227D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C12418CD258796BE006227D6 /* YDErrorView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C12418D0258796E0006227D6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C12418D225879724006227D6 /* YDErrorView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C12418D525879745006227D6 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C12418D625879755006227D6 /* YDErrorViewDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		C15FB2CB256FC2B50034ACE9 /* SnackBar */ = {
@@ -447,6 +488,7 @@
 			files = (
 				C164FD4C25759ACA007EBBC4 /* YDProductLive.xib in Resources */,
 				C1E7C123256478DC008F747A /* YDDialogViewController.storyboard in Resources */,
+				C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */,
 				C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */,
 				C1FEFDED25666B0800264C3B /* YDTextView.xib in Resources */,
 				C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */,
@@ -511,11 +553,13 @@
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
 				C164FD612575A603007EBBC4 /* YDAPILiveProduct.swift in Sources */,
 				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
+				C12418D325879724006227D6 /* YDErrorView.swift in Sources */,
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
 				C164FD682575A6B4007EBBC4 /* YDLiveProductModel.swift in Sources */,
 				C164FD692575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift in Sources */,
 				C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */,
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
+				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
 				C164FD672575A6B4007EBBC4 /* YDLiveProductModelRating.swift in Sources */,
 				C164FD5025759D73007EBBC4 /* YDProductLive.swift in Sources */,
