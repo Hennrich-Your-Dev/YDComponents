@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSp-0s-QlX">
                                 <rect key="frame" x="24" y="200" width="366" height="342"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconsActionUser" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-vr-5Rt">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-vr-5Rt">
                                         <rect key="frame" x="125" y="32" width="116" height="116"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="116" id="ksK-js-ZXj"/>
@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="contentView" destination="TSp-0s-QlX" id="Jp5-ET-kL9"/>
                         <outlet property="exitButton" destination="Sao-tV-E4o" id="sgy-TC-Jhd"/>
+                        <outlet property="iconImageView" destination="lWP-vr-5Rt" id="5ek-Ah-Sy7"/>
                         <outlet property="loginButton" destination="tzx-ZB-nZm" id="bZ8-jV-PJm"/>
                     </connections>
                 </viewController>
@@ -105,7 +106,4 @@
             <point key="canvasLocation" x="73.913043478260875" y="-185.49107142857142"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="iconsActionUser" width="116" height="116"/>
-    </resources>
 </document>

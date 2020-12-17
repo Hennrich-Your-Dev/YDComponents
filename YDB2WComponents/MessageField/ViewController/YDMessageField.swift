@@ -42,6 +42,8 @@ public class YDMessageField: UIView {
 
   public var delayInterval: TimeInterval = 5
 
+  var hintText = "Escreva algo..."
+
   var hasUserPhoto = false
   var likeButtonEnabled = true
 
@@ -57,7 +59,7 @@ public class YDMessageField: UIView {
 
       if actionButtonType == .sending {
         actionButton.isHidden = true
-        messageField.textColor = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)
+        messageField.textColor = UIColor.Zeplin.grayLight
         return
       }
 
@@ -81,7 +83,7 @@ public class YDMessageField: UIView {
 
       actionButton.tintColor = actionButton.isEnabled ? UIColor.Zeplin.colorPrimaryLight : UIColor.Zeplin.grayDisabled
 
-      messageField.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+      messageField.textColor = UIColor.Zeplin.black
     }
   }
 
@@ -99,9 +101,11 @@ public class YDMessageField: UIView {
       messageField.addTarget(self, action: #selector(onTextFieldBlur), for: .editingDidEnd)
 
       messageField.attributedPlaceholder = NSAttributedString(
-        string: "Escreva algo...",
+        string: hintText,
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.grayNight]
       )
+
+      messageField.autocapitalizationType = .sentences
     }
   }
 
@@ -197,8 +201,9 @@ public class YDMessageField: UIView {
   }
 
   public func config(username: String) {
+    hintText = "Escreva algo, \(username)..."
     messageField.attributedPlaceholder = NSAttributedString(
-      string: "Escreva algo, \(username)...",
+      string: hintText,
       attributes: [NSAttributedString.Key.foregroundColor: UIColor.Zeplin.grayNight]
     )
   }
@@ -252,6 +257,7 @@ extension YDMessageField {
   }
 
   func typingStage() {
+    actionButton.isEnabled = true
     activityIndicator.stopAnimating()
     actionButtonType = .send
     errorMessageLabel.isHidden = true
@@ -322,6 +328,7 @@ extension YDMessageField: UITextFieldDelegate {
       actionButton.isEnabled = false
     }
 
+    messageLimitCount.text = "\(messageField.text?.count ?? 0)/120"
     changeStage(.typing)
   }
 

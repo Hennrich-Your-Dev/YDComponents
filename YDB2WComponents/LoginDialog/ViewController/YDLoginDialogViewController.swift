@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import YDB2WAssets
 import YDExtensions
 
 class YDLoginDialogViewController: UIViewController {
@@ -20,6 +22,13 @@ class YDLoginDialogViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var iconImageView: UIImageView! {
+    didSet {
+      iconImageView.tintColor = UIColor.Zeplin.redBranding
+      iconImageView.image = Icons.userWired
+    }
+  }
+  
   @IBOutlet weak var loginButton: UIButton! {
     didSet {
       loginButton.layer.borderWidth = 1
