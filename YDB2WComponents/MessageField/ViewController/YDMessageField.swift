@@ -237,27 +237,28 @@ public class YDMessageField: UIView {
 // MARK: Stages
 extension YDMessageField {
   func normalStage() {
-    if (messageField.text?.isEmpty ?? true) && !likeButtonEnabled {
-      actionButton.isEnabled = false
-    } else {
-      actionButton.isEnabled = true
-    }
+    messageField.text = nil
+    messageField.resignFirstResponder()
+
+    actionButton.isEnabled = likeButtonEnabled
     actionButtonType = likeButtonEnabled ? .like : .send
 
     activityIndicator.stopAnimating()
 
     errorMessageLabel.isHidden = true
     delayMessageLabel.isHidden = true
-
-    messageField.text = nil
-    messageField.resignFirstResponder()
     messageLimitCount.isHidden = true
 
     sendTimer?.invalidate()
   }
 
   func typingStage() {
-    actionButton.isEnabled = true
+    if messageField.text?.isEmpty ?? true {
+      actionButton.isEnabled = false
+    } else {
+      actionButton.isEnabled = true
+    }
+
     activityIndicator.stopAnimating()
     actionButtonType = .send
     errorMessageLabel.isHidden = true
