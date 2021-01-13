@@ -12,7 +12,7 @@ target 'YDB2WComponents' do
   use_frameworks!
 
   # Pods for YDB2WComponents
-  pod 'MaterialComponents/Snackbar'
+#  pod 'MaterialComponents/Snackbar'
   pod 'Cosmos', '22.1.0'
 
   pod 'YDExtensions'
