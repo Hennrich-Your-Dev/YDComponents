@@ -37,6 +37,7 @@ public class YDUserProfileView: UIView {
     contentView = loadNib()
     addSubview(contentView)
 
+    backgroundColor = .clear
     contentView.translatesAutoresizingMaskIntoConstraints = false
 
     let top = contentView.topAnchor.constraint(equalTo: self.topAnchor)
