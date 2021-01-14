@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - Cosmos (22.1.0)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
@@ -15,9 +16,9 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - MaterialComponents/AnimationTiming (119.2.0)
-  - MaterialComponents/Availability (119.2.0)
-  - MaterialComponents/Buttons (119.2.0):
+  - MaterialComponents/AnimationTiming (119.5.0)
+  - MaterialComponents/Availability (119.5.0)
+  - MaterialComponents/Buttons (119.5.0):
     - MaterialComponents/Elevation
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
@@ -29,40 +30,40 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - MaterialComponents/Elevation (119.2.0):
+  - MaterialComponents/Elevation (119.5.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/Ink (119.2.0):
+  - MaterialComponents/Ink (119.5.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/OverlayWindow (119.2.0):
+  - MaterialComponents/OverlayWindow (119.5.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Application (119.2.0)
-  - MaterialComponents/private/Color (119.2.0):
+  - MaterialComponents/private/Application (119.5.0)
+  - MaterialComponents/private/Color (119.5.0):
     - MaterialComponents/Availability
-  - MaterialComponents/private/KeyboardWatcher (119.2.0):
+  - MaterialComponents/private/KeyboardWatcher (119.5.0):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (119.2.0)
-  - MaterialComponents/private/Overlay (119.2.0)
-  - MaterialComponents/Ripple (119.2.0):
+  - MaterialComponents/private/Math (119.5.0)
+  - MaterialComponents/private/Overlay (119.5.0)
+  - MaterialComponents/Ripple (119.5.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (119.2.0)
-  - MaterialComponents/ShadowLayer (119.2.0):
+  - MaterialComponents/ShadowElevations (119.5.0)
+  - MaterialComponents/ShadowLayer (119.5.0):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (119.2.0):
+  - MaterialComponents/ShapeLibrary (119.5.0):
     - MaterialComponents/private/Math
     - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (119.2.0):
+  - MaterialComponents/Shapes (119.5.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/Snackbar (119.2.0):
+  - MaterialComponents/Snackbar (119.5.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
     - MaterialComponents/Buttons
@@ -75,28 +76,33 @@ PODS:
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
-  - MaterialComponents/Typography (119.2.0):
+  - MaterialComponents/Typography (119.5.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - YDB2WAssets (1.0.20)
-  - YDExtensions (1.0.25):
+  - YDB2WAssets (1.0.24)
+  - YDExtensions (1.0.30):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
+  - YDUtilities (1.0.5):
+    - Alamofire (~> 4.0)
 
 DEPENDENCIES:
   - Cosmos (= 22.1.0)
   - MaterialComponents/Snackbar
   - YDB2WAssets
   - YDExtensions
+  - YDUtilities
 
 SPEC REPOS:
-  "git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git":
+  "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
     - YDB2WAssets
     - YDExtensions
+    - YDUtilities
   trunk:
+    - Alamofire
     - Cosmos
     - Kingfisher
     - KingfisherWebP
@@ -106,16 +112,18 @@ SPEC REPOS:
     - MDFTextAccessibility
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  MaterialComponents: a7206e4d3491b63c7cedc8d80032cbc0178a9497
+  MaterialComponents: 2cdc12c16528ed7e6f1d5bd6d6927c47f9f4e90f
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  YDB2WAssets: 2b7d7a15e5499555b470b0e9d5677a347b02a2d7
-  YDExtensions: 4bb2128aaf6085240f3abdad9c1d2dc9f07ac2c1
+  YDB2WAssets: e94dc5ea75c45c798ea0be6a51dbc4020afae4a8
+  YDExtensions: 8489a1eebdfa5b8664051f00afc1c22d66a7be12
+  YDUtilities: d0e428e6b153fc54990da2a41cc1ee70f9c457e1
 
-PODFILE CHECKSUM: cf9878a9ad9e860124c121f4785b55baf8da8430
+PODFILE CHECKSUM: 59fcef2e68b325c9ce57bb1e1517ffcdb6a1fafc
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

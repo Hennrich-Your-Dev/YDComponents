@@ -24,6 +24,8 @@ public class Icons {
   public static let circleDefault = UIImage(named: "iconCircleDefault", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let circleDefaultOff = UIImage(named: "iconCircleDefaultOff", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let circleUser = UIImage(named: "iconCircleUser", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let gps = UIImage(named: "gps-icon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -34,6 +36,8 @@ public class Icons {
   public static let logo = UIImage(named: "logoAcom", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let map = UIImage(named: "iconMap", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let reload = UIImage(named: "iconReload", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -46,6 +50,8 @@ public class Icons {
   public static let thumbDownWired = UIImage(named: "iconThumbDownWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let thumbUpWired = UIImage(named: "iconThumbUpWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let times = UIImage(named: "iconTimes", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -53,6 +59,10 @@ public class Icons {
 }
 
 public class Images {
+  public static let clipboard = UIImage(named: "clipboard", in: podsBundle, compatibleWith: nil)
+  
+  public static let map = UIImage(named: "map", in: podsBundle, compatibleWith: nil)
+  
   public static let storePin = UIImage(named: "storePin", in: podsBundle, compatibleWith: nil)
 
   public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
