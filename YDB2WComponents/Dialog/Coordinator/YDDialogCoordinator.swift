@@ -34,7 +34,7 @@ public class YDDialogCoordinator {
   public init() {}
 
   // MARK: Actions
-  public func start() {
+  public func start(ofType type: YDDialogType = .withIcon) {
     guard let viewController = YDDialogViewController.initializeFromStoryboard() else {
       fatalError("YDDialogViewController.initializeFromStoryboard")
     }
@@ -44,6 +44,7 @@ public class YDDialogCoordinator {
     let viewModel = YDDialogViewModel(navigation: self)
 
     viewController.viewModel = viewModel
+    viewController.type = type
 
     navigationController.viewControllers = [viewController]
     navigationController.modalPresentationStyle = .overCurrentContext

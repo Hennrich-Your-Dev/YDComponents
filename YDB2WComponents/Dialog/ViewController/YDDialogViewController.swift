@@ -9,9 +9,15 @@ import UIKit
 import YDExtensions
 import YDB2WAssets
 
+public enum YDDialogType {
+  case withIcon
+  case simple
+}
+
 class YDDialogViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDDialogViewModelDelegate?
+  var type: YDDialogType?
   var customIcon: UIImage?
   var customTitle: String?
   var customMessage: String?
@@ -49,6 +55,12 @@ class YDDialogViewController: UIViewController {
 
     if let customIcon = customIcon {
       icon.image = customIcon
+    }
+
+    if let type = self.type,
+       type == .simple {
+      icon.removeFromSuperview()
+      view.layoutIfNeeded()
     }
 
     if let customTitle = customTitle {
