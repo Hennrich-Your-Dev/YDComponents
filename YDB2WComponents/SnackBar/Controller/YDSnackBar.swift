@@ -8,19 +8,19 @@
 import UIKit
 //import MaterialComponents.MaterialSnackbar
 
-public protocol YDSnackBarDelegate: AnyObject {
+public protocol YDSnackBarDelegateOLD: AnyObject {
   func onSnackAction()
 }
 
 public class YDSnackBar {
   // MARK: Enum
-  public enum YDSnackType {
+  public enum YDSnackTypeOLD {
     case withButton
     case simple
   }
 
   // MARK: Properties
-  public weak var delegate: YDSnackBarDelegate?
+  public weak var delegate: YDSnackBarDelegateOLD?
 
   // MARK: Init
   public init() {
@@ -33,7 +33,7 @@ public class YDSnackBar {
   }
 
   // MARK: Actions
-  public func showMessage(_ message: String, ofType type: YDSnackType, actionTitle: String = "") {
+  public func showMessage(_ message: String, ofType type: YDSnackTypeOLD, actionTitle: String = "") {
     switch type {
     case .withButton:
       snackWithButton(message, actionTitle: actionTitle)

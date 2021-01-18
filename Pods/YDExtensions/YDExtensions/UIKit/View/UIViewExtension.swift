@@ -35,7 +35,7 @@ public extension UIView {
     return loadFromNibNamed(self.identifier, bundle).instantiate(
       withOwner: nil,
       options: nil
-      )[0] as? UIView
+    )[0] as? UIView
   }
 }
 
@@ -78,5 +78,42 @@ public extension UIView {
     let mask = CAShapeLayer()
     mask.path = path.cgPath
     layer.mask = mask
+  }
+}
+
+// NSConstraint
+public extension UIView {
+  // Adds constraints to this `UIView` instances `superview` object to make sure this always has the same size as the superview.
+  // Please note that this has no effect if its `superview` is `nil` – add this `UIView` instance as a subview before calling this.
+  func bindFrame(
+    top: CGFloat = 0,
+    bottom: CGFloat = 0,
+    leading: CGFloat = 0,
+    trailing: CGFloat = 0,
+    toView view: UIView
+  ) {
+    translatesAutoresizingMaskIntoConstraints = false
+    topAnchor.constraint(equalTo: view.topAnchor, constant: top).isActive = true
+    bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottom).isActive = true
+    leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading).isActive = true
+    trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailing).isActive = true
+  }
+
+  func bindFrameToSuperview(
+    top: CGFloat = 0,
+    bottom: CGFloat = 0,
+    leading: CGFloat = 0,
+    trailing: CGFloat = 0
+  ) {
+    guard let superview = superview else {
+      print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperview()` to fix this.")
+      return
+    }
+    
+    translatesAutoresizingMaskIntoConstraints = false
+    topAnchor.constraint(equalTo: superview.topAnchor, constant: top).isActive = true
+    bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: bottom).isActive = true
+    leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: leading).isActive = true
+    trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: trailing).isActive = true
   }
 }

@@ -62,7 +62,9 @@ public class Images {
   public static let clipboard = UIImage(named: "clipboard", in: podsBundle, compatibleWith: nil)
   
   public static let map = UIImage(named: "map", in: podsBundle, compatibleWith: nil)
-  
+
+  public static let qrCode = UIImage(named: "qrCode", in: podsBundle, compatibleWith: nil)
+
   public static let storePin = UIImage(named: "storePin", in: podsBundle, compatibleWith: nil)
 
   public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
