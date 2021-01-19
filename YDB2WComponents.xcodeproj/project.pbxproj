@@ -15,7 +15,6 @@
 		C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12418CD258796BE006227D6 /* YDErrorView.xib */; };
 		C12418D325879724006227D6 /* YDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D225879724006227D6 /* YDErrorView.swift */; };
 		C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D625879755006227D6 /* YDErrorViewDelegate.swift */; };
-		C15FB2CF256FC4D10034ACE9 /* YDSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15FB2CE256FC4D10034ACE9 /* YDSnackBar.swift */; };
 		C164FD4C25759ACA007EBBC4 /* YDProductLive.xib in Resources */ = {isa = PBXBuildFile; fileRef = C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */; };
 		C164FD5025759D73007EBBC4 /* YDProductLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD4F25759D73007EBBC4 /* YDProductLive.swift */; };
 		C164FD612575A603007EBBC4 /* YDAPILiveProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD602575A603007EBBC4 /* YDAPILiveProduct.swift */; };
@@ -51,7 +50,6 @@
 		C12418CD258796BE006227D6 /* YDErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDErrorView.xib; sourceTree = "<group>"; };
 		C12418D225879724006227D6 /* YDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorView.swift; sourceTree = "<group>"; };
 		C12418D625879755006227D6 /* YDErrorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorViewDelegate.swift; sourceTree = "<group>"; };
-		C15FB2CE256FC4D10034ACE9 /* YDSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSnackBar.swift; sourceTree = "<group>"; };
 		C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDProductLive.xib; sourceTree = "<group>"; };
 		C164FD4F25759D73007EBBC4 /* YDProductLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDProductLive.swift; sourceTree = "<group>"; };
 		C164FD602575A603007EBBC4 /* YDAPILiveProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAPILiveProduct.swift; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 		C15FB2CD256FC4710034ACE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C15FB2CE256FC4D10034ACE9 /* YDSnackBar.swift */,
 				C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */,
 			);
 			path = Controller;
@@ -581,7 +578,6 @@
 			files = (
 				C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */,
 				C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */,
-				C15FB2CF256FC4D10034ACE9 /* YDSnackBar.swift in Sources */,
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,

@@ -82,7 +82,7 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - YDB2WAssets (1.0.27)
+  - YDB2WAssets (1.0.29)
   - YDExtensions (1.0.31):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
@@ -120,7 +120,7 @@ SPEC CHECKSUMS:
   MaterialComponents: 2cdc12c16528ed7e6f1d5bd6d6927c47f9f4e90f
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  YDB2WAssets: e1a842d73f1b6bd5815e9e7e13a96496d599a598
+  YDB2WAssets: a4a5395c74ccbcfc0a9777ce33b59aa1e1688fdf
   YDExtensions: c7c9c808ce17f83672fb5d9f609381305d26701a
   YDUtilities: d0e428e6b153fc54990da2a41cc1ee70f9c457e1
 
