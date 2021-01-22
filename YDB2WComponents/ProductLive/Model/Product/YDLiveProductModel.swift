@@ -13,7 +13,7 @@ public class YDLiveProductModel: Codable {
   public var id: String?
   public var images: [String]?
   public var name: String?
-  public var price: Double?
+  public var price: String?
   public var priceConditions: String?
   public var ean: String?
   public var rating: YDLiveProductModelRating?
@@ -34,7 +34,7 @@ public class YDLiveProductModel: Codable {
     id: String?,
     images: [String]?,
     name: String?,
-    price: Double?,
+    price: String?,
     priceConditions: String?,
     ean: String?,
     rating: YDLiveProductModelRating?,
@@ -79,7 +79,7 @@ public class YDLiveProductModel: Codable {
     )
 
     price = try? container.decode(
-      Double.self,
+      String.self,
       forKey: .price
     )
 
@@ -110,14 +110,14 @@ public class YDLiveProductModel: Codable {
   }
 }
 
-extension YDLiveProductModel {
-  public func getPrice() -> String? {
-    guard let price = price else { return nil }
-    let formatter = NumberFormatter()
-    formatter.alwaysShowsDecimalSeparator = true
-    formatter.locale = Locale(identifier: "pt_br")
-    formatter.numberStyle = .currency
-
-    return formatter.string(for: price)
-  }
-}
+//extension YDLiveProductModel {
+//  public func getPrice() -> String? {
+//    guard let price = price else { return nil }
+//    let formatter = NumberFormatter()
+//    formatter.alwaysShowsDecimalSeparator = true
+//    formatter.locale = Locale(identifier: "pt_br")
+//    formatter.numberStyle = .currency
+//
+//    return formatter.string(for: price)
+//  }
+//}
