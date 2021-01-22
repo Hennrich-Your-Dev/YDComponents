@@ -139,7 +139,7 @@ public class YDProductLive: UIView {
       nameLabel.text = name
     }
 
-    if let price = product.getPrice() {
+    if let price = product.price {
       priceLabel.text = price
     }
 
