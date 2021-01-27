@@ -15,6 +15,6 @@ target 'YDB2WComponents' do
   pod 'MaterialComponents/Snackbar'
   pod 'Cosmos', '22.1.0'
 
-  pod 'YDExtensions'
-  pod 'YDB2WAssets'
+  pod 'YDExtensions', "1.0.29"
+  pod 'YDB2WAssets', "1.0.23"
 end
