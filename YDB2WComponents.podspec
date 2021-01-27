@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
   spec.dependency       "Cosmos", "22.1.0"
   spec.dependency       "MaterialComponents/Snackbar"
 
-  spec.dependency       "YDExtensions", , "1.0.29"
+  spec.dependency       "YDExtensions", "1.0.29"
   spec.dependency       "YDB2WAssets", "1.0.23"
 end
