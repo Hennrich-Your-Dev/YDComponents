@@ -7,11 +7,13 @@
 
 import UIKit
 
+import YDExtensions
+
 public class YDShimmerView: UIView {
   // MARK: Properties
-  public var gradientColorOne: CGColor = UIColor(white: 0.85, alpha: 1.0).cgColor
-  public var gradientColorTwo: CGColor = UIColor(white: 0.95, alpha: 1.0).cgColor
-  public var speed: Double = 0.9
+  public var gradientColorOne: CGColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1).cgColor
+  public var gradientColorTwo: CGColor = UIColor.Zeplin.grayOpaque.cgColor
+  public var speed: Double = 1
 
   // MARK: Actions
   func addGradientLayer() -> CAGradientLayer {
@@ -40,5 +42,9 @@ public class YDShimmerView: UIView {
     let gradientLayer = addGradientLayer()
     let animation = addAnimation()
     gradientLayer.add(animation, forKey: animation.keyPath)
+
+    layer.cornerRadius = 6
+    clipsToBounds = false
+    layer.applyShadow()
   }
 }
