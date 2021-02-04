@@ -17,5 +17,4 @@ target 'YDB2WComponents' do
   pod 'YDExtensions'
   pod 'YDB2WAssets'
   pod 'YDUtilities'
-  pod "SkeletonView"
 end

@@ -53,6 +53,7 @@
                     <rect key="frame" x="12" y="117" width="95" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ECr-DY-m0m"/>
+                        <constraint firstAttribute="width" constant="95" id="Sfb-0P-9P1"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
