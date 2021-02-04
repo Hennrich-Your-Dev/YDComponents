@@ -108,6 +108,10 @@ public class YDLiveProductModel: Codable {
 
     onBasket = false
   }
+
+  public static func mock() -> YDLiveProductModel {
+    return YDLiveProductModel(description: nil, id: nil, images: nil, name: nil, price: nil, priceConditions: nil, ean: nil, rating: nil, partnerId: nil, stock: nil)
+  }
 }
 
 //extension YDLiveProductModel {

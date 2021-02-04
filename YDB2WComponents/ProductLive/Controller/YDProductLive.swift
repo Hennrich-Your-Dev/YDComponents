@@ -7,6 +7,7 @@
 
 import UIKit
 import Cosmos
+import SkeletonView
 
 import YDExtensions
 import YDB2WAssets
@@ -32,7 +33,7 @@ public class YDProductLive: UIView {
     didSet {
       ratingView.settings.emptyImage = Images.starGrey
       ratingView.settings.filledImage = Images.starYellow
-      ratingView.settings.fillMode = .full
+      ratingView.settings.fillMode = .half
       ratingView.settings.starMargin = 2
       ratingView.settings.starSize = 17
       ratingView.settings.totalStars = 5
