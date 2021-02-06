@@ -15,7 +15,7 @@ public protocol YDServiceClientDelegate: AnyObject {
     withUrl: String,
     withMethod: HTTPMethod,
     andParameters: Parameters?,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   )
 
   // with headers
@@ -24,7 +24,7 @@ public protocol YDServiceClientDelegate: AnyObject {
     withMethod: HTTPMethod,
     withHeaders: HTTPHeaders?,
     andParameters: Parameters?,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   )
 
   // with custom decoder
@@ -33,7 +33,7 @@ public protocol YDServiceClientDelegate: AnyObject {
     withMethod: HTTPMethod,
     andParameters: Parameters?,
     customDecoder: JSONDecoder,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   )
 
   // with full response
@@ -50,7 +50,7 @@ public protocol YDServiceClientDelegate: AnyObject {
     withUrl: String,
     withMethod: HTTPMethod,
     andParameters: Parameters?,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   )
 }
 
@@ -109,7 +109,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     withUrl: String,
     withMethod: HTTPMethod = .get,
     andParameters: Parameters? = nil,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   ) {
     var parametersDictionary: Parameters = [:]
 
@@ -142,20 +142,23 @@ extension YDServiceClient: YDServiceClientDelegate {
             return onCompletion(.success(result))
           } catch let errorCatch as NSError {
             self?.logger.error(errorCatch.debugDescription)
-            return onCompletion(.failure(YDServiceError.internalServerError))
+            return onCompletion(
+              .failure(
+                YDServiceError.unknow(
+                  (errorCatch.debugDescription, nil))
+              )
+            )
           }
 
         case .failure(let error):
-          switch response.response?.statusCode {
-          case 400:
-            return onCompletion(.failure(YDServiceError.badRequest))
-          case 404:
-            return onCompletion(.failure(YDServiceError.notFound))
-          case 500:
-            return onCompletion(.failure(YDServiceError.internalServerError))
-          default:
-            return onCompletion(.failure(YDServiceError.unknow(error: error)))
-          }
+          return onCompletion(
+            .failure(
+              YDServiceError(
+                error: error,
+                status: response.response?.statusCode
+              )
+            )
+          )
         }
       }
   }
@@ -166,7 +169,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     withMethod: HTTPMethod = .get,
     withHeaders: HTTPHeaders? = nil,
     andParameters: Parameters? = nil,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   ) {
     var parametersDictionary: Parameters = [:]
 
@@ -200,20 +203,23 @@ extension YDServiceClient: YDServiceClientDelegate {
             return onCompletion(.success(result))
           } catch let errorCatch as NSError {
             self?.logger.error(errorCatch.debugDescription)
-            return onCompletion(.failure(YDServiceError.internalServerError))
+            return onCompletion(
+              .failure(
+                YDServiceError.unknow(
+                  (errorCatch.debugDescription, nil))
+              )
+            )
           }
 
         case .failure(let error):
-          switch response.response?.statusCode {
-          case 400:
-            return onCompletion(.failure(YDServiceError.badRequest))
-          case 404:
-            return onCompletion(.failure(YDServiceError.notFound))
-          case 500:
-            return onCompletion(.failure(YDServiceError.internalServerError))
-          default:
-            return onCompletion(.failure(YDServiceError.unknow(error: error)))
-          }
+          return onCompletion(
+            .failure(
+              YDServiceError(
+                error: error,
+                status: response.response?.statusCode
+              )
+            )
+          )
         }
       }
   }
@@ -257,7 +263,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     withMethod: HTTPMethod,
     andParameters: Parameters?,
     customDecoder: JSONDecoder,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   ) {
     var parametersDictionary: Parameters = [:]
 
@@ -290,20 +296,23 @@ extension YDServiceClient: YDServiceClientDelegate {
             return onCompletion(.success(result))
           } catch let errorCatch as NSError {
             self?.logger.error(errorCatch.debugDescription)
-            return onCompletion(.failure(YDServiceError.internalServerError))
+            return onCompletion(
+              .failure(
+                YDServiceError.unknow(
+                  (errorCatch.debugDescription, nil))
+              )
+            )
           }
 
         case .failure(let error):
-          switch response.response?.statusCode {
-          case 400:
-            return onCompletion(.failure(YDServiceError.badRequest))
-          case 404:
-            return onCompletion(.failure(YDServiceError.notFound))
-          case 500:
-            return onCompletion(.failure(YDServiceError.internalServerError))
-          default:
-            return onCompletion(.failure(YDServiceError.unknow(error: error)))
-          }
+          return onCompletion(
+            .failure(
+              YDServiceError(
+                error: error,
+                status: response.response?.statusCode
+              )
+            )
+          )
         }
       }
   }
@@ -313,7 +322,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     withUrl: String,
     withMethod: HTTPMethod = .get,
     andParameters: Parameters? = nil,
-    onCompletion: @escaping ((Swift.Result<T, Error>) -> Void)
+    onCompletion: @escaping ((Swift.Result<T, YDServiceError>) -> Void)
   ) {
     var parametersDictionary: Parameters = [:]
 
@@ -343,20 +352,23 @@ extension YDServiceClient: YDServiceClientDelegate {
             return onCompletion(.success(result))
           } catch let errorCatch as NSError {
             self?.logger.error(errorCatch.debugDescription)
-            return onCompletion(.failure(YDServiceError.internalServerError))
+            return onCompletion(
+              .failure(
+                YDServiceError.unknow(
+                  (errorCatch.debugDescription, nil))
+              )
+            )
           }
 
         case .failure(let error):
-          switch response.response?.statusCode {
-          case 400:
-            return onCompletion(.failure(YDServiceError.badRequest))
-          case 404:
-            return onCompletion(.failure(YDServiceError.notFound))
-          case 500:
-            return onCompletion(.failure(YDServiceError.internalServerError))
-          default:
-            return onCompletion(.failure(YDServiceError.unknow(error: error)))
-          }
+          return onCompletion(
+            .failure(
+              YDServiceError(
+                error: error,
+                status: response.response?.statusCode
+              )
+            )
+          )
         }
       }
   }

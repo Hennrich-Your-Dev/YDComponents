@@ -42,9 +42,5 @@ public class YDShimmerView: UIView {
     let gradientLayer = addGradientLayer()
     let animation = addAnimation()
     gradientLayer.add(animation, forKey: animation.keyPath)
-
-    layer.cornerRadius = 6
-    clipsToBounds = false
-    layer.applyShadow()
   }
 }

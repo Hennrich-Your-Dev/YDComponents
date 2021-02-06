@@ -15,12 +15,6 @@
 		C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12418CD258796BE006227D6 /* YDErrorView.xib */; };
 		C12418D325879724006227D6 /* YDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D225879724006227D6 /* YDErrorView.swift */; };
 		C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D625879755006227D6 /* YDErrorViewDelegate.swift */; };
-		C164FD4C25759ACA007EBBC4 /* YDProductLive.xib in Resources */ = {isa = PBXBuildFile; fileRef = C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */; };
-		C164FD5025759D73007EBBC4 /* YDProductLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD4F25759D73007EBBC4 /* YDProductLive.swift */; };
-		C164FD612575A603007EBBC4 /* YDAPILiveProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD602575A603007EBBC4 /* YDAPILiveProduct.swift */; };
-		C164FD672575A6B4007EBBC4 /* YDLiveProductModelRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD642575A6B4007EBBC4 /* YDLiveProductModelRating.swift */; };
-		C164FD682575A6B4007EBBC4 /* YDLiveProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD652575A6B4007EBBC4 /* YDLiveProductModel.swift */; };
-		C164FD692575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164FD662575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift */; };
 		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
 		C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */; };
 		C183CE6425B0877700B4F675 /* YDUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C183CE6325B0877700B4F675 /* YDUserProfileView.xib */; };
@@ -51,12 +45,6 @@
 		C12418CD258796BE006227D6 /* YDErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDErrorView.xib; sourceTree = "<group>"; };
 		C12418D225879724006227D6 /* YDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorView.swift; sourceTree = "<group>"; };
 		C12418D625879755006227D6 /* YDErrorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorViewDelegate.swift; sourceTree = "<group>"; };
-		C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDProductLive.xib; sourceTree = "<group>"; };
-		C164FD4F25759D73007EBBC4 /* YDProductLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDProductLive.swift; sourceTree = "<group>"; };
-		C164FD602575A603007EBBC4 /* YDAPILiveProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAPILiveProduct.swift; sourceTree = "<group>"; };
-		C164FD642575A6B4007EBBC4 /* YDLiveProductModelRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDLiveProductModelRating.swift; sourceTree = "<group>"; };
-		C164FD652575A6B4007EBBC4 /* YDLiveProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDLiveProductModel.swift; sourceTree = "<group>"; };
-		C164FD662575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDLiveProductConfigurationModel.swift; sourceTree = "<group>"; };
 		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
 		C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSnackBarView.swift; sourceTree = "<group>"; };
 		C183CE6325B0877700B4F675 /* YDUserProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDUserProfileView.xib; sourceTree = "<group>"; };
@@ -126,7 +114,6 @@
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
-				C164FD492575998F007EBBC4 /* ProductLive */,
 				C1F3F8FA2565A6E0000B56F7 /* TextView */,
 				C183E2B0256DA2FD005427B1 /* WireButton */,
 				C10399242541C0C900FF6CAD /* YDB2WComponents.h */,
@@ -228,59 +215,6 @@
 				C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		C164FD492575998F007EBBC4 /* ProductLive */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD5D2575A598007EBBC4 /* Model */,
-				C164FD4E25759D5B007EBBC4 /* Controller */,
-				C164FD4A25759ABF007EBBC4 /* View */,
-			);
-			path = ProductLive;
-			sourceTree = "<group>";
-		};
-		C164FD4A25759ABF007EBBC4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD4B25759ACA007EBBC4 /* YDProductLive.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C164FD4E25759D5B007EBBC4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD4F25759D73007EBBC4 /* YDProductLive.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C164FD5D2575A598007EBBC4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD5E2575A59F007EBBC4 /* API */,
-				C164FD5F2575A5AC007EBBC4 /* Product */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C164FD5E2575A59F007EBBC4 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD602575A603007EBBC4 /* YDAPILiveProduct.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		C164FD5F2575A5AC007EBBC4 /* Product */ = {
-			isa = PBXGroup;
-			children = (
-				C164FD662575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift */,
-				C164FD652575A6B4007EBBC4 /* YDLiveProductModel.swift */,
-				C164FD642575A6B4007EBBC4 /* YDLiveProductModelRating.swift */,
-			);
-			path = Product;
 			sourceTree = "<group>";
 		};
 		C183B7C125541E9200A0EAAA /* ViewModel */ = {
@@ -527,7 +461,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C164FD4C25759ACA007EBBC4 /* YDProductLive.xib in Resources */,
 				C1E7C123256478DC008F747A /* YDDialogViewController.storyboard in Resources */,
 				C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */,
 				C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */,
@@ -592,21 +525,16 @@
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
-				C164FD612575A603007EBBC4 /* YDAPILiveProduct.swift in Sources */,
 				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
 				C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */,
 				C12418D325879724006227D6 /* YDErrorView.swift in Sources */,
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
-				C164FD682575A6B4007EBBC4 /* YDLiveProductModel.swift in Sources */,
-				C164FD692575A6B4007EBBC4 /* YDLiveProductConfigurationModel.swift in Sources */,
 				C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */,
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
 				C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */,
 				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
-				C164FD672575A6B4007EBBC4 /* YDLiveProductModelRating.swift in Sources */,
 				C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */,
-				C164FD5025759D73007EBBC4 /* YDProductLive.swift in Sources */,
 				C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

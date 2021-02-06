@@ -12,8 +12,7 @@ target 'YDB2WComponents' do
   use_frameworks!
 
   # Pods for YDB2WComponents
-  pod 'Cosmos', '22.1.0'
-
+  
   pod 'YDExtensions'
   pod 'YDB2WAssets'
   pod 'YDUtilities'

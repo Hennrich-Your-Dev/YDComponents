@@ -14,9 +14,9 @@ public enum YDServiceError: Error {
 
   case cantCreateUrl
   case noService
-  case unknow(error: Error)
+  case unknow((message: String?, status: Int?))
 
-  var message: String {
+  public var message: String {
     switch self {
     case .badRequest:
       return "API inválida"
@@ -33,11 +33,12 @@ public enum YDServiceError: Error {
     case .noService:
       return "Sem serviço"
 
-    case .unknow:
-      return "Erro inesperado"
+    case .unknow(let params):
+      let (message, _) = params
+      return message ?? "Erro inesperado"
     }
   }
-
+//
   var type: YDServiceError {
     switch self {
     case .badRequest:
@@ -50,8 +51,56 @@ public enum YDServiceError: Error {
       return .cantCreateUrl
     case .noService:
       return .noService
-    case .unknow(let error):
-      return .unknow(error: error)
+    case .unknow(let tuple):
+      return .unknow(tuple)
+    }
+  }
+
+  public var statusCode: Int? {
+    switch self {
+      case .badRequest:
+        return 400
+
+      case .notFound:
+        return 404
+
+      case .internalServerError:
+        return 500
+
+      case .unknow(let params):
+        let (_, status) = params
+        return status
+
+      default:
+        return nil
+    }
+  }
+
+  // MARK: Init
+  public init(withMessage message: String) {
+    self = .unknow((message, nil))
+  }
+
+  public init(error: Error?, status: Int? = nil) {
+    guard let errorMessage = error?.localizedDescription,
+          let statusCode = status
+    else {
+      self = .unknow((nil, nil))
+      return
+    }
+
+    switch statusCode {
+      case 400:
+        self = .badRequest
+
+      case 404:
+        self = .notFound
+
+      case 500:
+        self = .internalServerError
+
+      default:
+        self = .unknow((errorMessage, statusCode))
     }
   }
 }
