@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,17 +30,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Escreva algo..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ao4-HG-Drf" customClass="CustomUITextField" customModule="YDB2WComponents" customModuleProvider="target">
-                    <rect key="frame" x="16" y="5" width="348" height="45"/>
+                    <rect key="frame" x="16" y="5" width="342" height="45"/>
                     <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" returnKeyType="send"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1J-OY-T6j">
-                    <rect key="frame" x="370" y="16" width="24" height="24"/>
+                    <rect key="frame" x="362" y="9" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="c2n-bC-PLi"/>
-                        <constraint firstAttribute="height" constant="24" id="t65-Q4-IzK"/>
+                        <constraint firstAttribute="width" constant="40" id="c2n-bC-PLi"/>
+                        <constraint firstAttribute="height" constant="40" id="t65-Q4-IzK"/>
                     </constraints>
                     <connections>
                         <action selector="onAction:" destination="-1" eventType="touchUpInside" id="OKe-Um-N2p"/>
@@ -81,12 +81,12 @@ toque para reenviar!</string>
                 <constraint firstItem="zjv-FG-Zjj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="5Pw-gY-xJZ"/>
                 <constraint firstItem="mgy-qC-UPn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6Kb-0m-2js"/>
                 <constraint firstAttribute="trailing" secondItem="zjv-FG-Zjj" secondAttribute="trailing" constant="52" id="GBp-BY-Jbq"/>
-                <constraint firstItem="A1J-OY-T6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="Ocn-bw-gLN"/>
+                <constraint firstItem="A1J-OY-T6j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="Ocn-bw-gLN"/>
                 <constraint firstAttribute="trailing" secondItem="VnL-jA-iZn" secondAttribute="trailing" constant="20" id="OnS-0I-oB4"/>
                 <constraint firstItem="VnL-jA-iZn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="ZNh-fN-RVK"/>
                 <constraint firstItem="Ao4-HG-Drf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="d10-lc-Mgc"/>
-                <constraint firstAttribute="trailing" secondItem="Ao4-HG-Drf" secondAttribute="trailing" constant="50" id="dJR-3h-0yV"/>
-                <constraint firstAttribute="trailing" secondItem="A1J-OY-T6j" secondAttribute="trailing" constant="20" id="ein-ua-1xB"/>
+                <constraint firstAttribute="trailing" secondItem="Ao4-HG-Drf" secondAttribute="trailing" constant="56" id="dJR-3h-0yV"/>
+                <constraint firstAttribute="trailing" secondItem="A1J-OY-T6j" secondAttribute="trailing" constant="12" id="ein-ua-1xB"/>
                 <constraint firstItem="Ao4-HG-Drf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kkU-oF-o0w"/>
                 <constraint firstItem="mgy-qC-UPn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="nnt-F2-QWq"/>
                 <constraint firstAttribute="trailing" secondItem="iTM-OV-HzB" secondAttribute="trailing" constant="52" id="qec-mE-zWS"/>

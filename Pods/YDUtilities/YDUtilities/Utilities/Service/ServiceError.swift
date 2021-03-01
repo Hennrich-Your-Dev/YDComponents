@@ -9,6 +9,7 @@ import Foundation
 
 public enum YDServiceError: Error {
   case badRequest             // Status code 400
+  case unauthorized           // Status code 401
   case notFound               // Status code 404
   case internalServerError    // Status code 500
 
@@ -20,6 +21,9 @@ public enum YDServiceError: Error {
     switch self {
     case .badRequest:
       return "API inválida"
+
+      case .unauthorized:
+        return "Usuário não autorizado"
 
     case .notFound:
       return "API não encontrada"
@@ -38,19 +42,28 @@ public enum YDServiceError: Error {
       return message ?? "Erro inesperado"
     }
   }
-//
-  var type: YDServiceError {
+
+  //
+  public var type: YDServiceError {
     switch self {
     case .badRequest:
       return .badRequest
+
+      case .unauthorized:
+        return .unauthorized
+
     case .notFound:
       return .notFound
+
     case .internalServerError:
       return .internalServerError
+
     case .cantCreateUrl:
       return .cantCreateUrl
+
     case .noService:
       return .noService
+
     case .unknow(let tuple):
       return .unknow(tuple)
     }
@@ -60,6 +73,9 @@ public enum YDServiceError: Error {
     switch self {
       case .badRequest:
         return 400
+
+      case .unauthorized:
+        return 401
 
       case .notFound:
         return 404
@@ -92,6 +108,9 @@ public enum YDServiceError: Error {
     switch statusCode {
       case 400:
         self = .badRequest
+
+      case 401:
+        self = .unauthorized
 
       case 404:
         self = .notFound

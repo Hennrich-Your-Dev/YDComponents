@@ -9,33 +9,6 @@ import Foundation
 
 public extension String {
 
-  func matches(_ expression: String) -> Bool {
-    if let range = range(of: expression, options: .regularExpression, range: nil, locale: nil) {
-      return range.lowerBound == startIndex && range.upperBound == endIndex
-    } else {
-      return false
-    }
-  }
-
-  var isValidEmail: Bool {
-    matches("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
-  }
-
-  var containsOnlyDigits: Bool {
-    let notDigits = NSCharacterSet.decimalDigits.inverted
-    return rangeOfCharacter(from: notDigits, options: String.CompareOptions.literal, range: nil) == nil
-  }
-
-  var containsOnlyLetters: Bool {
-    let notLetters = NSCharacterSet.letters.inverted
-    return rangeOfCharacter(from: notLetters, options: String.CompareOptions.literal, range: nil) == nil
-  }
-
-  var isAlphanumeric: Bool {
-    let notAlphanumeric = NSCharacterSet.decimalDigits.union(NSCharacterSet.letters).inverted
-    return rangeOfCharacter(from: notAlphanumeric, options: String.CompareOptions.literal, range: nil) == nil
-  }
-
   static func loremIpsum(ofLength length: Int = 445) -> String {
     guard length > 0 else { return "" }
 
@@ -73,4 +46,40 @@ public extension String {
     }
     return pureNumber
   }
+}
+
+// MARK: Regex
+public extension String {
+
+  var phoneRegexPattern: String {
+    return "/^(?:(?:\\+|00)?(55)\\s?)?(?:\\(?([1-9][0-9])\\)?\\s?)?(?:((?:9\\d|[2-9])\\d{3})\\-?(\\d{4}))$/"
+  }
+
+  var isValidEmail: Bool {
+    matches("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+  }
+
+  var containsOnlyDigits: Bool {
+    let notDigits = NSCharacterSet.decimalDigits.inverted
+    return rangeOfCharacter(from: notDigits, options: String.CompareOptions.literal, range: nil) == nil
+  }
+
+  var containsOnlyLetters: Bool {
+    let notLetters = NSCharacterSet.letters.inverted
+    return rangeOfCharacter(from: notLetters, options: String.CompareOptions.literal, range: nil) == nil
+  }
+
+  var isAlphanumeric: Bool {
+    let notAlphanumeric = NSCharacterSet.decimalDigits.union(NSCharacterSet.letters).inverted
+    return rangeOfCharacter(from: notAlphanumeric, options: String.CompareOptions.literal, range: nil) == nil
+  }
+
+  func matches(_ expression: String) -> Bool {
+    if let range = range(of: expression, options: .regularExpression, range: nil, locale: nil) {
+      return range.lowerBound == startIndex && range.upperBound == endIndex
+    } else {
+      return false
+    }
+  }
+  
 }

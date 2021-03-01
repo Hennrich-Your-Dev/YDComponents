@@ -7,6 +7,36 @@
 
 import UIKit
 
+infix operator |: AdditionPrecedence
+public extension UIColor {
+  /// Easily define two colors for both light and dark mode.
+  /// - Parameters:
+  ///   - lightMode: The color to use in light mode.
+  ///   - darkMode: The color to use in dark mode.
+  /// - Returns: A dynamic color that uses both given colors respectively for the given user interface style.
+  static func | (lightMode: UIColor, darkMode: UIColor) -> UIColor {
+    guard #available(iOS 13.0, *) else { return lightMode }
+
+    return UIColor { (traitCollection) -> UIColor in
+      return traitCollection.userInterfaceStyle == .light ? lightMode : darkMode
+    }
+  }
+}
+
+public extension UIColor {
+  convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
+    self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: 1.0)
+  }
+
+  convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+    self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
+  }
+
+  static var random: UIColor {
+    return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
+  }
+}
+
 public extension UIColor {
   static let customRed = UIColor(red: 230/255, green: 0/255, blue: 20/255, alpha: 1)
 }
@@ -16,11 +46,15 @@ public extension UIColor {
 
   struct Zeplin {
     public static var black: UIColor {
-      return UIColor(white: 51.0 / 255.0, alpha: 1.0)
+      return UIColor(r: 51, g: 51, b: 51) | UIColor(r: 255, g: 255, b: 255)
     }
 
     public static var white: UIColor {
-      return UIColor(white: 1.0, alpha: 1.0)
+      return UIColor(white: 1.0, alpha: 1.0) | UIColor(r: 51, g: 51, b: 51)
+    }
+
+    public static var separator: UIColor {
+      return UIColor(white: 232.0 / 255.0, alpha: 1.0)
     }
 
     // MARK: Red
@@ -33,7 +67,7 @@ public extension UIColor {
     }
 
     public static var redBranding: UIColor {
-      return UIColor(red: 230.0 / 255.0, green: 0.0, blue: 20.0 / 255.0, alpha: 1.0)
+      return UIColor(r: 230.0, g: 0.0, b: 20.0) | UIColor(r: 230.0, g: 0.0, b: 20.0, a: 0.85)
     }
 
     public static var redDark: UIColor {
@@ -117,15 +151,15 @@ public extension UIColor {
     }
 
     public static var grayLight: UIColor {
-      return UIColor(white: 136.0 / 255.0, alpha: 1.0)
+      return UIColor(white: 136.0 / 255.0, alpha: 1.0) | UIColor(r: 204, g: 204, b: 204)
     }
 
     public static var grayNight: UIColor {
-      return UIColor(white: 204.0 / 255.0, alpha: 1.0)
+      return UIColor(white: 204.0 / 255.0, alpha: 1.0) | UIColor(white: 136.0 / 255.0, alpha: 1.0)
     }
 
     public static var grayOpaque: UIColor {
-      return UIColor(white: 241.0 / 255.0, alpha: 1.0)
+      return UIColor(white: 241.0 / 255.0, alpha: 1.0) | UIColor(r: 28, g: 28, b: 28)
     }
 
     public static var graySurface: UIColor {

@@ -42,7 +42,7 @@ public protocol YDServiceClientDelegate: AnyObject {
     withMethod: HTTPMethod,
     withHeaders: HTTPHeaders?,
     andParameters: Parameters?,
-    onCompletion: @escaping ((DataResponse<Any>?) -> Void)
+    onCompletion: @escaping ((DataResponse<Data>?) -> Void)
   )
 
   // without caching request
@@ -230,7 +230,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     withMethod: HTTPMethod = .get,
     withHeaders: HTTPHeaders? = nil,
     andParameters: Parameters? = nil,
-    onCompletion: @escaping ((DataResponse<Any>?) -> Void)
+    onCompletion: @escaping ((DataResponse<Data>?) -> Void)
   ) {
     var parametersDictionary: Parameters = [:]
 
@@ -252,7 +252,7 @@ extension YDServiceClient: YDServiceClientDelegate {
     //
     httpRequest.request(urlRequestConvirtable)
       .validate()
-      .responseJSON { response in
+      .responseData { response in
         onCompletion(response)
       }
   }

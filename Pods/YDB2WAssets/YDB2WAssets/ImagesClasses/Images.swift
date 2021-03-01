@@ -45,6 +45,8 @@ public class Icons {
 
   public static let store = UIImage(named: "iconStore", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let play = UIImage(named: "iconPlay", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
   public static let point = UIImage(named: "point", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let thumbUpFilled = UIImage(named: "thumbUpFilled", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -61,6 +63,9 @@ public class Icons {
 }
 
 public class Images {
+
+  public static let basket = UIImage(named: "basket", in: podsBundle, compatibleWith: nil)
+
   public static let clipboard = UIImage(named: "clipboard", in: podsBundle, compatibleWith: nil)
   
   public static let map = UIImage(named: "map", in: podsBundle, compatibleWith: nil)
