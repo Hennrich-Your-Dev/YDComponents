@@ -29,18 +29,19 @@ public class YDShimmerView: UIView {
     return gradientLayer
   }
 
-  func addAnimation() -> CABasicAnimation {
+  func addAnimation(withDelay delay: Double = 0) -> CABasicAnimation {
     let animation = CABasicAnimation(keyPath: "locations")
     animation.fromValue = [-1.0, -0.5, 0.0]
     animation.toValue = [1.0, 1.5, 2.0]
     animation.repeatCount = .infinity
     animation.duration = speed
+    animation.beginTime = CFTimeInterval() + delay
     return animation
   }
 
-  public func startAnimating() {
+  public func startAnimating(withDelay delay: Double = 0) {
     let gradientLayer = addGradientLayer()
-    let animation = addAnimation()
+    let animation = addAnimation(withDelay: delay)
     gradientLayer.add(animation, forKey: animation.keyPath)
   }
 }

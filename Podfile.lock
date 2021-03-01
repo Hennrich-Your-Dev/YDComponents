@@ -23,9 +23,9 @@ PODS:
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
-  - YDB2WAssets
-  - YDExtensions
-  - YDUtilities
+  - YDB2WAssets (= 1.0.31)
+  - YDExtensions (= 1.0.38)
+  - YDUtilities (= 1.0.10)
 
 SPEC REPOS:
   "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
@@ -47,6 +47,6 @@ SPEC CHECKSUMS:
   YDExtensions: 7ece9b98667bce4d0df2e459df28e3547ecd465d
   YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
-PODFILE CHECKSUM: 95c5df1a1a596e33816ee08a42e88b52220599aa
+PODFILE CHECKSUM: b2bc9ab439746e4e20e37346d0ff5b23497fff17
 
 COCOAPODS: 1.10.1
