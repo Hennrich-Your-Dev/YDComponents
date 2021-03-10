@@ -14,6 +14,6 @@ target 'YDB2WComponents' do
   # Pods for YDB2WComponents
   
   pod 'YDExtensions', "1.0.38"
-  pod 'YDB2WAssets', "1.0.31"
+  pod 'YDB2WAssets', "1.0.32"
   pod 'YDUtilities', "1.0.10"
 end
