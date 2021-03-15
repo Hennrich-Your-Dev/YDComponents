@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69C13FE1158B77A587209B52 /* Pods_YDB2WComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EC3EDA5DFCF68EC9C363E4 /* Pods_YDB2WComponents.framework */; };
 		C10399262541C0C900FF6CAD /* YDB2WComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C10399242541C0C900FF6CAD /* YDB2WComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C11248E725FFDBD700CE8D8A /* YDSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */; };
 		C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */; };
 		C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */; };
 		C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */; };
@@ -39,6 +40,7 @@
 		C10399212541C0C900FF6CAD /* YDB2WComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDB2WComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10399242541C0C900FF6CAD /* YDB2WComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDB2WComponents.h; sourceTree = "<group>"; };
 		C10399252541C0C900FF6CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSegmentedControl.swift; sourceTree = "<group>"; };
 		C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDLoginDialogViewController.storyboard; sourceTree = "<group>"; };
 		C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewController.swift; sourceTree = "<group>"; };
 		C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -106,20 +108,29 @@
 		C10399232541C0C900FF6CAD /* YDB2WComponents */ = {
 			isa = PBXGroup;
 			children = (
-				C1CD8EF825C4609F00B83C8C /* ShimmerView */,
-				C183CE6125B0875000B4F675 /* UserProfile */,
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
+				C11248E425FFDAE400CE8D8A /* SegmentedControl */,
+				C1CD8EF825C4609F00B83C8C /* ShimmerView */,
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
 				C1F3F8FA2565A6E0000B56F7 /* TextView */,
+				C183CE6125B0875000B4F675 /* UserProfile */,
 				C183E2B0256DA2FD005427B1 /* WireButton */,
 				C10399242541C0C900FF6CAD /* YDB2WComponents.h */,
 				C10399252541C0C900FF6CAD /* Info.plist */,
 			);
 			path = YDB2WComponents;
+			sourceTree = "<group>";
+		};
+		C11248E425FFDAE400CE8D8A /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */,
+			);
+			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
 		C11A37892553765300D85F29 /* LoginDialog */ = {
@@ -521,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */,
+				C11248E725FFDBD700CE8D8A /* YDSegmentedControl.swift in Sources */,
 				C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */,
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
