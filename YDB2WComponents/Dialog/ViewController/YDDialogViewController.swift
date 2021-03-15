@@ -87,5 +87,6 @@ class YDDialogViewController: UIViewController {
   }
 
   @IBAction func onCancelAction(_ sender: UIButton) {
+    viewModel?.onCancelAction()
   }
 }
