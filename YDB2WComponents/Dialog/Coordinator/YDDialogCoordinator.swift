@@ -10,7 +10,12 @@ import YDExtensions
 
 // MARK: Delegate
 public protocol YDDialogCoordinatorDelegate: AnyObject {
-  func onActionYDDialog()
+  func onActionYDDialog(payload: [String: Any]?)
+  func onCancelYDDialog(payload: [String: Any]?)
+}
+
+extension YDDialogCoordinatorDelegate {
+  func onCancelYDDialog(payload: [String: Any]?) {}
 }
 
 public typealias YDDialog = YDDialogCoordinator
@@ -29,6 +34,8 @@ public class YDDialogCoordinator {
   }()
 
   public weak var delegate: YDDialogCoordinatorDelegate?
+
+  public var payload: [String: Any]?
 
   // MARK: Init
   public init() {}
@@ -65,7 +72,15 @@ public class YDDialogCoordinator {
 extension YDDialogCoordinator: YDDialogNavigationDelegate {
   public func onAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onActionYDDialog()
+      guard let self = self else { return }
+      self.delegate?.onActionYDDialog(payload: self.payload)
+    }
+  }
+
+  public func onCancelAction() {
+    rootViewController.dismiss(animated: true) { [weak self] in
+      guard let self = self else { return }
+      self.delegate?.onCancelYDDialog(payload: self.payload)
     }
   }
 }

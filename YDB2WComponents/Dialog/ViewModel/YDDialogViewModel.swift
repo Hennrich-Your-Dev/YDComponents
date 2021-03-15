@@ -10,10 +10,12 @@ import Foundation
 // MARK: Delegate
 public protocol YDDialogNavigationDelegate: AnyObject {
   func onAction()
+  func onCancelAction()
 }
 
 protocol YDDialogViewModelDelegate: AnyObject {
   func onButtonAction()
+  func onCancelAction()
 }
 
 // MARK: ViewModel
@@ -30,5 +32,9 @@ class YDDialogViewModel {
 extension YDDialogViewModel: YDDialogViewModelDelegate {
   func onButtonAction() {
     navigation.onAction()
+  }
+
+  func onCancelAction() {
+    navigation.onCancelAction()
   }
 }
