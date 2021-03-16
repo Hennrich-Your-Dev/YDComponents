@@ -26,8 +26,8 @@ public class YDSegmentedControl: UIView {
     let segmentedControl = UISegmentedControl()
 
     // Remove background and divider colors
-    segmentedControl.backgroundColor = .clear
-    segmentedControl.tintColor = .clear
+    segmentedControl.backgroundColor = .white
+    segmentedControl.tintColor = .white
 
     // Append segments
     segmentedControl.insertSegment(withTitle: "First", at: 0, animated: true)
@@ -44,6 +44,11 @@ public class YDSegmentedControl: UIView {
       ],
       for: .normal
     )
+    segmentedControl.setBackgroundImage(
+      UIImage(color: .white),
+      for: .normal,
+      barMetrics: .default
+    )
 
     // Change text color and the font of the selected segment
     segmentedControl.setTitleTextAttributes(
@@ -52,6 +57,19 @@ public class YDSegmentedControl: UIView {
         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)
       ],
       for: .selected
+    )
+    segmentedControl.setBackgroundImage(
+      UIImage(color: .white),
+      for: .selected,
+      barMetrics: .default
+    )
+
+    // Set dividir color to white
+    segmentedControl.setDividerImage(
+      UIImage(color: .white),
+      forLeftSegmentState: .normal,
+      rightSegmentState: .normal,
+      barMetrics: .default
     )
 
     // Set up event handler to get notified when the selected segment changes
