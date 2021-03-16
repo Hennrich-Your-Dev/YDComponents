@@ -142,6 +142,8 @@ public class YDSegmentedControl: UIView {
     for (index, title) in items.enumerated() {
       segmentedControl.insertSegment(withTitle: title, at: index, animated: true)
     }
+
+    segmentedControl.selectedSegmentIndex = 0
   }
 }
 
