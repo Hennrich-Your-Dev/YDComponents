@@ -98,6 +98,15 @@ public class YDSegmentedControl: UIView {
 
   public var delegate: YDSegmentedControlDelegate?
 
+  public var selectedSegmentIndex: Int {
+    get {
+      return segmentedControl.selectedSegmentIndex
+    }
+    set {
+      segmentedControl.selectedSegmentIndex = newValue
+    }
+  }
+
   // MARK: Init
   public init() {
     super.init(frame: .zero)
