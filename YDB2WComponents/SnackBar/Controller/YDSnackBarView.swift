@@ -107,8 +107,8 @@ public class YDSnackBarView: UIView {
     translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       bottomConstraint,
-      leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 21),
-      trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -21)
+      leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 16),
+      trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -16)
     ])
 
     parent.layoutIfNeeded()
@@ -133,8 +133,8 @@ public class YDSnackBarView: UIView {
     translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       bottomConstraint,
-      leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 21),
-      trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -21)
+      leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 16),
+      trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -16)
     ])
 
     let hasIcon = icon != nil
