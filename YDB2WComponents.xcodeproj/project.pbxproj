@@ -21,6 +21,7 @@
 		C183CE6425B0877700B4F675 /* YDUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C183CE6325B0877700B4F675 /* YDUserProfileView.xib */; };
 		C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CE6725B087E200B4F675 /* YDUserProfileView.swift */; };
 		C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183E2B7256DA46B005427B1 /* YDWireButton.swift */; };
+		C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */; };
 		C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */; };
 		C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7BF992564162B008F747A /* YDAnimationBlock.swift */; };
 		C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */; };
@@ -52,6 +53,7 @@
 		C183CE6325B0877700B4F675 /* YDUserProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDUserProfileView.xib; sourceTree = "<group>"; };
 		C183CE6725B087E200B4F675 /* YDUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDUserProfileView.swift; sourceTree = "<group>"; };
 		C183E2B7256DA46B005427B1 /* YDWireButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDWireButton.swift; sourceTree = "<group>"; };
+		C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDStoreNameAddressView.swift; sourceTree = "<group>"; };
 		C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDShimmerView.swift; sourceTree = "<group>"; };
 		C1E7BF992564162B008F747A /* YDAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAnimationBlock.swift; sourceTree = "<group>"; };
 		C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
+				C18E4A16260CC670008A0ABD /* StoreNameAddressView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
 				C11248E425FFDAE400CE8D8A /* SegmentedControl */,
@@ -275,6 +278,14 @@
 				C183E2B7256DA46B005427B1 /* YDWireButton.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C18E4A16260CC670008A0ABD /* StoreNameAddressView */ = {
+			isa = PBXGroup;
+			children = (
+				C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */,
+			);
+			path = StoreNameAddressView;
 			sourceTree = "<group>";
 		};
 		C1CD8EF825C4609F00B83C8C /* ShimmerView */ = {
@@ -547,6 +558,7 @@
 				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
 				C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */,
+				C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */,
 				C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
