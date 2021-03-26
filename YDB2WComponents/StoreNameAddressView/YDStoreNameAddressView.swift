@@ -11,13 +11,13 @@ import YDExtensions
 
 public class YDStoreNameAddressView: UIView {
   // MARK: Properties
-  var hasButton = true
+  private var hasButton = true
   public var callback: (() -> Void)?
 
   // MARK: Componentes
-  let storeNameLabel = UILabel()
-  let storeAddressLabel = UILabel()
-  let actionButton = UIButton()
+  private let storeNameLabel = UILabel()
+  private let storeAddressLabel = UILabel()
+  private let actionButton = UIButton()
 
   // MARK: Init
   public init(withButton: Bool) {
@@ -31,7 +31,7 @@ public class YDStoreNameAddressView: UIView {
   }
 
   // MARK: Actions
-  @objc func onButtonAction() {
+  @objc private func onButtonAction() {
     callback?()
   }
 
@@ -43,7 +43,7 @@ public class YDStoreNameAddressView: UIView {
 
 // MARK: Layout
 extension YDStoreNameAddressView {
-  func setUpLayouts() {
+  private func setUpLayouts() {
     createStoreNameLabel()
     createStorestoreAddressLabel()
 
@@ -52,7 +52,7 @@ extension YDStoreNameAddressView {
     }
   }
 
-  func createStoreNameLabel() {
+  private func createStoreNameLabel() {
     storeNameLabel.font = .systemFont(ofSize: 16, weight: .bold)
     storeNameLabel.textAlignment = .left
     storeNameLabel.textColor = UIColor.Zeplin.black
@@ -72,7 +72,7 @@ extension YDStoreNameAddressView {
     ])
   }
 
-  func createStorestoreAddressLabel() {
+  private func createStorestoreAddressLabel() {
     storeAddressLabel.font = .systemFont(ofSize: 14)
     storeAddressLabel.textAlignment = .left
     storeAddressLabel.textColor = UIColor.Zeplin.grayLight
@@ -96,7 +96,7 @@ extension YDStoreNameAddressView {
     ])
   }
 
-  func createButton() {
+  private func createButton() {
     let title = "trocar"
     let attributedString = NSMutableAttributedString(string: title)
 

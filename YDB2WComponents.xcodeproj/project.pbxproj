@@ -22,6 +22,13 @@
 		C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CE6725B087E200B4F675 /* YDUserProfileView.swift */; };
 		C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183E2B7256DA46B005427B1 /* YDWireButton.swift */; };
 		C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */; };
+		C1AB4ECD260D3AAE00A8B889 /* StoreAndProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4ECC260D3AAE00A8B889 /* StoreAndProductView.swift */; };
+		C1AB4EDF260D5EA000A8B889 /* YDProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4EDE260D5EA000A8B889 /* YDProductCardView.swift */; };
+		C1AB4F2A260D854800A8B889 /* StoreAndProductView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F29260D854800A8B889 /* StoreAndProductView+Layout.swift */; };
+		C1AB4F2F260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F2E260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift */; };
+		C1AB4F33260D8D7100A8B889 /* StoreAndProductView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */; };
+		C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F36260D930500A8B889 /* StoreAndProductTableViewCell.swift */; };
+		C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */; };
 		C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */; };
 		C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7BF992564162B008F747A /* YDAnimationBlock.swift */; };
 		C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */; };
@@ -54,6 +61,13 @@
 		C183CE6725B087E200B4F675 /* YDUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDUserProfileView.swift; sourceTree = "<group>"; };
 		C183E2B7256DA46B005427B1 /* YDWireButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDWireButton.swift; sourceTree = "<group>"; };
 		C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDStoreNameAddressView.swift; sourceTree = "<group>"; };
+		C1AB4ECC260D3AAE00A8B889 /* StoreAndProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAndProductView.swift; sourceTree = "<group>"; };
+		C1AB4EDE260D5EA000A8B889 /* YDProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDProductCardView.swift; sourceTree = "<group>"; };
+		C1AB4F29260D854800A8B889 /* StoreAndProductView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+Layout.swift"; sourceTree = "<group>"; };
+		C1AB4F2E260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+SegmentedControl.swift"; sourceTree = "<group>"; };
+		C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+TableView.swift"; sourceTree = "<group>"; };
+		C1AB4F36260D930500A8B889 /* StoreAndProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAndProductTableViewCell.swift; sourceTree = "<group>"; };
+		C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+ScrollView.swift"; sourceTree = "<group>"; };
 		C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDShimmerView.swift; sourceTree = "<group>"; };
 		C1E7BF992564162B008F747A /* YDAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAnimationBlock.swift; sourceTree = "<group>"; };
 		C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -113,12 +127,14 @@
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
+				C1AB4ECB260D3A5B00A8B889 /* StoreAndProductView */,
 				C18E4A16260CC670008A0ABD /* StoreNameAddressView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
 				C11248E425FFDAE400CE8D8A /* SegmentedControl */,
 				C1CD8EF825C4609F00B83C8C /* ShimmerView */,
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
+				C1AB4ED0260D52AB00A8B889 /* ProductCardView */,
 				C1F3F8FA2565A6E0000B56F7 /* TextView */,
 				C183CE6125B0875000B4F675 /* UserProfile */,
 				C183E2B0256DA2FD005427B1 /* WireButton */,
@@ -286,6 +302,75 @@
 				C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */,
 			);
 			path = StoreNameAddressView;
+			sourceTree = "<group>";
+		};
+		C1AB4ECB260D3A5B00A8B889 /* StoreAndProductView */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F27260D851D00A8B889 /* Extensions */,
+				C1AB4ECC260D3AAE00A8B889 /* StoreAndProductView.swift */,
+			);
+			path = StoreAndProductView;
+			sourceTree = "<group>";
+		};
+		C1AB4ED0260D52AB00A8B889 /* ProductCardView */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4EDE260D5EA000A8B889 /* YDProductCardView.swift */,
+			);
+			path = ProductCardView;
+			sourceTree = "<group>";
+		};
+		C1AB4F27260D851D00A8B889 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F28260D853800A8B889 /* Layouts */,
+				C1AB4F2D260D86F100A8B889 /* SegmentedControl */,
+				C1AB4F39260DA29A00A8B889 /* ScrollView */,
+				C1AB4F31260D8D5000A8B889 /* TableView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1AB4F28260D853800A8B889 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F29260D854800A8B889 /* StoreAndProductView+Layout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		C1AB4F2D260D86F100A8B889 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F2E260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		C1AB4F31260D8D5000A8B889 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F35260D92C100A8B889 /* Cell */,
+				C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		C1AB4F35260D92C100A8B889 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F36260D930500A8B889 /* StoreAndProductTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C1AB4F39260DA29A00A8B889 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */,
+			);
+			path = ScrollView;
 			sourceTree = "<group>";
 		};
 		C1CD8EF825C4609F00B83C8C /* ShimmerView */ = {
@@ -545,6 +630,7 @@
 				C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */,
 				C11248E725FFDBD700CE8D8A /* YDSegmentedControl.swift in Sources */,
 				C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */,
+				C1AB4F33260D8D7100A8B889 /* StoreAndProductView+TableView.swift in Sources */,
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
@@ -554,10 +640,16 @@
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
 				C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */,
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
+				C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */,
+				C1AB4F2A260D854800A8B889 /* StoreAndProductView+Layout.swift in Sources */,
+				C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */,
 				C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */,
 				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
+				C1AB4F2F260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
 				C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */,
+				C1AB4ECD260D3AAE00A8B889 /* StoreAndProductView.swift in Sources */,
+				C1AB4EDF260D5EA000A8B889 /* YDProductCardView.swift in Sources */,
 				C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */,
 				C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */,
 			);
