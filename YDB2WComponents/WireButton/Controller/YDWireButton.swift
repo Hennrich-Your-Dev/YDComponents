@@ -8,29 +8,22 @@
 import UIKit
 import YDExtensions
 
-public protocol YDWireButtonDelegate {
-  func onActionYDWireButton(_ button: UIButton)
-}
-
 public class YDWireButton: UIButton {
   // MARK: Properties
-  public var delegate: YDWireButtonDelegate?
+  public var callback: ((_ sender: UIButton) -> Void)?
+  private var title = ""
 
   // MARK: Init
-  public init() {
+  public init(withTitle title: String) {
     super.init(frame: .zero)
     heightAnchor.constraint(equalToConstant: 40).isActive = true
+    self.title = title
+
     setUpStyle()
   }
 
-  public override init(frame: CGRect) {
-    super.init(frame: frame)
-    setUpStyle()
-  }
-
-  public required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    setUpStyle()
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
   // MARK: Actions
@@ -38,24 +31,21 @@ public class YDWireButton: UIButton {
     layer.cornerRadius = 8
     layer.borderWidth = 1
     layer.borderColor = UIColor.Zeplin.redBranding.cgColor
-    setTitleColor(UIColor.Zeplin.redBranding, for: .normal)
 
-    if let title = titleLabel?.text {
-      let attributedString = NSAttributedString(
-        string: title,
-        attributes: [
-          NSAttributedString.Key.foregroundColor: UIColor.Zeplin.redBranding,
-          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
-        ]
-      )
+    let attributedString = NSAttributedString(
+      string: self.title,
+      attributes: [
+        NSAttributedString.Key.foregroundColor: UIColor.Zeplin.redBranding,
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+      ]
+    )
 
-      setAttributedTitle(attributedString, for: .normal)
-    }
+    setAttributedTitle(attributedString, for: .normal)
 
     addTarget(self, action: #selector(onButtonAction), for: .touchUpInside)
   }
 
   @objc func onButtonAction(_ sender: UIButton) {
-    delegate?.onActionYDWireButton(sender)
+    callback?(sender)
   }
 }
