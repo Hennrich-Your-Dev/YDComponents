@@ -10,8 +10,9 @@ import UIKit
 import YDB2WAssets
 import YDExtensions
 
-public class PopOverMessage: UIViewController {
+public class YDPopOverMessage: UIViewController {
   // MARK: Properties
+  var timer: Timer?
 
   // MARK: Components
   let container = UIView()
@@ -29,7 +30,7 @@ public class PopOverMessage: UIViewController {
     let topViewController = UIApplication.shared.keyWindow?
       .rootViewController?.topMostViewController()
 
-    let viewController = PopOverMessage()
+    let viewController = YDPopOverMessage()
 
     if let icon = icon {
       viewController.iconImageView.image = icon
@@ -37,13 +38,22 @@ public class PopOverMessage: UIViewController {
 
     viewController.messageLabel.text = message
 
-    viewController.modalPresentationStyle = .popover
-    topViewController?.present(viewController, animated: true)
+    viewController.modalPresentationStyle = .overCurrentContext
+    topViewController?.present(viewController, animated: true, completion: {
+      viewController.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+        viewController.dismiss(animated: true)
+      })
+    })
+  }
+
+  @objc private func onTapAction() {
+    timer?.invalidate()
+    dismiss(animated: true)
   }
 }
 
 // MARK: Layout
-extension PopOverMessage {
+extension YDPopOverMessage {
   private func setUpLayout() {
     createContainer()
     createBlur()
@@ -62,6 +72,10 @@ extension PopOverMessage {
       container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       container.widthAnchor.constraint(equalToConstant: 216)
     ])
+
+    container.addGestureRecognizer(
+      UITapGestureRecognizer(target: self, action: #selector(onTapAction))
+    )
   }
 
   private func createBlur() {
@@ -86,7 +100,7 @@ extension PopOverMessage {
     iconImageView.image = Icons.circleDone
     container.addSubview(iconImageView)
 
-    iconImageView.translatesAutoresizingMaskIntoConstraints = true
+    iconImageView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       iconImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 32),
       iconImageView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
