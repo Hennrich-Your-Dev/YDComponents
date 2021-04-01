@@ -30,15 +30,15 @@ public class YDWireButton: UIButton {
 
   // MARK: Actions
   public func setUpStyle() {
-    layer.cornerRadius = 8
-    layer.borderWidth = 1
+    layer.cornerRadius = 4
+    layer.borderWidth = 1.5
     layer.borderColor = UIColor.Zeplin.redBranding.cgColor
 
     let attributedString = NSAttributedString(
       string: self.title,
       attributes: [
         NSAttributedString.Key.foregroundColor: UIColor.Zeplin.redBranding,
-        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)
       ]
     )
 
