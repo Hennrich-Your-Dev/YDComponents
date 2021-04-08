@@ -312,8 +312,8 @@
 		C18E4A16260CC670008A0ABD /* StoreNameAddressView */ = {
 			isa = PBXGroup;
 			children = (
-				C1FA683C261E55670063C21E /* Extensions */,
 				C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */,
+				C1FA683C261E55670063C21E /* Extensions */,
 			);
 			path = StoreNameAddressView;
 			sourceTree = "<group>";
@@ -321,8 +321,8 @@
 		C1AB4ECB260D3A5B00A8B889 /* StoreAndProductView */ = {
 			isa = PBXGroup;
 			children = (
-				C1AB4F27260D851D00A8B889 /* Extensions */,
 				C1AB4ECC260D3AAE00A8B889 /* StoreAndProductView.swift */,
+				C1AB4F27260D851D00A8B889 /* Extensions */,
 			);
 			path = StoreAndProductView;
 			sourceTree = "<group>";
