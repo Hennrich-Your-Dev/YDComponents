@@ -14,7 +14,7 @@ public class YDOfflineOrdersProduct: Decodable {
   public var howMany: Int = 1
   public var ean: String?
   public var totalPrice: Double
-  public var product: YDProduct?
+  public var products: YDProductOnlineOffline?
 
   // MARK: Computed variables
   public var formatedPrice: String? {
@@ -22,11 +22,11 @@ public class YDOfflineOrdersProduct: Decodable {
   }
 
   public var image: String? {
-    return product?.image
+    return products?.online?.images?.first?.medium
   }
 
   public var name: String? {
-    return product?.name ?? self.item
+    return products?.online?.name ?? self.item
   }
 
   // MARK: Coding Keys

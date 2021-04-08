@@ -30,6 +30,8 @@
 		C1AB4F33260D8D7100A8B889 /* StoreAndProductView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */; };
 		C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F36260D930500A8B889 /* StoreAndProductTableViewCell.swift */; };
 		C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */; };
+		C1B93A64261F415B00E0F4A5 /* YDProductCardView+UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B93A63261F415B00E0F4A5 /* YDProductCardView+UIState.swift */; };
+		C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */; };
 		C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */; };
 		C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7BF992564162B008F747A /* YDAnimationBlock.swift */; };
 		C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */; };
@@ -37,6 +39,9 @@
 		C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7C11E2564786F008F747A /* YDDialogViewController.swift */; };
 		C1E7C123256478DC008F747A /* YDDialogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E7C122256478DC008F747A /* YDDialogViewController.storyboard */; };
 		C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F3F8FC2565A77D000B56F7 /* YDTextView.swift */; };
+		C1FA682B261E4E130063C21E /* YDStoreAndProductView+UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA682A261E4E130063C21E /* YDStoreAndProductView+UIState.swift */; };
+		C1FA6840261E55940063C21E /* YDStoreNameAddressView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA683F261E55940063C21E /* YDStoreNameAddressView+Layouts.swift */; };
+		C1FA6843261E56550063C21E /* YDStoreNameAddressView+UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA6842261E56550063C21E /* YDStoreNameAddressView+UIState.swift */; };
 		C1FC70F32541D4010036AFD7 /* YDMessageField.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FC70F22541D4010036AFD7 /* YDMessageField.xib */; };
 		C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70F62541D4330036AFD7 /* YDMessageField.swift */; };
 		C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */; };
@@ -70,6 +75,8 @@
 		C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+TableView.swift"; sourceTree = "<group>"; };
 		C1AB4F36260D930500A8B889 /* StoreAndProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAndProductTableViewCell.swift; sourceTree = "<group>"; };
 		C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+ScrollView.swift"; sourceTree = "<group>"; };
+		C1B93A63261F415B00E0F4A5 /* YDProductCardView+UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDProductCardView+UIState.swift"; sourceTree = "<group>"; };
+		C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDProductCardView+Layouts.swift"; sourceTree = "<group>"; };
 		C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDShimmerView.swift; sourceTree = "<group>"; };
 		C1E7BF992564162B008F747A /* YDAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAnimationBlock.swift; sourceTree = "<group>"; };
 		C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -77,6 +84,9 @@
 		C1E7C11E2564786F008F747A /* YDDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDDialogViewController.swift; sourceTree = "<group>"; };
 		C1E7C122256478DC008F747A /* YDDialogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDDialogViewController.storyboard; sourceTree = "<group>"; };
 		C1F3F8FC2565A77D000B56F7 /* YDTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDTextView.swift; sourceTree = "<group>"; };
+		C1FA682A261E4E130063C21E /* YDStoreAndProductView+UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDStoreAndProductView+UIState.swift"; sourceTree = "<group>"; };
+		C1FA683F261E55940063C21E /* YDStoreNameAddressView+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDStoreNameAddressView+Layouts.swift"; sourceTree = "<group>"; };
+		C1FA6842261E56550063C21E /* YDStoreNameAddressView+UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDStoreNameAddressView+UIState.swift"; sourceTree = "<group>"; };
 		C1FC70F22541D4010036AFD7 /* YDMessageField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDMessageField.xib; sourceTree = "<group>"; };
 		C1FC70F62541D4330036AFD7 /* YDMessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageField.swift; sourceTree = "<group>"; };
 		C1FC70FC2541EC080036AFD7 /* YDMessageFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageFieldDelegate.swift; sourceTree = "<group>"; };
@@ -302,6 +312,7 @@
 		C18E4A16260CC670008A0ABD /* StoreNameAddressView */ = {
 			isa = PBXGroup;
 			children = (
+				C1FA683C261E55670063C21E /* Extensions */,
 				C18E4A17260CC6B2008A0ABD /* YDStoreNameAddressView.swift */,
 			);
 			path = StoreNameAddressView;
@@ -319,6 +330,7 @@
 		C1AB4ED0260D52AB00A8B889 /* ProductCardView */ = {
 			isa = PBXGroup;
 			children = (
+				C1B93A61261F414100E0F4A5 /* Extensions */,
 				C1AB4EDE260D5EA000A8B889 /* YDProductCardView.swift */,
 			);
 			path = ProductCardView;
@@ -331,6 +343,7 @@
 				C1AB4F2D260D86F100A8B889 /* SegmentedControl */,
 				C1AB4F39260DA29A00A8B889 /* ScrollView */,
 				C1AB4F31260D8D5000A8B889 /* TableView */,
+				C1FA6829261E4DEF0063C21E /* UIState */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +387,31 @@
 				C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		C1B93A61261F414100E0F4A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1B93A66261F428F00E0F4A5 /* Layouts */,
+				C1B93A62261F414900E0F4A5 /* UIState */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1B93A62261F414900E0F4A5 /* UIState */ = {
+			isa = PBXGroup;
+			children = (
+				C1B93A63261F415B00E0F4A5 /* YDProductCardView+UIState.swift */,
+			);
+			path = UIState;
+			sourceTree = "<group>";
+		};
+		C1B93A66261F428F00E0F4A5 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		C1CD8EF825C4609F00B83C8C /* ShimmerView */ = {
@@ -458,6 +496,39 @@
 				C1F3F8FC2565A77D000B56F7 /* YDTextView.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C1FA6829261E4DEF0063C21E /* UIState */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA682A261E4E130063C21E /* YDStoreAndProductView+UIState.swift */,
+			);
+			path = UIState;
+			sourceTree = "<group>";
+		};
+		C1FA683C261E55670063C21E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA683D261E556D0063C21E /* Layouts */,
+				C1FA683E261E55720063C21E /* UIState */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1FA683D261E556D0063C21E /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA683F261E55940063C21E /* YDStoreNameAddressView+Layouts.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		C1FA683E261E55720063C21E /* UIState */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA6842261E56550063C21E /* YDStoreNameAddressView+UIState.swift */,
+			);
+			path = UIState;
 			sourceTree = "<group>";
 		};
 		C1FC70B62541C2B80036AFD7 /* View */ = {
@@ -633,17 +704,22 @@
 				C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */,
 				C11248E725FFDBD700CE8D8A /* YDSegmentedControl.swift in Sources */,
 				C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */,
+				C1B93A64261F415B00E0F4A5 /* YDProductCardView+UIState.swift in Sources */,
+				C1FA6840261E55940063C21E /* YDStoreNameAddressView+Layouts.swift in Sources */,
 				C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */,
 				C1AB4F33260D8D7100A8B889 /* StoreAndProductView+TableView.swift in Sources */,
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
+				C1FA6843261E56550063C21E /* YDStoreNameAddressView+UIState.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
 				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
 				C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */,
+				C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */,
 				C12418D325879724006227D6 /* YDErrorView.swift in Sources */,
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
 				C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */,
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
+				C1FA682B261E4E130063C21E /* YDStoreAndProductView+UIState.swift in Sources */,
 				C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */,
 				C1AB4F2A260D854800A8B889 /* StoreAndProductView+Layout.swift in Sources */,
 				C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */,
