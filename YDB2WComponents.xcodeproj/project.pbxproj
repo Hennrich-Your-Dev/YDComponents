@@ -144,10 +144,10 @@
 				C18E4A16260CC670008A0ABD /* StoreNameAddressView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
+				C1AB4ED0260D52AB00A8B889 /* ProductCardView */,
 				C11248E425FFDAE400CE8D8A /* SegmentedControl */,
 				C1CD8EF825C4609F00B83C8C /* ShimmerView */,
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
-				C1AB4ED0260D52AB00A8B889 /* ProductCardView */,
 				C1F3F8FA2565A6E0000B56F7 /* TextView */,
 				C183CE6125B0875000B4F675 /* UserProfile */,
 				C183E2B0256DA2FD005427B1 /* WireButton */,
@@ -330,8 +330,8 @@
 		C1AB4ED0260D52AB00A8B889 /* ProductCardView */ = {
 			isa = PBXGroup;
 			children = (
-				C1B93A61261F414100E0F4A5 /* Extensions */,
 				C1AB4EDE260D5EA000A8B889 /* YDProductCardView.swift */,
+				C1B93A61261F414100E0F4A5 /* Extensions */,
 			);
 			path = ProductCardView;
 			sourceTree = "<group>";
@@ -367,8 +367,8 @@
 		C1AB4F31260D8D5000A8B889 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				C1AB4F35260D92C100A8B889 /* Cell */,
 				C1AB4F32260D8D7100A8B889 /* StoreAndProductView+TableView.swift */,
+				C1AB4F35260D92C100A8B889 /* Cell */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
