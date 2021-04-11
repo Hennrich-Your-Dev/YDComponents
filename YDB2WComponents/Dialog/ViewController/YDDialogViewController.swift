@@ -44,13 +44,7 @@ class YDDialogViewController: UIViewController {
 
   @IBOutlet weak var descriptionLabel: UILabel!
 
-  @IBOutlet weak var actionButton: UIButton! {
-    didSet {
-      actionButton.layer.borderWidth = 1
-      actionButton.layer.borderColor = UIColor.Zeplin.colorPrimaryLight.cgColor
-      actionButton.layer.cornerRadius = 4
-    }
-  }
+  @IBOutlet weak var actionButton: YDWireButton!
 
   @IBOutlet weak var cancelButton: UIButton!
 
@@ -87,6 +81,7 @@ class YDDialogViewController: UIViewController {
 
     if let customCancelButton = customCancelButton {
       cancelButton.setTitle(customCancelButton, for: .normal)
+      cancelButton.isHidden = false
     }
   }
 
