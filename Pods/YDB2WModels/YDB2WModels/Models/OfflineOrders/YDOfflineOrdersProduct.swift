@@ -14,7 +14,14 @@ public class YDOfflineOrdersProduct: Decodable {
   public var howMany: Int = 1
   public var ean: String?
   public var totalPrice: Double
-  public var products: YDProductOnlineOffline?
+  public var products: YDProductOnlineOffline? {
+    didSet {
+      products?.online?.ean = ean
+      products?.offline?.ean = ean
+      products?.offline?.name = products?.offline?.name ?? item
+      products?.offline?.price = products?.offline?.price ?? totalPrice
+    }
+  }
 
   // MARK: Computed variables
   public var formatedPrice: String? {
@@ -26,7 +33,9 @@ public class YDOfflineOrdersProduct: Decodable {
   }
 
   public var name: String? {
-    return products?.online?.name ?? self.item
+    return products?.online?.name ??
+      products?.offline?.name ??
+      self.item
   }
 
   // MARK: Coding Keys

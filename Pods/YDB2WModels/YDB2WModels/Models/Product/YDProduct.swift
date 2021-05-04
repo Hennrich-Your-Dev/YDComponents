@@ -14,6 +14,7 @@ public class YDProduct: Codable {
   public var attributes: [YDProductAttributesContainer]?
   public var description: String?
   public var id: String?
+  public var ean: String?
   public var images: [YDProductImage]?
   public var name: String?
   public var price: Double?
@@ -31,18 +32,20 @@ public class YDProduct: Codable {
 
   // MARK: Init
   public init(
-    attributes: [YDProductAttributesContainer]?,
-    description: String?,
-    id: String?,
-    images: [YDProductImage]?,
-    name: String?,
-    price: Double?,
-    rating: YDProductRating?,
+    attributes: [YDProductAttributesContainer]? = nil,
+    description: String? = nil,
+    id: String? = nil,
+    ean: String? = nil,
+    images: [YDProductImage]? = nil,
+    name: String? = nil,
+    price: Double? = nil,
+    rating: YDProductRating? = nil,
     isAvailable: Bool = true
   ) {
     self.attributes = attributes
     self.description = description
     self.id = id
+    self.ean = ean
     self.images = images
     self.name = name
     self.price = price
@@ -90,36 +93,46 @@ public class YDProduct: Codable {
 
     isAvailable = true
   }
+
+  public init(empty: Bool) {
+    self.attributes = nil
+    self.description = nil
+    self.id = nil
+    self.images = nil
+    self.name = nil
+    self.price = nil
+    self.rating = nil
+    self.isAvailable = false
+  }
 }
 
 // MARK: Extensions
 extension YDProduct {
   public func getHtmlDescription() -> NSMutableAttributedString? {
-    guard let description = description?.data(using: .utf8) else { return nil }
+    guard let description = description,
+          let attributed = description.htmlAttributed(
+            family: "-apple-system",
+            size: 12
+          )
 
-    do {
-      let attributedString = try NSMutableAttributedString(
-        data: description,
-        options: [
-          .documentType: NSAttributedString.DocumentType.html,
-          .characterEncoding: String.Encoding.utf8.rawValue
-        ],
-        documentAttributes: nil
-      )
+    else { return nil }
 
-      let paragraphStyle = NSMutableParagraphStyle()
-      paragraphStyle.lineSpacing = 3
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = 3
 
-      attributedString.addAttribute(
-        NSAttributedString.Key.paragraphStyle,
-        value: paragraphStyle,
-        range: NSRange(location: 0, length: attributedString.length)
-      )
+    attributed.addAttribute(
+      NSAttributedString.Key.paragraphStyle,
+      value: paragraphStyle,
+      range: NSRange(location: 0, length: attributed.length)
+    )
 
-      return attributedString
-    } catch {
-      return NSMutableAttributedString()
-    }
+    attributed.addAttribute(
+      NSAttributedString.Key.foregroundColor,
+      value: UIColor.Zeplin.grayLight,
+      range: NSRange(location: 0, length: attributed.length)
+    )
+
+    return attributed
   }
 
   public func getTechnicalInformation() -> [YDProductAttributes] {
