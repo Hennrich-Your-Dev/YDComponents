@@ -118,6 +118,9 @@ extension YDStoreAndProductView {
     tableView.dataSource = self
     tableView.rowHeight = UITableView.automaticDimension
     tableView.isHidden = true
+    tableView.tableHeaderView = UIView(
+      frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 16)
+    )
     addSubview(tableView)
 
     tableView.translatesAutoresizingMaskIntoConstraints = false
