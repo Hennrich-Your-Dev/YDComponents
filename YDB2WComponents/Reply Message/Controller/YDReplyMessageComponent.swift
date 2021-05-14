@@ -69,9 +69,10 @@ public class YDReplyMessageComponent: UIView {
 
       self.leadingContainerConstraint.constant = 0
       self.trailingMessageConstraint.constant = -60
-      self.leftView.layer.cornerRadius = 0
+      self.container.layer.cornerRadius = 0
       self.arrowIcon.isHidden = true
       self.actionButton.isHidden = false
+      self.layoutIfNeeded()
     }
   }
 
@@ -81,10 +82,11 @@ public class YDReplyMessageComponent: UIView {
 
       self.leadingContainerConstraint.constant = 44
       self.trailingMessageConstraint.constant = -6
-      self.leftView.layer.maskedCorners = [.layerMinXMinYCorner]
-      self.leftView.layer.cornerRadius = 8
+      self.container.layer.maskedCorners = [.layerMinXMinYCorner]
+      self.container.layer.cornerRadius = 8
       self.arrowIcon.isHidden = false
       self.actionButton.isHidden = true
+      self.layoutIfNeeded()
     }
   }
 }

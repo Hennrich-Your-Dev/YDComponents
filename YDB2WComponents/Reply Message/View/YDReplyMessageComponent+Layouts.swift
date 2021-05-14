@@ -18,6 +18,7 @@ extension YDReplyMessageComponent {
 
     configureContainerView()
     configureLeftView()
+    configureUsernameLabel()
     configureActionButton()
     configureMessageLabel()
     configureArrowIcon()
@@ -26,6 +27,7 @@ extension YDReplyMessageComponent {
   // Container
   func configureContainerView() {
     addSubview(container)
+    container.backgroundColor = Zeplin.redPale
     container.layer.masksToBounds = true
 
     container.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +67,10 @@ extension YDReplyMessageComponent {
       usernameLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
     ])
     usernameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+    usernameLabel.setContentCompressionResistancePriority(
+      .defaultHigh,
+      for: .horizontal
+    )
   }
 
   // Message label
@@ -79,10 +85,14 @@ extension YDReplyMessageComponent {
     trailingMessageConstraint.isActive = true
     NSLayoutConstraint.activate([
       messageLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 6),
-      messageLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: 10),
+//      messageLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: 10),
       messageLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
     ])
     messageLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+    messageLabel.setContentCompressionResistancePriority(
+      .defaultLow,
+      for: .horizontal
+    )
   }
 
   // Action button
@@ -112,10 +122,13 @@ extension YDReplyMessageComponent {
 
     arrowIcon.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      arrowIcon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-      arrowIcon.bottomAnchor.constraint(equalTo: bottomAnchor),
-      arrowIcon.widthAnchor.constraint(equalToConstant: 24),
-      arrowIcon.heightAnchor.constraint(equalToConstant: 24)
+      arrowIcon.trailingAnchor.constraint(
+        equalTo: container.leadingAnchor,
+        constant: -8
+      ),
+      arrowIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
+      arrowIcon.widthAnchor.constraint(equalToConstant: 28),
+      arrowIcon.heightAnchor.constraint(equalToConstant: 28)
     ])
   }
 }
