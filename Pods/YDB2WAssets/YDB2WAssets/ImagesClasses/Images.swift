@@ -31,6 +31,8 @@ public class Icons {
   
   public static let circleUser = UIImage(named: "iconCircleUser", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let curvedRightArrow = UIImage(named: "iconCurvedRightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
   public static let exclamation = UIImage(named: "iconExclamation", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let gps = UIImage(named: "gps-icon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)

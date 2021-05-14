@@ -32,6 +32,8 @@
 		C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */; };
 		C1B93A64261F415B00E0F4A5 /* YDProductCardView+UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B93A63261F415B00E0F4A5 /* YDProductCardView+UIState.swift */; };
 		C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */; };
+		C1C3894B264DF6C4002A12C0 /* YDReplyMessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3894A264DF6C4002A12C0 /* YDReplyMessageComponent.swift */; };
+		C1C3894D264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3894C264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift */; };
 		C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */; };
 		C1E7BF9A2564162B008F747A /* YDAnimationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7BF992564162B008F747A /* YDAnimationBlock.swift */; };
 		C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */; };
@@ -77,6 +79,8 @@
 		C1AB4F3A260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreAndProductView+ScrollView.swift"; sourceTree = "<group>"; };
 		C1B93A63261F415B00E0F4A5 /* YDProductCardView+UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDProductCardView+UIState.swift"; sourceTree = "<group>"; };
 		C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDProductCardView+Layouts.swift"; sourceTree = "<group>"; };
+		C1C3894A264DF6C4002A12C0 /* YDReplyMessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDReplyMessageComponent.swift; sourceTree = "<group>"; };
+		C1C3894C264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDReplyMessageComponent+Layouts.swift"; sourceTree = "<group>"; };
 		C1CD8EF925C460B700B83C8C /* YDShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDShimmerView.swift; sourceTree = "<group>"; };
 		C1E7BF992564162B008F747A /* YDAnimationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDAnimationBlock.swift; sourceTree = "<group>"; };
 		C1E7C114256474CA008F747A /* YDDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		C10399232541C0C900FF6CAD /* YDB2WComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C1C38947264DF68A002A12C0 /* Reply Message */,
 				C158CD602616243000A9A370 /* PopOverMessage */,
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C1E7C11225647431008F747A /* Dialog */,
@@ -412,6 +417,31 @@
 				C1B93A67261F42E700E0F4A5 /* YDProductCardView+Layouts.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		C1C38947264DF68A002A12C0 /* Reply Message */ = {
+			isa = PBXGroup;
+			children = (
+				C1C38949264DF6A9002A12C0 /* Controller */,
+				C1C38948264DF6A4002A12C0 /* View */,
+			);
+			path = "Reply Message";
+			sourceTree = "<group>";
+		};
+		C1C38948264DF6A4002A12C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1C3894C264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1C38949264DF6A9002A12C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C1C3894A264DF6C4002A12C0 /* YDReplyMessageComponent.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C1CD8EF825C4609F00B83C8C /* ShimmerView */ = {
@@ -726,7 +756,9 @@
 				C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */,
 				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
 				C1AB4F2F260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift in Sources */,
+				C1C3894B264DF6C4002A12C0 /* YDReplyMessageComponent.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
+				C1C3894D264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift in Sources */,
 				C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */,
 				C1AB4ECD260D3AAE00A8B889 /* StoreAndProductView.swift in Sources */,
 				C1AB4EDF260D5EA000A8B889 /* YDProductCardView.swift in Sources */,
