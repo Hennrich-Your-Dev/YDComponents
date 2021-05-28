@@ -85,7 +85,6 @@ extension YDReplyMessageComponent {
     trailingMessageConstraint.isActive = true
     NSLayoutConstraint.activate([
       messageLabel.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: 6),
-//      messageLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: 10),
       messageLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
     ])
     messageLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)

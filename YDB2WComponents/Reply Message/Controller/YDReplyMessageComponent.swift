@@ -7,6 +7,8 @@
 
 import UIKit
 
+import YDB2WModels
+
 public class YDReplyMessageComponent: UIView {
   // MARK: Enum
   public enum Stage {
@@ -50,9 +52,9 @@ public class YDReplyMessageComponent: UIView {
   }
 
   // MARK: Actions
-  public func configure() {
-    usernameLabel.text = "Marcela"
-    messageLabel.text = .loremIpsum()
+  public func configure(with messageComponent: YDChatMessage) {
+    usernameLabel.text = messageComponent.sender.name
+    messageLabel.text = messageComponent.message
   }
 
   @objc func onActionButton() {
