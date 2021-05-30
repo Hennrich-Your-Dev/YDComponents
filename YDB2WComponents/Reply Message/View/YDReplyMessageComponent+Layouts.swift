@@ -12,9 +12,9 @@ import YDB2WAssets
 
 extension YDReplyMessageComponent {
   func configureLayout() {
-    backgroundColor = UIColor.Zeplin.white
+    backgroundColor = .clear
     translatesAutoresizingMaskIntoConstraints = false
-    heightAnchor.constraint(equalToConstant: 34).isActive = true
+    clipsToBounds = true
 
     configureContainerView()
     configureLeftView()
