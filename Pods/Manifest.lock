@@ -16,22 +16,22 @@ PODS:
   - libwebp/mux (1.2.0):
     - libwebp/demux
   - libwebp/webp (1.2.0)
-  - YDB2WAssets (1.0.40)
-  - YDB2WModels (1.1.42):
-    - YDExtensions (~> 1.0.42)
-    - YDUtilities (~> 1.1.0)
-  - YDExtensions (1.0.58):
+  - YDB2WAssets (1.4.0)
+  - YDB2WModels (1.4.0):
+    - YDExtensions (~> 1.4.0)
+    - YDUtilities (~> 1.4.0)
+  - YDExtensions (1.4.0):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
-  - YDUtilities (1.1.1):
+  - YDUtilities (1.4.0):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
   - Cosmos
-  - YDB2WAssets (~> 1.0.33)
-  - YDB2WModels (~> 1.1.0)
-  - YDExtensions (~> 1.0.42)
-  - YDUtilities (~> 1.1.0)
+  - YDB2WAssets (~> 1.4.0)
+  - YDB2WModels (~> 1.4.0)
+  - YDExtensions (~> 1.4.0)
+  - YDUtilities (~> 1.4.0)
 
 SPEC REPOS:
   "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
@@ -52,11 +52,11 @@ SPEC CHECKSUMS:
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
-  YDB2WAssets: 3ae16150f796355c249fb75effb77415c10abc1d
-  YDB2WModels: 2a6e3b2746904cf00933acaa1a00d05f5fbc111b
-  YDExtensions: 91bc1929350818061bad1662b8a141802f6a500a
-  YDUtilities: 3085ab9236e8f51b4418092976dca1cfdc86f69d
+  YDB2WAssets: 193fe0067aad36f0f301b13e14a202f95eb9f62b
+  YDB2WModels: d350b5a2094f1388bf503bfe8633398e9e42d2db
+  YDExtensions: d2db8d24ca8bba7833f8dfed0d32a743c7a68f36
+  YDUtilities: 3a3b74ce2194b381c826977f7dd144d5a7f396c7
 
-PODFILE CHECKSUM: b0ba8a508d9a9ecd05b3a85b57976e94b1811657
+PODFILE CHECKSUM: 67b05cb698f5a7058bf02d679330b83922f07204
 
 COCOAPODS: 1.10.1

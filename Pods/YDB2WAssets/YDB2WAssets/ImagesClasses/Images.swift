@@ -88,6 +88,8 @@ public class Images {
 
   public static let storePin = UIImage(named: "storePin", in: podsBundle, compatibleWith: nil)
 
+  public static let storePinFaded = UIImage(named: "storePinFaded", in: podsBundle, compatibleWith: nil)
+
   public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
 
   public static let starGrey = UIImage(named: "starGrey", in: podsBundle, compatibleWith: nil)

@@ -3,7 +3,7 @@
 ####
 Pod::Spec.new do |spec|
   spec.name         = "YDB2WComponents"
-  spec.version      = "1.1.28"
+  spec.version      = "1.4.0"
   spec.summary      = "A short description of YDB2WComponents."
   spec.homepage     = "http://EXAMPLE/YDB2WComponents"
   spec.license          = "MIT"
@@ -17,8 +17,8 @@ Pod::Spec.new do |spec|
 
   spec.dependency "Cosmos"
 
-  spec.dependency "YDExtensions", "~> 1.0.42"
-  spec.dependency "YDB2WAssets", "~> 1.0.33"
-  spec.dependency "YDUtilities", "~> 1.1.0"
-  spec.dependency "YDB2WModels", "~> 1.1.0"
+  spec.dependency "YDExtensions", "~> 1.4.0"
+  spec.dependency "YDB2WAssets", "~> 1.4.0"
+  spec.dependency "YDUtilities", "~> 1.4.0"
+  spec.dependency "YDB2WModels", "~> 1.4.0"
 end

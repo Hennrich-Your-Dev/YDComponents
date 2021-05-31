@@ -7,16 +7,9 @@
 
 import Foundation
 
-// MARK: Delegate
-public protocol YDSpaceyComponentDelegate: Decodable {
-  var id: String? { get set }
-  var children: [YDSpaceyComponentsTypes] { get set }
-  var type: YDSpaceyComponentsTypes.Types { get set }
-}
-
 public class YDSpaceyCommonStruct: Decodable {
-  public let id: String?
-  public let component: YDSpaceyComponentDelegate?
+  public var id: String?
+  public var component: YDSpaceyComponentDelegate?
 
   enum CodingKeys: String, CodingKey {
     case id = "_id"
@@ -53,6 +46,13 @@ public class YDSpaceyCommonStruct: Decodable {
     if let productsCarrousel = try? container.decode(YDSpaceyComponentCarrouselProduct.self, forKey: .component),
        productsCarrousel.type == .productCarrousel {
       component = productsCarrousel
+      return
+    }
+
+    // NPS
+    if let nps = try? container.decode(YDSpaceyComponentNPS.self, forKey: .component),
+       nps.type == .nps {
+      component = nps
       return
     }
 
