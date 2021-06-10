@@ -9,7 +9,11 @@ import UIKit
 
 public class YDWireButtonViewCell: UICollectionViewCell {
   // MARK: Properties
-  public var callback: ((UIButton) -> Void)?
+  public var callback: ((UIButton) -> Void)? {
+    didSet {
+      button.callback = callback
+    }
+  }
 
   // MARK: Components
   lazy var width: NSLayoutConstraint = {
@@ -29,6 +33,22 @@ public class YDWireButtonViewCell: UICollectionViewCell {
 
   public required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+
+  public override func prepareForReuse() {
+    callback = nil
+    super.prepareForReuse()
+  }
+
+  public override func systemLayoutSizeFitting(
+    _ targetSize: CGSize,
+    withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+    verticalFittingPriority: UILayoutPriority
+  ) -> CGSize {
+    width.constant = bounds.size.width
+    return contentView.systemLayoutSizeFitting(
+      CGSize(width: targetSize.width, height: 1)
+    )
   }
 
   // MARK: Actions
