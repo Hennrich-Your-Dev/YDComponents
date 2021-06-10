@@ -10,6 +10,9 @@
 		69C13FE1158B77A587209B52 /* Pods_YDB2WComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EC3EDA5DFCF68EC9C363E4 /* Pods_YDB2WComponents.framework */; };
 		C10399262541C0C900FF6CAD /* YDB2WComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C10399242541C0C900FF6CAD /* YDB2WComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C11248E725FFDBD700CE8D8A /* YDSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */; };
+		C11757932671A393008A67BB /* YDCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11757922671A393008A67BB /* YDCountDownView.swift */; };
+		C11757962671A87A008A67BB /* YDCountDownComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11757952671A87A008A67BB /* YDCountDownComponentView.swift */; };
+		C117579826725433008A67BB /* YDCountDownViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117579726725433008A67BB /* YDCountDownViewCell.swift */; };
 		C11A378E255384CD00D85F29 /* YDLoginDialogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */; };
 		C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */; };
 		C11A3797255385F600D85F29 /* YDLoginDialogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */; };
@@ -57,6 +60,9 @@
 		C10399242541C0C900FF6CAD /* YDB2WComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDB2WComponents.h; sourceTree = "<group>"; };
 		C10399252541C0C900FF6CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSegmentedControl.swift; sourceTree = "<group>"; };
+		C11757922671A393008A67BB /* YDCountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCountDownView.swift; sourceTree = "<group>"; };
+		C11757952671A87A008A67BB /* YDCountDownComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCountDownComponentView.swift; sourceTree = "<group>"; };
+		C117579726725433008A67BB /* YDCountDownViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCountDownViewCell.swift; sourceTree = "<group>"; };
 		C11A378D255384CD00D85F29 /* YDLoginDialogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDLoginDialogViewController.storyboard; sourceTree = "<group>"; };
 		C11A3791255384F800D85F29 /* YDLoginDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewController.swift; sourceTree = "<group>"; };
 		C11A3796255385F600D85F29 /* YDLoginDialogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogCoordinator.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E7BF9325641299008F747A /* AnimationBlock */,
+				C11757912671A35C008A67BB /* CountDownView */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
@@ -168,6 +175,24 @@
 				C11248E625FFDBD700CE8D8A /* YDSegmentedControl.swift */,
 			);
 			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		C11757912671A35C008A67BB /* CountDownView */ = {
+			isa = PBXGroup;
+			children = (
+				C11757942671A7C2008A67BB /* Custom Views */,
+				C11757922671A393008A67BB /* YDCountDownView.swift */,
+				C117579726725433008A67BB /* YDCountDownViewCell.swift */,
+			);
+			path = CountDownView;
+			sourceTree = "<group>";
+		};
+		C11757942671A7C2008A67BB /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				C11757952671A87A008A67BB /* YDCountDownComponentView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		C11A37892553765300D85F29 /* LoginDialog */ = {
@@ -744,6 +769,7 @@
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
 				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
 				C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */,
+				C11757962671A87A008A67BB /* YDCountDownComponentView.swift in Sources */,
 				C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */,
 				C12418D325879724006227D6 /* YDErrorView.swift in Sources */,
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
@@ -751,6 +777,7 @@
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
 				C1FA682B261E4E130063C21E /* YDStoreAndProductView+UIState.swift in Sources */,
 				C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */,
+				C117579826725433008A67BB /* YDCountDownViewCell.swift in Sources */,
 				C1AB4F2A260D854800A8B889 /* StoreAndProductView+Layout.swift in Sources */,
 				C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */,
 				C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */,
@@ -764,6 +791,7 @@
 				C1AB4EDF260D5EA000A8B889 /* YDProductCardView.swift in Sources */,
 				C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */,
 				C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */,
+				C11757932671A393008A67BB /* YDCountDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
