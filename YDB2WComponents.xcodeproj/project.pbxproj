@@ -180,9 +180,9 @@
 		C11757912671A35C008A67BB /* CountDownView */ = {
 			isa = PBXGroup;
 			children = (
-				C11757942671A7C2008A67BB /* Custom Views */,
 				C11757922671A393008A67BB /* YDCountDownView.swift */,
 				C117579726725433008A67BB /* YDCountDownViewCell.swift */,
+				C11757942671A7C2008A67BB /* Custom Views */,
 			);
 			path = CountDownView;
 			sourceTree = "<group>";

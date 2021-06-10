@@ -12,6 +12,7 @@ import YDB2WModels
 public class YDCountDownView: UIView {
   // MARK: Components
   let titleLabel = UILabel()
+  let vStackView = UIStackView()
   let stackView = UIStackView()
   let daysView = YDCountDownComponentView(description: "dias")
   let hoursView = YDCountDownComponentView(description: "horas")
@@ -50,7 +51,7 @@ extension YDCountDownView {
     titleLabel.textColor = Zeplin.black
     titleLabel.font = .boldSystemFont(ofSize: 14)
     titleLabel.textAlignment = .center
-    titleLabel.text = "A live já vai começar, não sai do lugar!"
+    titleLabel.text = "ei, a próxima live começa em:"
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -62,24 +63,29 @@ extension YDCountDownView {
   }
 
   private func configureStackView() {
-    addSubview(stackView)
+    addSubview(vStackView)
+    vStackView.alignment = .center
+    vStackView.axis = .vertical
+
+    vStackView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      vStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+      vStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      vStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      vStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+    ])
+
+    vStackView.addArrangedSubview(stackView)
     stackView.alignment = .center
     stackView.axis = .horizontal
     stackView.spacing = 8
-    stackView.distribution = .equalCentering
-
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-      stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 20)
-    ])
+    stackView.distribution = .fillProportionally
 
     //
+    let firstDots = createSeparatorDots()
     let views = [
       daysView,
-      createSeparatorDots(),
+      firstDots,
       hoursView,
       createSeparatorDots(),
       minutesView,
@@ -90,11 +96,22 @@ extension YDCountDownView {
     views.forEach { stackView.addArrangedSubview($0) }
   }
 
-  private func createSeparatorDots() -> UILabel {
+  private func createSeparatorDots() -> UIView {
+    let container = UIView()
     let dots = UILabel()
-    dots.textColor = Zeplin.grayNight
+    container.addSubview(dots)
+    dots.textColor = Zeplin.grayLight
     dots.font = .boldSystemFont(ofSize: 20)
     dots.text = ":"
-    return dots
+
+    dots.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      dots.topAnchor.constraint(equalTo: container.topAnchor, constant: -10),
+      dots.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 2),
+      dots.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -2),
+      dots.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10)
+    ])
+
+    return container
   }
 }
