@@ -8,7 +8,7 @@
 import UIKit
 import YDB2WModels
 
-class YDSpaceyCardViewCell: UICollectionViewCell {
+public class YDSpaceyCardViewCell: UICollectionViewCell {
   // MARK: Components
   lazy var width: NSLayoutConstraint = {
     let width = contentView.widthAnchor
@@ -18,7 +18,7 @@ class YDSpaceyCardViewCell: UICollectionViewCell {
   }()
   let topCardView = YDSpaceyCardView()
   let behindCardView = YDSpaceyCardView()
-  
+
   // MARK: Init
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -30,7 +30,7 @@ class YDSpaceyCardViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func prepareForReuse() {
+  public override func prepareForReuse() {
     super.prepareForReuse()
     topCardView.cleanUpCard()
   }

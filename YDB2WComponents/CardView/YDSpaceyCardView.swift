@@ -23,6 +23,7 @@ public class YDSpaceyCardView: UIView {
   // MARK: Init
   public init() {
     super.init(frame: .zero)
+    translatesAutoresizingMaskIntoConstraints = false
     backgroundColor = .white
     layer.cornerRadius = 8
     layer.applyShadow(alpha: 0.08, y: 6, blur: 20, spread: -1)
@@ -125,14 +126,12 @@ extension YDSpaceyCardView {
       vStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
       vStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
       vStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      vStackView.heightAnchor.constraint(equalToConstant: 106),
       vStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
     ])
 
     vStackView.addArrangedSubview(stackView)
     stackView.alignment = .center
     stackView.axis = .horizontal
-    stackView.spacing = 32
-    stackView.distribution = .equalCentering
+    stackView.spacing = 16
   }
 }

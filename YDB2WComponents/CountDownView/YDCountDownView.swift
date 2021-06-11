@@ -108,7 +108,7 @@ extension YDCountDownView {
     let dots = UILabel()
     container.addSubview(dots)
     dots.textColor = Zeplin.grayLight
-    dots.font = .systemFont(ofSize: 20, weight: .black)
+    dots.font = .boldSystemFont(ofSize: 20)
     dots.text = ":"
 
     dots.translatesAutoresizingMaskIntoConstraints = false

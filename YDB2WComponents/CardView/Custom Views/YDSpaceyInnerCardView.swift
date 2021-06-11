@@ -14,6 +14,7 @@ class YDSpaceyInnerCardView: UIView {
   // MARK: Components
   let iconContainer = UIView()
   let iconImageView = UIImageView()
+  let titleContainer = UIView()
   let titleLabel = UILabel()
 
   // MARK: Init
@@ -22,7 +23,7 @@ class YDSpaceyInnerCardView: UIView {
     configureUI()
 
     titleLabel.text = card.title
-    
+
     if let icon = card.icon {
       iconImageView.image = icon
     }
@@ -71,7 +72,19 @@ extension YDSpaceyInnerCardView {
   }
 
   func configureTitleLabel() {
-    addSubview(titleLabel)
+    addSubview(titleContainer)
+    titleContainer.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      titleContainer.topAnchor.constraint(equalTo: iconContainer.bottomAnchor, constant: 12),
+      titleContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+      titleContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+      titleContainer.heightAnchor.constraint(equalToConstant: 24),
+      titleContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
+    ])
+    titleContainer.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+
+    //
+    titleContainer.addSubview(titleLabel)
     titleLabel.textColor = Zeplin.black
     titleLabel.font = .boldSystemFont(ofSize: 10)
     titleLabel.textAlignment = .center
@@ -79,11 +92,10 @@ extension YDSpaceyInnerCardView {
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      titleLabel.topAnchor.constraint(equalTo: iconContainer.bottomAnchor, constant: 12),
-      titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-      titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-      titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 14),
-      titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+      titleLabel.topAnchor.constraint(equalTo: titleContainer.topAnchor),
+      titleLabel.leadingAnchor.constraint(equalTo: titleContainer.leadingAnchor),
+      titleLabel.trailingAnchor.constraint(equalTo: titleContainer.trailingAnchor),
+      titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 12)
     ])
   }
 }

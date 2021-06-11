@@ -286,9 +286,9 @@
 		C134F7BD2672E76E00BF9858 /* CardView */ = {
 			isa = PBXGroup;
 			children = (
-				C134F7C02672FB2600BF9858 /* Custom Views */,
 				C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */,
 				C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */,
+				C134F7C02672FB2600BF9858 /* Custom Views */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
