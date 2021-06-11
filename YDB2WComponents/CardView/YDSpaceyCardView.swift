@@ -58,8 +58,9 @@ public class YDSpaceyCardView: UIView {
     callback?(nil)
   }
 
-  @objc func onAction(_ sender: UIView) {
-    guard let selectedItem = currentItems.at(sender.tag) else { return }
+  @objc func onAction(_ sender: UIGestureRecognizer) {
+    guard let index = sender.view?.tag,
+      let selectedItem = currentItems.at(index) else { return }
     callback?(selectedItem.id)
   }
 }
