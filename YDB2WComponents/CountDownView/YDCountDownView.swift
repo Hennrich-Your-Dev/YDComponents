@@ -32,6 +32,13 @@ public class YDCountDownView: UIView {
   // MARK: Actions
   public func start(with date: Date) {
     //
+    hoursView.rightNumberLabel.text = "3"
+
+    minutesView.leftNumberLabel.text = "2"
+    minutesView.rightNumberLabel.text = "3"
+
+    secondsView.leftNumberLabel.text = "5"
+    secondsView.rightNumberLabel.text = "8"
   }
 }
 
@@ -101,7 +108,7 @@ extension YDCountDownView {
     let dots = UILabel()
     container.addSubview(dots)
     dots.textColor = Zeplin.grayLight
-    dots.font = .boldSystemFont(ofSize: 20)
+    dots.font = .systemFont(ofSize: 20, weight: .black)
     dots.text = ":"
 
     dots.translatesAutoresizingMaskIntoConstraints = false

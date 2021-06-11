@@ -20,6 +20,9 @@
 		C12418CE258796BE006227D6 /* YDErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C12418CD258796BE006227D6 /* YDErrorView.xib */; };
 		C12418D325879724006227D6 /* YDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D225879724006227D6 /* YDErrorView.swift */; };
 		C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D625879755006227D6 /* YDErrorViewDelegate.swift */; };
+		C134F7BF2672E7B200BF9858 /* YDSpaceyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */; };
+		C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */; };
+		C134F7C7267392FC00BF9858 /* YDSpaceyCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */; };
 		C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158CD612616252500A9A370 /* PopOverMessage.swift */; };
 		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
 		C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */; };
@@ -71,6 +74,9 @@
 		C12418CD258796BE006227D6 /* YDErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDErrorView.xib; sourceTree = "<group>"; };
 		C12418D225879724006227D6 /* YDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorView.swift; sourceTree = "<group>"; };
 		C12418D625879755006227D6 /* YDErrorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorViewDelegate.swift; sourceTree = "<group>"; };
+		C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardView.swift; sourceTree = "<group>"; };
+		C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyInnerCardView.swift; sourceTree = "<group>"; };
+		C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardViewCell.swift; sourceTree = "<group>"; };
 		C158CD612616252500A9A370 /* PopOverMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverMessage.swift; sourceTree = "<group>"; };
 		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
 		C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSnackBarView.swift; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E7BF9325641299008F747A /* AnimationBlock */,
+				C134F7BD2672E76E00BF9858 /* CardView */,
 				C11757912671A35C008A67BB /* CountDownView */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
@@ -274,6 +281,24 @@
 				C12418D625879755006227D6 /* YDErrorViewDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		C134F7BD2672E76E00BF9858 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				C134F7C02672FB2600BF9858 /* Custom Views */,
+				C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */,
+				C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		C134F7C02672FB2600BF9858 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		C158CD602616243000A9A370 /* PopOverMessage */ = {
@@ -771,6 +796,7 @@
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
 				C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */,
+				C134F7C7267392FC00BF9858 /* YDSpaceyCardViewCell.swift in Sources */,
 				C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */,
 				C11757962671A87A008A67BB /* YDCountDownComponentView.swift in Sources */,
 				C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */,
@@ -781,11 +807,13 @@
 				C183E2B8256DA46B005427B1 /* YDWireButton.swift in Sources */,
 				C1FA682B261E4E130063C21E /* YDStoreAndProductView+UIState.swift in Sources */,
 				C1AB4F37260D930500A8B889 /* StoreAndProductTableViewCell.swift in Sources */,
+				C134F7BF2672E7B200BF9858 /* YDSpaceyCardView.swift in Sources */,
 				C117579826725433008A67BB /* YDCountDownViewCell.swift in Sources */,
 				C1AB4F2A260D854800A8B889 /* StoreAndProductView+Layout.swift in Sources */,
 				C1AB4F3B260DA2AE00A8B889 /* StoreAndProductView+ScrollView.swift in Sources */,
 				C183CE6825B087E200B4F675 /* YDUserProfileView.swift in Sources */,
 				C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */,
+				C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */,
 				C1AB4F2F260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift in Sources */,
 				C1C3894B264DF6C4002A12C0 /* YDReplyMessageComponent.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
