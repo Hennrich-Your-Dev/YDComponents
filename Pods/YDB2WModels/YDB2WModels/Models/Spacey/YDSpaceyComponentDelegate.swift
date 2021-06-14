@@ -22,5 +22,6 @@ public protocol YDSpaceyCustomComponentDelegate: YDSpaceyComponentDelegate {
 public enum YDSpaceyCustomComponentType: String, Decodable {
   case countDown
   case button
+  case card
   case unknow
 }
