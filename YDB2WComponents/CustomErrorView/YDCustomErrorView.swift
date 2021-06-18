@@ -136,8 +136,10 @@ extension YDCustomErrorView {
 
     actionButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      actionButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 21),
-      actionButton.heightAnchor.constraint(equalToConstant: 40)
+      actionButton.topAnchor
+        .constraint(equalTo: messageLabel.bottomAnchor, constant: 12),
+      actionButton.heightAnchor.constraint(equalToConstant: 40),
+      actionButton.centerXAnchor.constraint(equalTo: container.centerXAnchor)
     ])
   }
 }
