@@ -24,6 +24,7 @@
 		C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */; };
 		C134F7C7267392FC00BF9858 /* YDSpaceyCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */; };
 		C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158CD612616252500A9A370 /* PopOverMessage.swift */; };
+		C15D4175267C12D900DD10A7 /* YDCustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */; };
 		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
 		C183CE5025B07B2E00B4F675 /* YDSnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */; };
 		C183CE6425B0877700B4F675 /* YDUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C183CE6325B0877700B4F675 /* YDUserProfileView.xib */; };
@@ -78,6 +79,7 @@
 		C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyInnerCardView.swift; sourceTree = "<group>"; };
 		C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardViewCell.swift; sourceTree = "<group>"; };
 		C158CD612616252500A9A370 /* PopOverMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverMessage.swift; sourceTree = "<group>"; };
+		C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCustomErrorView.swift; sourceTree = "<group>"; };
 		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
 		C183CE4F25B07B2E00B4F675 /* YDSnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSnackBarView.swift; sourceTree = "<group>"; };
 		C183CE6325B0877700B4F675 /* YDUserProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDUserProfileView.xib; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				C1E7BF9325641299008F747A /* AnimationBlock */,
 				C134F7BD2672E76E00BF9858 /* CardView */,
 				C11757912671A35C008A67BB /* CountDownView */,
+				C15D4173267C12B800DD10A7 /* CustomErrorView */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
@@ -307,6 +310,14 @@
 				C158CD612616252500A9A370 /* PopOverMessage.swift */,
 			);
 			path = PopOverMessage;
+			sourceTree = "<group>";
+		};
+		C15D4173267C12B800DD10A7 /* CustomErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */,
+			);
+			path = CustomErrorView;
 			sourceTree = "<group>";
 		};
 		C15FB2CB256FC2B50034ACE9 /* SnackBar */ = {
@@ -801,6 +812,7 @@
 				C11757962671A87A008A67BB /* YDCountDownComponentView.swift in Sources */,
 				C1B93A68261F42E700E0F4A5 /* YDProductCardView+Layouts.swift in Sources */,
 				C12418D325879724006227D6 /* YDErrorView.swift in Sources */,
+				C15D4175267C12D900DD10A7 /* YDCustomErrorView.swift in Sources */,
 				C1E7C115256474CA008F747A /* YDDialogCoordinator.swift in Sources */,
 				C117579D2672BFA4008A67BB /* YDWireButtonViewCell.swift in Sources */,
 				C1F3F8FD2565A77D000B56F7 /* YDTextView.swift in Sources */,
