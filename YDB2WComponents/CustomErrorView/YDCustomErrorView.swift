@@ -16,6 +16,11 @@ public class YDCustomErrorView: UIView {
   public let container = UIView()
   let messageLabel = UILabel()
   let actionButton = UIButton()
+  lazy var actionButtonTopConstraint: NSLayoutConstraint = {
+    let top = actionButton.topAnchor
+      .constraint(equalTo: messageLabel.bottomAnchor, constant: 12)
+    return top
+  }()
 
   // MARK: Init
   required init?(coder: NSCoder) {
@@ -35,19 +40,21 @@ public class YDCustomErrorView: UIView {
     if buttonBorder {
       actionButton.layer.borderWidth = 1.5
       actionButton.layer.borderColor = Zeplin.redBranding.cgColor
+      actionButtonTopConstraint.constant = 22
     } else {
       actionButton.layer.borderWidth = 0
       actionButton.layer.borderColor = nil
+      actionButtonTopConstraint.constant = 12
     }
   }
 
   public func show() {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
-      self.container.isHidden = false
+      self.isHidden = false
 
       UIView.animate(withDuration: 0.3) {
-        self.container.alpha = 1
+        self.alpha = 1
       }
     }
   }
@@ -56,9 +63,9 @@ public class YDCustomErrorView: UIView {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
       UIView.animate(withDuration: 0.3) {
-        self.container.alpha = 0
+        self.alpha = 0
       } completion: { _ in
-        self.container.isHidden = false
+        self.isHidden = false
       }
     }
   }
@@ -73,6 +80,8 @@ public class YDCustomErrorView: UIView {
 extension YDCustomErrorView {
   private func configure() {
     translatesAutoresizingMaskIntoConstraints = false
+    alpha = 0
+    isHidden = true
 
     configureContainer()
     configureMessage()
@@ -81,8 +90,6 @@ extension YDCustomErrorView {
 
   private func configureContainer() {
     addSubview(container)
-    container.alpha = 0
-    container.isHidden = true
 
     container.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -136,10 +143,9 @@ extension YDCustomErrorView {
 
     actionButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      actionButton.topAnchor
-        .constraint(equalTo: messageLabel.bottomAnchor, constant: 12),
       actionButton.heightAnchor.constraint(equalToConstant: 40),
       actionButton.centerXAnchor.constraint(equalTo: container.centerXAnchor)
     ])
+    actionButtonTopConstraint.isActive = true
   }
 }
