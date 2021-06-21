@@ -9,6 +9,22 @@ import UIKit
 import YDB2WModels
 
 public class YDSpaceyCardViewCell: UICollectionViewCell {
+  // MARK: Enum
+  private enum CardType {
+    case first
+    case second
+  }
+
+  // MARK: Properties
+  let cardPadding: CGFloat = 32
+  let cardSmallPadding: CGFloat = 20
+
+  var cardsViews: [YDSpaceyCardView] = []
+  var cards: [YDSpaceyCard] = []
+
+  var canTouchFirstCard = true
+  var canTouchSecondCard = false
+
   // MARK: Components
   lazy var width: NSLayoutConstraint = {
     let width = contentView.widthAnchor
@@ -16,13 +32,47 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
     width.isActive = true
     return width
   }()
-  let topCardView = YDSpaceyCardView()
-  let behindCardView = YDSpaceyCardView()
+
+  let firstCardView = YDSpaceyCardView()
+  lazy var firstCardWidthConstraint: NSLayoutConstraint = {
+    let width = firstCardView.widthAnchor.constraint(equalToConstant: 300)
+    width.isActive = true
+    return width
+  }()
+  lazy var firstCardTopConstraint: NSLayoutConstraint = {
+    firstCardView.topAnchor.constraint(equalTo: contentView.topAnchor)
+  }()
+  lazy var firstCardLeadingConstraint: NSLayoutConstraint = {
+    firstCardView.leadingAnchor
+      .constraint(equalTo: contentView.leadingAnchor, constant: 16)
+  }()
+  lazy var firstCardCenterXConstraint: NSLayoutConstraint = {
+    firstCardView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+  }()
+
+  let secondCardView = YDSpaceyCardView()
+  lazy var secondCardWidthConstraint: NSLayoutConstraint = {
+    let width = secondCardView.widthAnchor.constraint(equalToConstant: 300)
+    width.isActive = true
+    return width
+  }()
+  lazy var secondCardTopConstraint: NSLayoutConstraint = {
+    secondCardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12)
+  }()
+  lazy var secondCardLeadingConstraint: NSLayoutConstraint = {
+    secondCardView.leadingAnchor
+      .constraint(equalTo: contentView.leadingAnchor, constant: 16)
+  }()
+  lazy var secondCardCenterXConstraint: NSLayoutConstraint = {
+    secondCardView.centerXAnchor
+      .constraint(equalTo: contentView.centerXAnchor)
+  }()
 
   // MARK: Init
   public override init(frame: CGRect) {
     super.init(frame: frame)
     contentView.translatesAutoresizingMaskIntoConstraints = false
+    contentView.heightAnchor.constraint(equalToConstant: 202).isActive = true
     configureLayout()
   }
 
@@ -32,7 +82,8 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
 
   public override func prepareForReuse() {
     super.prepareForReuse()
-    topCardView.cleanUpCard()
+    cards.removeAll()
+    firstCardView.cleanUpCard()
   }
 
   public override func systemLayoutSizeFitting(
@@ -41,6 +92,10 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
     verticalFittingPriority: UILayoutPriority
   ) -> CGSize {
     width.constant = bounds.size.width
+
+    firstCardWidthConstraint.constant = bounds.size.width - cardPadding
+    secondCardWidthConstraint.constant = bounds.size.width - cardPadding - cardSmallPadding
+
     return contentView.systemLayoutSizeFitting(
       CGSize(width: targetSize.width, height: 1)
     )
@@ -48,38 +103,112 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
 
   // MARK: Actions
   public func configure(with cards: [YDSpaceyCard]) {
-    //
-    guard let card = cards.first else { return }
+    if let firstCard = cards.first {
+      firstCardView.configure(with: firstCard)
+    }
 
-    topCardView.configure(with: card)
+    if let secondCard = cards.at(1) {
+      secondCardView.configure(with: secondCard)
+    }
+  }
+
+  @objc func onTopCardAction(_ gesture: UIGestureRecognizer) {
+    guard let index = gesture.view?.tag else { return }
+    moveBack(card: index == 0 ? .first : .second)
+  }
+
+  private func moveBack(card: CardType) {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+
+      if card == .first {
+        if !self.canTouchFirstCard { return }
+
+        self.firstCardCenterXConstraint.isActive = false
+        self.firstCardLeadingConstraint.isActive = true
+        self.firstCardLeadingConstraint.constant = -self.width.constant + 50
+
+        self.secondCardWidthConstraint.constant = self.width.constant - self.cardPadding
+        self.secondCardTopConstraint.constant = 0
+
+        UIView.animate(
+          withDuration: 0.5) {
+          self.contentView.layoutIfNeeded()
+//          self.firstCardView.alpha = 0
+        } completion: { _ in
+//          self.firstCardView.alpha = 1
+          self.firstCardLeadingConstraint.isActive = false
+          self.firstCardCenterXConstraint.isActive = true
+          self.firstCardTopConstraint.isActive = true
+          self.firstCardTopConstraint.constant = 12
+          self.firstCardWidthConstraint.constant = self.width.constant - self.cardPadding - self.cardSmallPadding
+
+          self.contentView.sendSubviewToBack(self.firstCardView)
+          self.contentView.layoutIfNeeded()
+
+          self.canTouchFirstCard = false
+          self.canTouchSecondCard = true
+        }
+
+        //
+      } else {
+        if !self.canTouchSecondCard { return }
+
+        self.secondCardCenterXConstraint.isActive = false
+        self.secondCardLeadingConstraint.isActive = true
+        self.secondCardLeadingConstraint.constant = -self.width.constant + 50
+
+        self.firstCardWidthConstraint.constant = self.width.constant - self.cardPadding
+        self.firstCardTopConstraint.constant = 0
+
+        UIView.animate(
+          withDuration: 0.5) {
+          self.contentView.layoutIfNeeded()
+//          self.secondCardView.alpha = 0
+        } completion: { _ in
+//          self.secondCardView.alpha = 1
+          self.secondCardLeadingConstraint.isActive = false
+          self.secondCardCenterXConstraint.isActive = true
+          self.secondCardTopConstraint.isActive = true
+          self.secondCardTopConstraint.constant = 12
+          self.secondCardWidthConstraint.constant = self.width.constant - self.cardPadding - self.cardSmallPadding
+
+          self.contentView.sendSubviewToBack(self.secondCardView)
+          self.contentView.layoutIfNeeded()
+
+          self.canTouchFirstCard = true
+          self.canTouchSecondCard = false
+        }
+      }
+    }
   }
 }
 
 // MARK: UI
 extension YDSpaceyCardViewCell {
   func configureLayout() {
-    contentView.addSubview(topCardView)
+    contentView.addSubview(firstCardView)
+    firstCardView.tag = 0
 
-    NSLayoutConstraint.activate([
-      topCardView.topAnchor.constraint(equalTo: contentView.topAnchor),
-      topCardView.leadingAnchor
-        .constraint(equalTo: contentView.leadingAnchor, constant: 16),
-      topCardView.trailingAnchor
-        .constraint(equalTo: contentView.trailingAnchor, constant: -16),
-      topCardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
-    ])
+    firstCardTopConstraint.isActive = true
+    firstCardCenterXConstraint.isActive = true
+    firstCardView.heightAnchor.constraint(equalToConstant: 190).isActive = true
 
-    //
-    contentView.addSubview(behindCardView)
-    contentView.sendSubviewToBack(behindCardView)
+    firstCardView.addGestureRecognizer(
+      UITapGestureRecognizer(target: self, action: #selector(onTopCardAction))
+    )
 
-    NSLayoutConstraint.activate([
-      behindCardView.topAnchor.constraint(equalTo: topCardView.topAnchor, constant: 12),
-      behindCardView.leadingAnchor
-        .constraint(equalTo: topCardView.leadingAnchor, constant: 10),
-      behindCardView.trailingAnchor
-        .constraint(equalTo: topCardView.trailingAnchor, constant: -10),
-      behindCardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-    ])
+    // Second
+    contentView.addSubview(secondCardView)
+    contentView.sendSubviewToBack(secondCardView)
+
+    secondCardView.tag = 1
+    secondCardTopConstraint.isActive = true
+    secondCardCenterXConstraint.isActive = true
+    secondCardView.heightAnchor.constraint(equalToConstant: 190).isActive = true
+
+    secondCardView.addGestureRecognizer(
+      UITapGestureRecognizer(target: self, action: #selector(onTopCardAction))
+    )
   }
 }
