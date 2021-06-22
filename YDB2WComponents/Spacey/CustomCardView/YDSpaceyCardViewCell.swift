@@ -84,6 +84,7 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
     super.prepareForReuse()
     cards.removeAll()
     firstCardView.cleanUpCard()
+    secondCardView.cleanUpCard()
   }
 
   public override func systemLayoutSizeFitting(
