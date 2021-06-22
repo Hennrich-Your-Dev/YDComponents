@@ -23,6 +23,7 @@
 		C134F7BF2672E7B200BF9858 /* YDSpaceyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */; };
 		C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */; };
 		C134F7C7267392FC00BF9858 /* YDSpaceyCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */; };
+		C149E7FE268205430057F33E /* YDSpaceyCustomTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */; };
 		C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158CD612616252500A9A370 /* PopOverMessage.swift */; };
 		C15D4175267C12D900DD10A7 /* YDCustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */; };
 		C183B7C325541E9F00A0EAAA /* YDLoginDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */; };
@@ -78,6 +79,7 @@
 		C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardView.swift; sourceTree = "<group>"; };
 		C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyInnerCardView.swift; sourceTree = "<group>"; };
 		C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardViewCell.swift; sourceTree = "<group>"; };
+		C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCustomTitleCell.swift; sourceTree = "<group>"; };
 		C158CD612616252500A9A370 /* PopOverMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverMessage.swift; sourceTree = "<group>"; };
 		C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCustomErrorView.swift; sourceTree = "<group>"; };
 		C183B7C225541E9F00A0EAAA /* YDLoginDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDLoginDialogViewModel.swift; sourceTree = "<group>"; };
@@ -157,8 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				C1E7BF9325641299008F747A /* AnimationBlock */,
-				C134F7BD2672E76E00BF9858 /* CardView */,
-				C11757912671A35C008A67BB /* CountDownView */,
 				C15D4173267C12B800DD10A7 /* CustomErrorView */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
@@ -172,6 +172,7 @@
 				C15FB2CB256FC2B50034ACE9 /* SnackBar */,
 				C1AB4ECB260D3A5B00A8B889 /* StoreAndProductView */,
 				C18E4A16260CC670008A0ABD /* StoreNameAddressView */,
+				C149E7FB2682007E0057F33E /* Spacey */,
 				C1F3F8FA2565A6E0000B56F7 /* TextView */,
 				C183CE6125B0875000B4F675 /* UserProfile */,
 				C183E2B0256DA2FD005427B1 /* WireButton */,
@@ -189,14 +190,14 @@
 			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
-		C11757912671A35C008A67BB /* CountDownView */ = {
+		C11757912671A35C008A67BB /* CustomCountDownView */ = {
 			isa = PBXGroup;
 			children = (
 				C11757922671A393008A67BB /* YDCountDownView.swift */,
 				C117579726725433008A67BB /* YDCountDownViewCell.swift */,
 				C11757942671A7C2008A67BB /* Custom Views */,
 			);
-			path = CountDownView;
+			path = CustomCountDownView;
 			sourceTree = "<group>";
 		};
 		C11757942671A7C2008A67BB /* Custom Views */ = {
@@ -286,14 +287,14 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		C134F7BD2672E76E00BF9858 /* CardView */ = {
+		C134F7BD2672E76E00BF9858 /* CustomCardView */ = {
 			isa = PBXGroup;
 			children = (
 				C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */,
 				C134F7C6267392FC00BF9858 /* YDSpaceyCardViewCell.swift */,
 				C134F7C02672FB2600BF9858 /* Custom Views */,
 			);
-			path = CardView;
+			path = CustomCardView;
 			sourceTree = "<group>";
 		};
 		C134F7C02672FB2600BF9858 /* Custom Views */ = {
@@ -302,6 +303,24 @@
 				C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		C149E7FB2682007E0057F33E /* Spacey */ = {
+			isa = PBXGroup;
+			children = (
+				C149E7FC268204570057F33E /* CustomTitle */,
+				C134F7BD2672E76E00BF9858 /* CustomCardView */,
+				C11757912671A35C008A67BB /* CustomCountDownView */,
+			);
+			path = Spacey;
+			sourceTree = "<group>";
+		};
+		C149E7FC268204570057F33E /* CustomTitle */ = {
+			isa = PBXGroup;
+			children = (
+				C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */,
+			);
+			path = CustomTitle;
 			sourceTree = "<group>";
 		};
 		C158CD602616243000A9A370 /* PopOverMessage */ = {
@@ -834,6 +853,7 @@
 				C1AB4ECD260D3AAE00A8B889 /* StoreAndProductView.swift in Sources */,
 				C1AB4EDF260D5EA000A8B889 /* YDProductCardView.swift in Sources */,
 				C18E4A18260CC6B2008A0ABD /* YDStoreNameAddressView.swift in Sources */,
+				C149E7FE268205430057F33E /* YDSpaceyCustomTitleCell.swift in Sources */,
 				C1E7C11F2564786F008F747A /* YDDialogViewController.swift in Sources */,
 				C11757932671A393008A67BB /* YDCountDownView.swift in Sources */,
 			);
