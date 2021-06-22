@@ -39,9 +39,16 @@ public class YDCountDownViewCell: UICollectionViewCell {
     )
   }
 
+  public override func prepareForReuse() {
+    super.prepareForReuse()
+    countDownView.stopTimer()
+  }
+
   // MARK: Actions
   public func start(with date: Date) {
-    countDownView.start(with: date)
+    if let nextDate = Calendar.current.date(byAdding: .minute, value: 1, to: Date()) {
+      countDownView.start(with: nextDate)
+    }
   }
 }
 

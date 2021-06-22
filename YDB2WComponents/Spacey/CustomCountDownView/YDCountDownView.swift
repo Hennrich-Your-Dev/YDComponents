@@ -34,7 +34,6 @@ public class YDCountDownView: UIView {
 
   // MARK: Actions
   public func start(with date: Date) {
-    updateCountDown(with: date)
     updateTimer?.invalidate()
 
     updateTimer = Timer.scheduledTimer(
@@ -59,29 +58,39 @@ public class YDCountDownView: UIView {
       guard let self = self else { return }
 
       let now = Date()
+
+      if date < now {
+        self.updateTimer?.invalidate()
+        self.secondsView.update(left: "0", right: "0")
+        self.minutesView.update(left: "0", right: "0")
+        self.hoursView.update(left: "0", right: "0")
+        self.daysView.update(left: "0", right: "0")
+        return
+      }
+
       let diff = Calendar.current.dateComponents(
         [.day, .hour, .minute, .second],
         from: now,
         to: date
       )
 
-      if let seconds = diff.second {
-        let (first, last) = self.getFirstAndLast(from: seconds)
+      if diff.second != nil {
+        let (first, last) = self.getFirstAndLast(from: diff.second ?? 0)
         self.secondsView.update(left: first, right: last)
       }
 
-      if let minutes = diff.minute {
-        let (first, last) = self.getFirstAndLast(from: minutes)
+      if diff.minute != nil {
+        let (first, last) = self.getFirstAndLast(from: diff.minute ?? 0)
         self.minutesView.update(left: first, right: last)
       }
 
-      if let hours = diff.hour {
-        let (first, last) = self.getFirstAndLast(from: hours)
+      if diff.hour != nil {
+        let (first, last) = self.getFirstAndLast(from: diff.hour ?? 0)
         self.hoursView.update(left: first, right: last)
       }
 
-      if let days = diff.day {
-        let (first, last) = self.getFirstAndLast(from: days)
+      if diff.day != nil {
+        let (first, last) = self.getFirstAndLast(from: diff.day ?? 0)
         self.daysView.update(left: first, right: last)
       }
     }

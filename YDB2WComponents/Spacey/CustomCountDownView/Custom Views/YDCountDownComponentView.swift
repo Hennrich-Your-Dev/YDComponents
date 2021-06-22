@@ -19,10 +19,15 @@ class YDCountDownComponentView: UIView {
 
   // MARK: Properties
   var currentLeft: NumberType = .left
+  var currentLeftNumber = "0"
+  var currentLeftNumber2 = "0"
+
   var currentRight: NumberType = .right
+  var currentRightNumber = "0"
+  var currentRightNumber2 = "0"
 
   // MARK: Components
-  let leftNumberView = UIView()
+  fileprivate let leftNumberView = NumberView()
   let leftNumberLabel = UILabel()
   lazy var leftNumberCenterYConstraint: NSLayoutConstraint = {
     leftNumberLabel.centerYAnchor.constraint(equalTo: leftNumberView.centerYAnchor)
@@ -32,7 +37,7 @@ class YDCountDownComponentView: UIView {
     leftNumberLabel2.centerYAnchor.constraint(equalTo: leftNumberView.centerYAnchor)
   }()
 
-  let rightNumberView = UIView()
+  fileprivate let rightNumberView = NumberView()
   let rightNumberLabel = UILabel()
   lazy var rightNumberCenterYConstraint: NSLayoutConstraint = {
     rightNumberLabel.centerYAnchor.constraint(equalTo: rightNumberView.centerYAnchor)
@@ -58,11 +63,19 @@ class YDCountDownComponentView: UIView {
   // MARK: Actions
   func update(left: String?, right: String?) {
     if let nextNumber = left {
-      animateLeftLabel(nextNumber: nextNumber)
+      if currentLeft == .left && currentLeftNumber2 != nextNumber {
+        animateLeftLabel(nextNumber: nextNumber)
+      } else if currentLeft == .left2 && currentLeftNumber != nextNumber {
+        animateLeftLabel(nextNumber: nextNumber)
+      }
     }
 
     if let nextNumber = right {
-      animateRightLabel(nextNumber: nextNumber)
+      if currentRight == .right && currentRightNumber2 != nextNumber {
+        animateRightLabel(nextNumber: nextNumber)
+      } else if currentRight == .right2 && currentRightNumber != nextNumber {
+        animateRightLabel(nextNumber: nextNumber)
+      }
     }
   }
 
@@ -70,41 +83,40 @@ class YDCountDownComponentView: UIView {
     if currentLeft == .left {
       currentLeft = .left2
       leftNumberCenterYConstraint.constant = -50
+      leftNumber2CenterYConstraint.constant = 0
       leftNumberLabel2.text = nextNumber
+      currentLeftNumber2 = nextNumber
 
-      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+      UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.leftNumberLabel.alpha = 0
+        self.leftNumberView.layoutIfNeeded()
       } completion: { [weak self] _ in
         guard let self = self else { return }
-        self.leftNumberCenterYConstraint.constant = 0
-        self.layoutIfNeeded()
-      }
 
-      leftNumber2CenterYConstraint.constant = 0
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.leftNumberCenterYConstraint.constant = 50
+        self.leftNumberView.layoutIfNeeded()
+        self.leftNumberLabel.alpha = 1
       }
 
       //
     } else {
       currentLeft = .left
       leftNumber2CenterYConstraint.constant = -50
+      leftNumberCenterYConstraint.constant = 0
       leftNumberLabel.text = nextNumber
-      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+      currentLeftNumber = nextNumber
+
+      UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.leftNumberLabel2.alpha = 0
+        self.leftNumberView.layoutIfNeeded()
       } completion: { [weak self] _ in
         guard let self = self else { return }
-        self.leftNumberCenterYConstraint.constant = 0
-        self.layoutIfNeeded()
-      }
 
-      leftNumberCenterYConstraint.constant = 0
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.leftNumber2CenterYConstraint.constant = 50
+        self.leftNumberView.layoutIfNeeded()
+        self.leftNumberLabel2.alpha = 1
       }
     }
   }
@@ -113,41 +125,40 @@ class YDCountDownComponentView: UIView {
     if currentRight == .right {
       currentRight = .right2
       rightNumberCenterYConstraint.constant = -50
+      rightNumber2CenterYConstraint.constant = 0
       rightNumberLabel2.text = nextNumber
+      currentRightNumber2 = nextNumber
 
-      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+      UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.rightNumberLabel.alpha = 0
+        self.rightNumberView.layoutIfNeeded()
       } completion: { [weak self] _ in
         guard let self = self else { return }
-        self.rightNumberCenterYConstraint.constant = 0
-        self.layoutIfNeeded()
-      }
 
-      rightNumber2CenterYConstraint.constant = 0
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.rightNumberCenterYConstraint.constant = 50
+        self.rightNumberView.layoutIfNeeded()
+        self.rightNumberLabel.alpha = 1
       }
 
       //
     } else {
-      currentLeft = .right
+      currentRight = .right
       rightNumber2CenterYConstraint.constant = -50
-      rightNumberLabel.text = nextNumber
-      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
-        guard let self = self else { return }
-        self.layoutIfNeeded()
-      } completion: { [weak self] _ in
-        guard let self = self else { return }
-        self.rightNumberCenterYConstraint.constant = 0
-        self.layoutIfNeeded()
-      }
 
       rightNumberCenterYConstraint.constant = 0
-      UIView.animate(withDuration: 0.5) { [weak self] in
+      rightNumberLabel.text = nextNumber
+      currentRightNumber = nextNumber
+
+      UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
-        self.layoutIfNeeded()
+        self.rightNumberLabel2.alpha = 0
+        self.rightNumberView.layoutIfNeeded()
+      } completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.rightNumber2CenterYConstraint.constant = 50
+        self.rightNumberView.layoutIfNeeded()
+        self.rightNumberLabel2.alpha = 1
       }
     }
   }
@@ -173,14 +184,9 @@ extension YDCountDownComponentView {
   }
 
   func configureLeftView() {
-    leftNumberView.backgroundColor = Zeplin.redPale
-    leftNumberView.layer.cornerRadius = 2
-
     NSLayoutConstraint.activate([
       leftNumberView.topAnchor.constraint(equalTo: topAnchor),
-      leftNumberView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      leftNumberView.widthAnchor.constraint(equalToConstant: 24),
-      leftNumberView.heightAnchor.constraint(equalToConstant: 34)
+      leftNumberView.leadingAnchor.constraint(equalTo: leadingAnchor)
     ])
 
     // Number Label
@@ -210,16 +216,11 @@ extension YDCountDownComponentView {
   }
 
   func configureRightView() {
-    rightNumberView.backgroundColor = Zeplin.redPale
-    rightNumberView.layer.cornerRadius = 2
-
     NSLayoutConstraint.activate([
       rightNumberView.topAnchor.constraint(equalTo: topAnchor),
       rightNumberView.leadingAnchor
         .constraint(equalTo: leftNumberView.trailingAnchor, constant: 2),
-      rightNumberView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      rightNumberView.widthAnchor.constraint(equalToConstant: 24),
-      rightNumberView.heightAnchor.constraint(equalToConstant: 34)
+      rightNumberView.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
 
     // Number Label
@@ -263,3 +264,20 @@ extension YDCountDownComponentView {
   }
 }
 
+//
+fileprivate class NumberView: UIView {
+  // MARK: Init
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  init() {
+    super.init(frame: .zero)
+    backgroundColor = Zeplin.redPale
+    layer.cornerRadius = 2
+    clipsToBounds = true
+    translatesAutoresizingMaskIntoConstraints = false
+    widthAnchor.constraint(equalToConstant: 24).isActive = true
+    heightAnchor.constraint(equalToConstant: 34).isActive = true
+  }
+}
