@@ -20,7 +20,7 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
   let cardSmallPadding: CGFloat = 20
 
   var cardsViews: [YDSpaceyCardView] = []
-  var cards: [YDSpaceyCard] = []
+  var cards: [YDSpaceyComponentLiveNPSCardQuestion] = []
 
   var canTouchFirstCard = true
   var canTouchSecondCard = false
@@ -102,7 +102,7 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
   }
 
   // MARK: Actions
-  public func configure(with cards: [YDSpaceyCard]) {
+  public func configure(with cards: [YDSpaceyComponentLiveNPSCard]) {
     if let firstCard = cards.first {
       firstCardView.configure(with: firstCard)
     }
@@ -134,14 +134,14 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
         UIView.animate(
           withDuration: 0.5) {
           self.contentView.layoutIfNeeded()
-//          self.firstCardView.alpha = 0
         } completion: { _ in
-//          self.firstCardView.alpha = 1
           self.firstCardLeadingConstraint.isActive = false
           self.firstCardCenterXConstraint.isActive = true
           self.firstCardTopConstraint.isActive = true
           self.firstCardTopConstraint.constant = 12
-          self.firstCardWidthConstraint.constant = self.width.constant - self.cardPadding - self.cardSmallPadding
+          self.firstCardWidthConstraint.constant = self.width.constant
+            - self.cardPadding
+            - self.cardSmallPadding
 
           self.contentView.sendSubviewToBack(self.firstCardView)
           self.contentView.layoutIfNeeded()
@@ -164,14 +164,14 @@ public class YDSpaceyCardViewCell: UICollectionViewCell {
         UIView.animate(
           withDuration: 0.5) {
           self.contentView.layoutIfNeeded()
-//          self.secondCardView.alpha = 0
         } completion: { _ in
-//          self.secondCardView.alpha = 1
           self.secondCardLeadingConstraint.isActive = false
           self.secondCardCenterXConstraint.isActive = true
           self.secondCardTopConstraint.isActive = true
           self.secondCardTopConstraint.constant = 12
-          self.secondCardWidthConstraint.constant = self.width.constant - self.cardPadding - self.cardSmallPadding
+          self.secondCardWidthConstraint.constant = self.width.constant
+            - self.cardPadding
+            - self.cardSmallPadding
 
           self.contentView.sendSubviewToBack(self.secondCardView)
           self.contentView.layoutIfNeeded()
