@@ -52,7 +52,7 @@ public class YDWireButtonViewCell: UICollectionViewCell {
   }
 
   // MARK: Actions
-  public func configure(withTitle title: String) {
+  public func configure(withTitle title: String?) {
     button.setTitle(title, for: .normal)
   }
 }

@@ -308,9 +308,10 @@
 		C149E7FB2682007E0057F33E /* Spacey */ = {
 			isa = PBXGroup;
 			children = (
-				C149E7FC268204570057F33E /* CustomTitle */,
+				C149E808268215590057F33E /* CustomButton */,
 				C134F7BD2672E76E00BF9858 /* CustomCardView */,
 				C11757912671A35C008A67BB /* CustomCountDownView */,
+				C149E7FC268204570057F33E /* CustomTitle */,
 			);
 			path = Spacey;
 			sourceTree = "<group>";
@@ -321,6 +322,14 @@
 				C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */,
 			);
 			path = CustomTitle;
+			sourceTree = "<group>";
+		};
+		C149E808268215590057F33E /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				C117579C2672BFA4008A67BB /* YDWireButtonViewCell.swift */,
+			);
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
 		C158CD602616243000A9A370 /* PopOverMessage */ = {
@@ -392,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				C183E2B7256DA46B005427B1 /* YDWireButton.swift */,
-				C117579C2672BFA4008A67BB /* YDWireButtonViewCell.swift */,
 			);
 			path = WireButton;
 			sourceTree = "<group>";
