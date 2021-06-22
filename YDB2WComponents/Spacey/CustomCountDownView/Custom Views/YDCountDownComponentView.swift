@@ -9,11 +9,39 @@ import UIKit
 import YDExtensions
 
 class YDCountDownComponentView: UIView {
+  // MARK: Enum
+  enum NumberType {
+    case left
+    case left2
+    case right
+    case right2
+  }
+
+  // MARK: Properties
+  var currentLeft: NumberType = .left
+  var currentRight: NumberType = .right
+
   // MARK: Components
   let leftNumberView = UIView()
   let leftNumberLabel = UILabel()
+  lazy var leftNumberCenterYConstraint: NSLayoutConstraint = {
+    leftNumberLabel.centerYAnchor.constraint(equalTo: leftNumberView.centerYAnchor)
+  }()
+  let leftNumberLabel2 = UILabel()
+  lazy var leftNumber2CenterYConstraint: NSLayoutConstraint = {
+    leftNumberLabel2.centerYAnchor.constraint(equalTo: leftNumberView.centerYAnchor)
+  }()
+
   let rightNumberView = UIView()
   let rightNumberLabel = UILabel()
+  lazy var rightNumberCenterYConstraint: NSLayoutConstraint = {
+    rightNumberLabel.centerYAnchor.constraint(equalTo: rightNumberView.centerYAnchor)
+  }()
+  let rightNumberLabel2 = UILabel()
+  lazy var rightNumber2CenterYConstraint: NSLayoutConstraint = {
+    rightNumberLabel2.centerYAnchor.constraint(equalTo: rightNumberView.centerYAnchor)
+  }()
+
   let descriptionLabel = UILabel()
 
   // MARK: Init
@@ -25,6 +53,103 @@ class YDCountDownComponentView: UIView {
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+
+  // MARK: Actions
+  func update(left: String?, right: String?) {
+    if let nextNumber = left {
+      animateLeftLabel(nextNumber: nextNumber)
+    }
+
+    if let nextNumber = right {
+      animateRightLabel(nextNumber: nextNumber)
+    }
+  }
+
+  func animateLeftLabel(nextNumber: String) {
+    if currentLeft == .left {
+      currentLeft = .left2
+      leftNumberCenterYConstraint.constant = -50
+      leftNumberLabel2.text = nextNumber
+
+      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      } completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.leftNumberCenterYConstraint.constant = 0
+        self.layoutIfNeeded()
+      }
+
+      leftNumber2CenterYConstraint.constant = 0
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      }
+
+      //
+    } else {
+      currentLeft = .left
+      leftNumber2CenterYConstraint.constant = -50
+      leftNumberLabel.text = nextNumber
+      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      } completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.leftNumberCenterYConstraint.constant = 0
+        self.layoutIfNeeded()
+      }
+
+      leftNumberCenterYConstraint.constant = 0
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      }
+    }
+  }
+
+  func animateRightLabel(nextNumber: String) {
+    if currentRight == .right {
+      currentRight = .right2
+      rightNumberCenterYConstraint.constant = -50
+      rightNumberLabel2.text = nextNumber
+
+      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      } completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.rightNumberCenterYConstraint.constant = 0
+        self.layoutIfNeeded()
+      }
+
+      rightNumber2CenterYConstraint.constant = 0
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      }
+
+      //
+    } else {
+      currentLeft = .right
+      rightNumber2CenterYConstraint.constant = -50
+      rightNumberLabel.text = nextNumber
+      UIView.animate(withDuration: 0.5, delay: 0.2) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      } completion: { [weak self] _ in
+        guard let self = self else { return }
+        self.rightNumberCenterYConstraint.constant = 0
+        self.layoutIfNeeded()
+      }
+
+      rightNumberCenterYConstraint.constant = 0
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        guard let self = self else { return }
+        self.layoutIfNeeded()
+      }
+    }
   }
 }
 
@@ -58,6 +183,7 @@ extension YDCountDownComponentView {
       leftNumberView.heightAnchor.constraint(equalToConstant: 34)
     ])
 
+    // Number Label
     leftNumberView.addSubview(leftNumberLabel)
     leftNumberLabel.font = .boldSystemFont(ofSize: 20)
     leftNumberLabel.textColor = Zeplin.redNight
@@ -65,10 +191,22 @@ extension YDCountDownComponentView {
     leftNumberLabel.text = "0"
 
     leftNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      leftNumberLabel.centerXAnchor.constraint(equalTo: leftNumberView.centerXAnchor),
-      leftNumberLabel.centerYAnchor.constraint(equalTo: leftNumberView.centerYAnchor)
-    ])
+    leftNumberCenterYConstraint.isActive = true
+    leftNumberLabel.centerXAnchor
+      .constraint(equalTo: leftNumberView.centerXAnchor).isActive = true
+
+    // Number Label 2
+    leftNumberView.addSubview(leftNumberLabel2)
+    leftNumberLabel2.font = .boldSystemFont(ofSize: 20)
+    leftNumberLabel2.textColor = Zeplin.redNight
+    leftNumberLabel2.textAlignment = .center
+    leftNumberLabel2.text = "0"
+
+    leftNumberLabel2.translatesAutoresizingMaskIntoConstraints = false
+    leftNumber2CenterYConstraint.isActive = true
+    leftNumber2CenterYConstraint.constant = 45
+    leftNumberLabel2.centerXAnchor
+      .constraint(equalTo: leftNumberView.centerXAnchor).isActive = true
   }
 
   func configureRightView() {
@@ -84,6 +222,7 @@ extension YDCountDownComponentView {
       rightNumberView.heightAnchor.constraint(equalToConstant: 34)
     ])
 
+    // Number Label
     rightNumberView.addSubview(rightNumberLabel)
     rightNumberLabel.font = .boldSystemFont(ofSize: 20)
     rightNumberLabel.textColor = Zeplin.redNight
@@ -91,10 +230,22 @@ extension YDCountDownComponentView {
     rightNumberLabel.text = "0"
 
     rightNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      rightNumberLabel.centerXAnchor.constraint(equalTo: rightNumberView.centerXAnchor),
-      rightNumberLabel.centerYAnchor.constraint(equalTo: rightNumberView.centerYAnchor)
-    ])
+    rightNumberCenterYConstraint.isActive = true
+    rightNumberLabel.centerXAnchor
+      .constraint(equalTo: rightNumberView.centerXAnchor).isActive = true
+
+    // Number Label 2
+    rightNumberView.addSubview(rightNumberLabel2)
+    rightNumberLabel2.font = .boldSystemFont(ofSize: 20)
+    rightNumberLabel2.textColor = Zeplin.redNight
+    rightNumberLabel2.textAlignment = .center
+    rightNumberLabel2.text = "0"
+
+    rightNumberLabel2.translatesAutoresizingMaskIntoConstraints = false
+    rightNumber2CenterYConstraint.isActive = true
+    rightNumber2CenterYConstraint.constant = 45
+    rightNumberLabel2.centerXAnchor
+      .constraint(equalTo: rightNumberView.centerXAnchor).isActive = true
   }
 
   func configureDescriptionLabel() {

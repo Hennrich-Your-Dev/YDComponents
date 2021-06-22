@@ -10,6 +10,9 @@ import YDExtensions
 import YDB2WModels
 
 public class YDCountDownView: UIView {
+  // MARK: Properties
+  public var updateTimer: Timer?
+
   // MARK: Components
   let titleLabel = UILabel()
   let vStackView = UIStackView()
@@ -31,14 +34,67 @@ public class YDCountDownView: UIView {
 
   // MARK: Actions
   public func start(with date: Date) {
-    //
-    hoursView.rightNumberLabel.text = "3"
+    updateCountDown(with: date)
+    updateTimer?.invalidate()
 
-    minutesView.leftNumberLabel.text = "2"
-    minutesView.rightNumberLabel.text = "3"
+    updateTimer = Timer.scheduledTimer(
+      withTimeInterval: 1,
+      repeats: true
+    ) { [weak self] _ in
+      guard let self = self else {
+        self?.updateTimer?.invalidate()
+        return
+      }
 
-    secondsView.leftNumberLabel.text = "5"
-    secondsView.rightNumberLabel.text = "8"
+      self.updateCountDown(with: date)
+    }
+  }
+
+  public func stopTimer() {
+    updateTimer?.invalidate()
+  }
+
+  @objc func updateCountDown(with date: Date) {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+
+      let now = Date()
+      let diff = Calendar.current.dateComponents(
+        [.day, .hour, .minute, .second],
+        from: now,
+        to: date
+      )
+
+      if let seconds = diff.second {
+        let (first, last) = self.getFirstAndLast(from: seconds)
+        self.secondsView.update(left: first, right: last)
+      }
+
+      if let minutes = diff.minute {
+        let (first, last) = self.getFirstAndLast(from: minutes)
+        self.minutesView.update(left: first, right: last)
+      }
+
+      if let hours = diff.hour {
+        let (first, last) = self.getFirstAndLast(from: hours)
+        self.hoursView.update(left: first, right: last)
+      }
+
+      if let days = diff.day {
+        let (first, last) = self.getFirstAndLast(from: days)
+        self.daysView.update(left: first, right: last)
+      }
+    }
+  }
+
+  private func getFirstAndLast(from number: Int) -> (first: String?, last: String?) {
+    if number >= 10,
+       let firstNumber = "\(number)".first,
+       let lastNumber = "\(number)".last {
+      return (String(firstNumber), String(lastNumber))
+    } else {
+      return (nil, "\(number)")
+    }
   }
 }
 
