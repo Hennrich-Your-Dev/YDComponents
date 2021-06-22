@@ -63,12 +63,11 @@ extension YDSpaceyCustomTitleCell {
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6),
-      titleLabel.leadingAnchor.constraint(
-        equalTo: contentView.leadingAnchor,
-        constant: 16
-      ),
-      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+      titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+      titleLabel.leadingAnchor
+        .constraint(equalTo: contentView.leadingAnchor, constant: 16),
+      titleLabel.trailingAnchor
+        .constraint(equalTo: contentView.trailingAnchor, constant: -16),
       titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
       titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 28)
     ])
