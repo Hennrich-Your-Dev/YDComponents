@@ -51,6 +51,10 @@ public class YDCountDownView: UIView {
 
   public func stopTimer() {
     updateTimer?.invalidate()
+    daysView.resetComponent()
+    hoursView.resetComponent()
+    minutesView.resetComponent()
+    secondsView.resetComponent()
   }
 
   @objc func updateCountDown(with date: Date) {
@@ -60,11 +64,7 @@ public class YDCountDownView: UIView {
       let now = Date()
 
       if date < now {
-        self.updateTimer?.invalidate()
-        self.secondsView.update(left: "0", right: "0")
-        self.minutesView.update(left: "0", right: "0")
-        self.hoursView.update(left: "0", right: "0")
-        self.daysView.update(left: "0", right: "0")
+        self.stopTimer()
         return
       }
 
@@ -102,7 +102,7 @@ public class YDCountDownView: UIView {
        let lastNumber = "\(number)".last {
       return (String(firstNumber), String(lastNumber))
     } else {
-      return (nil, "\(number)")
+      return ("0", "\(number)")
     }
   }
 }

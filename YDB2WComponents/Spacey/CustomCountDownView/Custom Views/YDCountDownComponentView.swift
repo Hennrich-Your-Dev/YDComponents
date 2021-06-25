@@ -20,11 +20,9 @@ class YDCountDownComponentView: UIView {
   // MARK: Properties
   var currentLeft: NumberType = .left
   var currentLeftNumber = "0"
-  var currentLeftNumber2 = "0"
 
   var currentRight: NumberType = .right
   var currentRightNumber = "0"
-  var currentRightNumber2 = "0"
 
   // MARK: Components
   fileprivate let leftNumberView = NumberView()
@@ -62,30 +60,27 @@ class YDCountDownComponentView: UIView {
 
   // MARK: Actions
   func update(left: String?, right: String?) {
-    if let nextNumber = left {
-      if currentLeft == .left && currentLeftNumber2 != nextNumber {
-        animateLeftLabel(nextNumber: nextNumber)
-      } else if currentLeft == .left2 && currentLeftNumber != nextNumber {
-        animateLeftLabel(nextNumber: nextNumber)
-      }
+    if let nextNumber = left,
+       currentLeftNumber != nextNumber {
+      animateLeftLabel(nextNumber: nextNumber)
     }
 
-    if let nextNumber = right {
-      if currentRight == .right && currentRightNumber2 != nextNumber {
-        animateRightLabel(nextNumber: nextNumber)
-      } else if currentRight == .right2 && currentRightNumber != nextNumber {
-        animateRightLabel(nextNumber: nextNumber)
-      }
+    if let nextNumber = right,
+       currentRightNumber != nextNumber {
+      animateRightLabel(nextNumber: nextNumber)
     }
   }
 
   func animateLeftLabel(nextNumber: String) {
+    currentLeftNumber = nextNumber
+
     if currentLeft == .left {
       currentLeft = .left2
+
       leftNumberCenterYConstraint.constant = -50
+
       leftNumber2CenterYConstraint.constant = 0
       leftNumberLabel2.text = nextNumber
-      currentLeftNumber2 = nextNumber
 
       UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
@@ -102,10 +97,11 @@ class YDCountDownComponentView: UIView {
       //
     } else {
       currentLeft = .left
+
       leftNumber2CenterYConstraint.constant = -50
+
       leftNumberCenterYConstraint.constant = 0
       leftNumberLabel.text = nextNumber
-      currentLeftNumber = nextNumber
 
       UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
@@ -122,12 +118,15 @@ class YDCountDownComponentView: UIView {
   }
 
   func animateRightLabel(nextNumber: String) {
+    currentRightNumber = nextNumber
+
     if currentRight == .right {
       currentRight = .right2
+
       rightNumberCenterYConstraint.constant = -50
+
       rightNumber2CenterYConstraint.constant = 0
       rightNumberLabel2.text = nextNumber
-      currentRightNumber2 = nextNumber
 
       UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
@@ -148,7 +147,6 @@ class YDCountDownComponentView: UIView {
 
       rightNumberCenterYConstraint.constant = 0
       rightNumberLabel.text = nextNumber
-      currentRightNumber = nextNumber
 
       UIView.animate(withDuration: 0.8) { [weak self] in
         guard let self = self else { return }
@@ -160,6 +158,32 @@ class YDCountDownComponentView: UIView {
         self.rightNumberView.layoutIfNeeded()
         self.rightNumberLabel2.alpha = 1
       }
+    }
+  }
+
+  func resetComponent() {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+
+      self.currentLeft = .left
+      self.currentLeftNumber = "0"
+      self.leftNumberLabel.text = "0"
+      self.leftNumberLabel.alpha = 1
+      self.leftNumberCenterYConstraint.constant = 0
+      self.leftNumberLabel2.text = "0"
+      self.leftNumberLabel2.alpha = 1
+      self.leftNumber2CenterYConstraint.constant = -50
+      self.leftNumberView.layoutIfNeeded()
+
+      self.currentRight = .right
+      self.currentRightNumber = "0"
+      self.rightNumberLabel.text = "0"
+      self.rightNumberLabel.alpha = 1
+      self.rightNumberCenterYConstraint.constant = 0
+      self.rightNumberLabel2.text = "0"
+      self.rightNumberLabel2.alpha = 1
+      self.rightNumber2CenterYConstraint.constant = -50
+      self.rightNumberView.layoutIfNeeded()
     }
   }
 }
