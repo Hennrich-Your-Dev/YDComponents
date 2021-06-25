@@ -150,7 +150,7 @@ extension YDCountDownView {
     vStackView.addArrangedSubview(stackView)
     stackView.alignment = .center
     stackView.axis = .horizontal
-    stackView.spacing = 8
+    stackView.spacing = 5
     stackView.distribution = .fillProportionally
 
     //
