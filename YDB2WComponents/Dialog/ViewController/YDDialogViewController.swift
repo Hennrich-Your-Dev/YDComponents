@@ -24,6 +24,7 @@ class YDDialogViewController: UIViewController {
   var customMessage: String?
   var customButton: String?
   var customCancelButton: String?
+  var messageLink: [String: String]?
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -91,6 +92,12 @@ class YDDialogViewController: UIViewController {
       cancelButton.setTitle(customCancelButton, for: .normal)
       cancelButton.isHidden = false
     }
+
+    if let messageLink = messageLink,
+       let message = messageLink["message"],
+       let link = messageLink["link"] {
+      addMessageLink(message: message, link: link)
+    }
   }
 
   // MARK: IBActions
@@ -100,5 +107,35 @@ class YDDialogViewController: UIViewController {
 
   @IBAction func onCancelAction(_ sender: UIButton) {
     viewModel?.onCancelAction()
+  }
+
+  // MARK: Actions
+  func addMessageLink(message: String, link: String) {
+    guard let fullMessage = descriptionLabel.text else { return }
+
+    let attributedString = NSMutableAttributedString(string: fullMessage)
+
+    let location = attributedString.mutableString.range(of: message).location
+    let range = NSRange(location: location, length: message.count)
+
+    attributedString.addAttribute(
+      NSAttributedString.Key.link,
+      value: link,
+      range: range
+    )
+
+    attributedString.addAttribute(
+      NSAttributedString.Key.underlineColor,
+      value: Zeplin.redBranding,
+      range: range
+    )
+
+    attributedString.addAttribute(
+      NSAttributedString.Key.foregroundColor,
+      value: Zeplin.redBranding,
+      range: range
+    )
+
+    descriptionLabel.attributedText = attributedString
   }
 }
