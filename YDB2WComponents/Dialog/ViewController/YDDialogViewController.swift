@@ -119,12 +119,6 @@ class YDDialogViewController: UIViewController {
     let range = NSRange(location: location, length: message.count)
 
     attributedString.addAttribute(
-      NSAttributedString.Key.link,
-      value: link,
-      range: range
-    )
-
-    attributedString.addAttribute(
       NSAttributedString.Key.underlineColor,
       value: Zeplin.redBranding,
       range: range
@@ -137,5 +131,25 @@ class YDDialogViewController: UIViewController {
     )
 
     descriptionLabel.attributedText = attributedString
+
+    let btn = UIButton()
+    btn.addTarget(self, action: #selector(onLinkAction), for: .touchUpInside)
+    view.addSubview(btn)
+
+    btn.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      btn.topAnchor.constraint(equalTo: descriptionLabel.topAnchor),
+      btn.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
+      btn.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
+      btn.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor)
+    ])
+  }
+
+  @objc func onLinkAction() {
+    guard let link = messageLink?["link"],
+          let url = URL(string: link)
+    else { return }
+
+    UIApplication.shared.open(url)
   }
 }
