@@ -28,6 +28,8 @@ public class Icons {
   public static let circleDefaultOff = UIImage(named: "iconCircleDefaultOff", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let circleDone = UIImage(named: "iconCircleDone", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let circleDoneFull = UIImage(named: "iconCircleDoneFull", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
   
   public static let circleUser = UIImage(named: "iconCircleUser", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -38,6 +40,8 @@ public class Icons {
   public static let gps = UIImage(named: "gps-icon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let imagePlaceHolder = UIImage(named: "iconImagePlaceHolder", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let info = UIImage(named: "iconInfo", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let leftArrow = UIImage(named: "iconLeftArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
