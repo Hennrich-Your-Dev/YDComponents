@@ -14,19 +14,19 @@ import YDB2WAssets
 public class YDSpaceyCardView: UIView {
   // MARK: Properties
   public var callback: ((_ card: YDSpaceyComponentLiveNPSCard?, _ cardTag: Int) -> Void)?
-  var card: YDSpaceyComponentLiveNPSCard?
-  var currentItems: [YDSpaceyComponentLiveNPSCardQuestion] = []
-  var stateView: UIStateEnum = .normal {
+  public var stateView: UIStateEnum = .normal {
     didSet {
       changeUIState(with: stateView)
     }
   }
+  public var card: YDSpaceyComponentLiveNPSCard?
+  var currentItems: [YDSpaceyComponentLiveNPSCardQuestion] = []
   var components: [UIView] = []
   var emptyComponents: [UIView] = []
 
   // MARK: Components
   let titleLabel = UILabel()
-  let skipButton = UIButton()
+  public let skipButton = UIButton()
   let vStackView = UIStackView()
   let stackView = UIStackView()
 
