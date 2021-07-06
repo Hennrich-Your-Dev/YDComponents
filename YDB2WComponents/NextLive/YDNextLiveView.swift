@@ -83,7 +83,7 @@ public class YDNextLiveView: UIView {
       Zeplin.grayLight
 
     if !hasButton { return }
-    
+
     scheduleButton.tintColor = isAvailable ? Zeplin.redBranding : Zeplin.grayLight
     scheduleButton.setAttributedTitle(
       NSAttributedString(
@@ -143,6 +143,8 @@ extension YDNextLiveView {
   // Photo
   private func configurePhotoImageView() {
     addSubview(photoBackgroundView)
+    views.append(photoBackgroundView)
+
     photoBackgroundView.layer.cornerRadius = 4
     photoBackgroundView.layer.masksToBounds = true
     photoBackgroundView.backgroundColor = Zeplin.graySurface
@@ -183,6 +185,8 @@ extension YDNextLiveView {
   // Date
   private func configureDateLabel() {
     addSubview(dateLabel)
+    views.append(dateLabel)
+
     dateLabel.textColor = Zeplin.grayLight
     dateLabel.font = .boldSystemFont(ofSize: 12)
     dateLabel.textAlignment = .left
@@ -199,6 +203,8 @@ extension YDNextLiveView {
   // Name
   private func configureNameLabel() {
     addSubview(nameLabel)
+    views.append(nameLabel)
+
     nameLabel.textColor = Zeplin.black
     nameLabel.font = .boldSystemFont(ofSize: 16)
     nameLabel.textAlignment = .left
@@ -215,6 +221,8 @@ extension YDNextLiveView {
   // Description
   private func configureDescriptionLabel() {
     addSubview(descriptionLabel)
+    views.append(descriptionLabel)
+
     descriptionLabel.textColor = Zeplin.grayLight
     descriptionLabel.font = .systemFont(ofSize: 12)
     descriptionLabel.textAlignment = .left
@@ -231,6 +239,7 @@ extension YDNextLiveView {
   // Schedule Button
   private func configureScheduleButton() {
     addSubview(scheduleButton)
+    views.append(scheduleButton)
 
     scheduleButton.tintColor = Zeplin.redBranding
     let title = "adicionar"
