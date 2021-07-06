@@ -56,7 +56,7 @@ public class YDNextLiveSpaceyCell: UICollectionViewCell {
   }
 
   // MARK: Actions
-  public func configure(with live: YDSpaceyComponentNextLive) {
+  public func configure(with live: YDSpaceyComponentNextLive?) {
     nextLiveView.config(with: live)
   }
 }

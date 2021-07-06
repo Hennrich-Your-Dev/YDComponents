@@ -310,8 +310,8 @@
 		C13CCBA32693F6C9007DB05F /* NextLive */ = {
 			isa = PBXGroup;
 			children = (
-				C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */,
 				C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */,
+				C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */,
 			);
 			path = NextLive;
 			sourceTree = "<group>";

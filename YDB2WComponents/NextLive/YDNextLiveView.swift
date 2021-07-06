@@ -15,7 +15,7 @@ public class YDNextLiveView: UIView {
   // MARK: Properties
   var views: [UIView] = []
   var hasButton = true
-  
+
   public var callback: (() -> Void)?
   public var stateView: UIStateEnum = .normal {
     didSet {
@@ -60,7 +60,9 @@ public class YDNextLiveView: UIView {
     stateView = .normal
   }
 
-  public func config(with live: YDSpaceyComponentNextLive) {
+  public func config(with live: YDSpaceyComponentNextLive?) {
+    guard let live = live else { return }
+
     photoImageView.setImage(
       live.photo,
       placeholder: Icons.imagePlaceHolder?
