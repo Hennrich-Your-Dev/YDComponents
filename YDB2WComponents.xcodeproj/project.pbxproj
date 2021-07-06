@@ -22,6 +22,8 @@
 		C12418D725879755006227D6 /* YDErrorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12418D625879755006227D6 /* YDErrorViewDelegate.swift */; };
 		C134F7BF2672E7B200BF9858 /* YDSpaceyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */; };
 		C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */; };
+		C13CCBA52693F81D007DB05F /* YDNextLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */; };
+		C13CCBA726940559007DB05F /* YDNextLiveSpaceyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */; };
 		C149E7FE268205430057F33E /* YDSpaceyCustomTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */; };
 		C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158CD612616252500A9A370 /* PopOverMessage.swift */; };
 		C15D4175267C12D900DD10A7 /* YDCustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */; };
@@ -77,6 +79,8 @@
 		C12418D625879755006227D6 /* YDErrorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorViewDelegate.swift; sourceTree = "<group>"; };
 		C134F7BE2672E7B200BF9858 /* YDSpaceyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCardView.swift; sourceTree = "<group>"; };
 		C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyInnerCardView.swift; sourceTree = "<group>"; };
+		C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDNextLiveView.swift; sourceTree = "<group>"; };
+		C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDNextLiveSpaceyCell.swift; sourceTree = "<group>"; };
 		C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCustomTitleCell.swift; sourceTree = "<group>"; };
 		C158CD612616252500A9A370 /* PopOverMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverMessage.swift; sourceTree = "<group>"; };
 		C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCustomErrorView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				C12418CB258795B9006227D6 /* ErrorView */,
 				C11A37892553765300D85F29 /* LoginDialog */,
 				C11A378A2553766100D85F29 /* MessageField */,
+				C13CCBA32693F6C9007DB05F /* NextLive */,
 				C158CD602616243000A9A370 /* PopOverMessage */,
 				C1AB4ED0260D52AB00A8B889 /* ProductCardView */,
 				C1C38947264DF68A002A12C0 /* Reply Message */,
@@ -300,6 +305,15 @@
 				C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		C13CCBA32693F6C9007DB05F /* NextLive */ = {
+			isa = PBXGroup;
+			children = (
+				C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */,
+				C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */,
+			);
+			path = NextLive;
 			sourceTree = "<group>";
 		};
 		C149E7FB2682007E0057F33E /* Spacey */ = {
@@ -851,7 +865,9 @@
 				C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */,
 				C1AB4F2F260D871100A8B889 /* StoreAndProductView+SegmentedControl.swift in Sources */,
 				C1C3894B264DF6C4002A12C0 /* YDReplyMessageComponent.swift in Sources */,
+				C13CCBA52693F81D007DB05F /* YDNextLiveView.swift in Sources */,
 				C11A3792255384F800D85F29 /* YDLoginDialogViewController.swift in Sources */,
+				C13CCBA726940559007DB05F /* YDNextLiveSpaceyCell.swift in Sources */,
 				C1C3894D264DF6D7002A12C0 /* YDReplyMessageComponent+Layouts.swift in Sources */,
 				C1CD8EFA25C460B700B83C8C /* YDShimmerView.swift in Sources */,
 				C1AB4ECD260D3AAE00A8B889 /* StoreAndProductView.swift in Sources */,
