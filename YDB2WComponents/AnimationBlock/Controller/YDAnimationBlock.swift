@@ -13,19 +13,6 @@ public class YDAnimationBlock: UIView {
   var icons: [UIImage?] = []
   let sizes: [CGFloat] = [24, 20, 18, 12]
   var columns: [CGFloat] = [-10, 10, 20, 30, 40, 50]
-  public var secondsArray: [Double] = [
-    0.1,
-    0.15,
-    0.2,
-    0.25,
-    0.3,
-    0.5,
-    0.75,
-    1,
-    1.5,
-    2,
-    3
-  ]
   public var iconTintColor: UIColor? = Zeplin.colorPrimaryLight
 
   // MARK: Init

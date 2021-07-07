@@ -10,7 +10,7 @@ import YDB2WModels
 
 public class YDNextLiveSpaceyCell: UICollectionViewCell {
   // MARK: Properties
-  var buttonCallback: ((UIButton) -> Void)? {
+  public var buttonCallback: ((UIButton) -> Void)? {
     didSet {
       button.callback = buttonCallback
     }
