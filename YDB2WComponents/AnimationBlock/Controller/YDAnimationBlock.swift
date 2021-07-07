@@ -13,7 +13,7 @@ public class YDAnimationBlock: UIView {
   var icons: [UIImage?] = []
   let sizes: [CGFloat] = [24, 20, 18, 12]
   var columns: [CGFloat] = [-10, 10, 20, 30, 40, 50]
-  public static let secondsArray: [Double] = [
+  public var secondsArray: [Double] = [
     0.1,
     0.15,
     0.2,
