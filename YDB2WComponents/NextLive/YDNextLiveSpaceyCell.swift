@@ -15,6 +15,11 @@ public class YDNextLiveSpaceyCell: UICollectionViewCell {
       button.callback = buttonCallback
     }
   }
+  public var scheduleButtonCallback: (() -> Void)? {
+    didSet {
+      nextLiveView.callback = scheduleButtonCallback
+    }
+  }
 
   // MARK: Components
   lazy var width: NSLayoutConstraint = {
@@ -23,7 +28,7 @@ public class YDNextLiveSpaceyCell: UICollectionViewCell {
     width.isActive = true
     return width
   }()
-  let nextLiveView = YDNextLiveView(hasButton: false)
+  let nextLiveView = YDNextLiveView()
   let button = YDWireButton(withTitle: "confira nossa programação completa")
 
   // MARK: Init
@@ -31,6 +36,7 @@ public class YDNextLiveSpaceyCell: UICollectionViewCell {
     super.prepareForReuse()
     nextLiveView.cleanUp()
     buttonCallback = nil
+    scheduleButtonCallback = nil
   }
 
   public override init(frame: CGRect) {
@@ -70,6 +76,7 @@ extension YDNextLiveSpaceyCell {
 
   private func configureNextLiveView() {
     contentView.addSubview(nextLiveView)
+    nextLiveView.callback = scheduleButtonCallback
 
     NSLayoutConstraint.activate([
       nextLiveView.topAnchor.constraint(equalTo: contentView.topAnchor),
