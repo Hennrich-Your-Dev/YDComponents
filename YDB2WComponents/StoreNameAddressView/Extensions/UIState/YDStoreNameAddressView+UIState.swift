@@ -9,8 +9,8 @@ import UIKit
 
 import YDUtilities
 
-extension YDStoreNameAddressView: UIStateDelegate {
-  public func changeUIState(with type: UIStateEnum) {
+extension YDStoreNameAddressView: YDUIStateDelegate {
+  public func changeUIState(with type: YDUIStateEnum) {
     if type == .normal {
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }

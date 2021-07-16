@@ -11,9 +11,15 @@ import Cosmos
 import YDExtensions
 import YDB2WModels
 import YDB2WAssets
+import YDUtilities
 
 public class YDProductCardView: UIView {
   // MARK: Properties
+  public var stateView: YDUIStateEnum = .normal {
+    didSet {
+      changeUIState(with: stateView)
+    }
+  }
   public var product: YDProduct? {
     didSet {
       updateLayoutWithProduct()

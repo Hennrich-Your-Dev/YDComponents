@@ -26,6 +26,11 @@ public class YDStoreAndProductView: UIView {
   }
 
   // MARK: Properties
+  public var stateView: YDUIStateEnum = .normal {
+    didSet {
+      changeUIState(with: stateView)
+    }
+  }
   public var product: YDProduct? {
     didSet {
       updateLayoutWithProduct()

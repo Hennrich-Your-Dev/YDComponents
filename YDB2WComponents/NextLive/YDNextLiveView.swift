@@ -17,7 +17,7 @@ public class YDNextLiveView: UIView {
   var hasButton = true
 
   public var callback: (() -> Void)?
-  public var stateView: UIStateEnum = .normal {
+  public var stateView: YDUIStateEnum = .normal {
     didSet {
       changeUIState(with: stateView)
     }
@@ -106,8 +106,8 @@ public class YDNextLiveView: UIView {
 }
 
 // MARK: UIState Delegate
-extension YDNextLiveView: UIStateDelegate {
-  public func changeUIState(with type: UIStateEnum) {
+extension YDNextLiveView: YDUIStateDelegate {
+  public func changeUIState(with type: YDUIStateEnum) {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
       if type == .normal {

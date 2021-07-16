@@ -9,8 +9,8 @@ import UIKit
 
 import YDUtilities
 
-extension YDStoreAndProductView: UIStateDelegate {
-  public func changeUIState(with type: UIStateEnum) {
+extension YDStoreAndProductView: YDUIStateDelegate {
+  public func changeUIState(with type: YDUIStateEnum) {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
 

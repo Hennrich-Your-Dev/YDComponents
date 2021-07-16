@@ -9,8 +9,8 @@ import UIKit
 
 import YDUtilities
 
-extension YDProductCardView: UIStateDelegate {
-  public func changeUIState(with type: UIStateEnum) {
+extension YDProductCardView: YDUIStateDelegate {
+  public func changeUIState(with type: YDUIStateEnum) {
     if type == .normal {
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }

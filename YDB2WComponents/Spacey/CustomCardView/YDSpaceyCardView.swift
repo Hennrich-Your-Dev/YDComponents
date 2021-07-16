@@ -14,7 +14,7 @@ import YDB2WAssets
 public class YDSpaceyCardView: UIView {
   // MARK: Properties
   public var callback: ((_ card: YDSpaceyComponentLiveNPSCard?, _ cardTag: Int) -> Void)?
-  public var stateView: UIStateEnum = .normal {
+  public var stateView: YDUIStateEnum = .normal {
     didSet {
       changeUIState(with: stateView)
     }
@@ -209,8 +209,8 @@ extension YDSpaceyCardView {
 }
 
 // MARK: UIState Delegate
-extension YDSpaceyCardView: UIStateDelegate {
-  public func changeUIState(with type: UIStateEnum) {
+extension YDSpaceyCardView: YDUIStateDelegate {
+  public func changeUIState(with type: YDUIStateEnum) {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
 

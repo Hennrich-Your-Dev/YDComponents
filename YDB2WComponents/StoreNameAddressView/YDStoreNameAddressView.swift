@@ -6,11 +6,16 @@
 //
 
 import UIKit
-
+import YDUtilities
 import YDExtensions
 
 public class YDStoreNameAddressView: UIView {
   // MARK: Properties
+  public var stateView: YDUIStateEnum = .normal {
+    didSet {
+      changeUIState(with: stateView)
+    }
+  }
   var hasButton = true
   public var callback: (() -> Void)?
   var shimmers: [UIView] = []
