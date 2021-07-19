@@ -46,9 +46,12 @@ public class YDCountDownViewCell: UICollectionViewCell {
 
   // MARK: Actions
   public func start(with date: Date) {
-    if let nextDate = Calendar.current.date(byAdding: .minute, value: 1, to: Date()) {
-      countDownView.start(with: nextDate)
-    }
+    countDownView.start(with: date)
+
+//    MOCK
+//    if let nextDate = Calendar.current.date(byAdding: .minute, value: 1, to: Date()) {
+//      countDownView.start(with: nextDate)
+//    }
   }
 }
 
