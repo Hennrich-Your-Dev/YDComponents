@@ -35,7 +35,7 @@ public class YDMessageChatTableViewCell: UITableViewCell {
     height.isActive = true
     return height
   }()
-  let activityIndicator = UIActivityIndicatorView(style: .medium)
+  let activityIndicator = UIActivityIndicatorView(style: .gray)
 
   // MARK: Life cycle
   public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
