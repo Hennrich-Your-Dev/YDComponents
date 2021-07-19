@@ -119,35 +119,16 @@ public class YDMessageChatTableViewCell: UITableViewCell {
     )
 
     // Time
-    guard let rangeTime: Range<String.Index> = fullMessage.range(of: chat.hourAndMinutes) else {
-      return
+    if let hourAndMinutesAttributedString = configureAttributed(
+        hourAndMinutes: chat.hourAndMinutes
+    ) {
+      attributedString.append(hourAndMinutesAttributedString)
     }
 
-    let indexTime: Int = fullMessage.distance(
-      from: fullMessage.startIndex,
-      to: rangeTime.lowerBound
-    )
-
-    attributedString.addAttribute(
-      NSAttributedString.Key.font,
-      value: UIFont.systemFont(ofSize: 10, weight: .regular),
-      range: NSRange(location: indexTime, length: chat.hourAndMinutes.count)
-    )
-
-    attributedString.addAttribute(
-      NSAttributedString.Key.foregroundColor,
-      value: UIColor.Zeplin.grayLight,
-      range: NSRange(location: indexTime, length: chat.hourAndMinutes.count)
-    )
-
-    attributedString.addAttribute(
-      NSAttributedString.Key.kern,
-      value: 4,
-      range: NSRange(location: indexTime + chat.hourAndMinutes.count, length: 1)
-    )
-
     // Username
-    guard let rangeUsername: Range<String.Index> = fullMessage.range(of: name) else {
+    guard let rangeUsername: Range<String.Index> = fullMessage.range(of: name)
+    else {
+      messageLabel.attributedText = attributedString
       return
     }
 
@@ -156,52 +137,22 @@ public class YDMessageChatTableViewCell: UITableViewCell {
       to: rangeUsername.lowerBound
     )
 
-    attributedString.addAttribute(
-      NSAttributedString.Key.font,
-      value: UIFont.systemFont(ofSize: 12, weight: .bold),
-      range: NSRange(location: indexUsername, length: name.count)
+    let nameAttributedString = configureAttributed(
+      name: name,
+      onIndex: indexUsername,
+      withColor: getStageStyle(id: chat.sender.id, moderatorsIds: chatModerators),
+      senderId: chat.sender.id
     )
-
-    attributedString.addAttribute(
-      NSAttributedString.Key.foregroundColor,
-      value: getStageStyle(id: chat.sender.id, moderatorsIds: chatModerators),
-      range: NSRange(location: indexUsername, length: name.count)
-    )
-
-    attributedString.addAttribute(
-      NSAttributedString.Key.kern,
-      value: 6,
-      range: NSRange(location: indexUsername + name.count, length: 1)
-    )
+    attributedString.append(nameAttributedString)
 
     // Message
-    if chat.deletedMessage {
-      attributedString.addAttribute(
-        NSAttributedString.Key.font,
-        value: UIFont.italicSystemFont(ofSize: 12),
-        range: NSRange(location: indexUsername + name.count + 1, length: chat.message.count)
-      )
-
-      attributedString.addAttribute(
-        NSAttributedString.Key.foregroundColor,
-        value: UIColor.Zeplin.grayLight,
-        range: NSRange(location: indexUsername + name.count + 1, length: chat.message.utf16.count)
-      )
-
-      //
-    } else {
-      attributedString.addAttribute(
-        NSAttributedString.Key.font,
-        value: UIFont.systemFont(ofSize: 12, weight: .regular),
-        range: NSRange(location: indexUsername + name.count + 1, length: chat.message.count)
-      )
-
-      attributedString.addAttribute(
-        NSAttributedString.Key.foregroundColor,
-        value: UIColor.Zeplin.black,
-        range: NSRange(location: indexUsername + name.count + 1, length: chat.message.utf16.count)
-      )
-    }
+    let messageAttributedString = configureAttributed(
+      deletedMessage: chat.deletedMessage,
+      indexUsername: indexUsername,
+      nameCount: name.count,
+      message: chat.message
+    )
+    attributedString.append(messageAttributedString)
 
     messageLabel.attributedText = attributedString
   }
@@ -230,6 +181,116 @@ public class YDMessageChatTableViewCell: UITableViewCell {
 
   func getMyselfStage() -> UIColor {
     return UIColor.Zeplin.black
+  }
+}
+
+// MARK: Attributed String
+extension YDMessageChatTableViewCell {
+  private func configureAttributed(
+    hourAndMinutes: String
+  ) -> NSMutableAttributedString? {
+    guard let rangeTime: Range<String.Index> = fullMessage.range(of: hourAndMinutes) else {
+      return nil
+    }
+
+    let mutableAttributeString = NSMutableAttributedString(string: fullMessage)
+
+    let indexTime: Int = fullMessage.distance(
+      from: fullMessage.startIndex,
+      to: rangeTime.lowerBound
+    )
+
+    let commonRange = NSRange(location: indexTime, length: hourAndMinutes.count)
+
+    mutableAttributeString.addAttribute(
+      NSAttributedString.Key.font,
+      value: UIFont.systemFont(ofSize: 10, weight: .regular),
+      range: commonRange
+    )
+
+    mutableAttributeString.addAttribute(
+      NSAttributedString.Key.foregroundColor,
+      value: Zeplin.grayLight,
+      range: commonRange
+    )
+
+    mutableAttributeString.addAttribute(
+      NSAttributedString.Key.kern,
+      value: 4,
+      range: NSRange(location: indexTime + hourAndMinutes.count, length: 1)
+    )
+
+    return mutableAttributeString
+  }
+
+  private func configureAttributed(
+    name: String,
+    onIndex index: Int,
+    withColor color: UIColor,
+    senderId: String
+  ) -> NSMutableAttributedString {
+    let mutableAttributedString = NSMutableAttributedString(string: fullMessage)
+
+    mutableAttributedString.addAttribute(
+      NSAttributedString.Key.font,
+      value: UIFont.systemFont(ofSize: 12, weight: .bold),
+      range: NSRange(location: index, length: name.count)
+    )
+
+    mutableAttributedString.addAttribute(
+      NSAttributedString.Key.foregroundColor,
+      value: color,
+      range: NSRange(location: index, length: name.count)
+    )
+
+    mutableAttributedString.addAttribute(
+      NSAttributedString.Key.kern,
+      value: 6,
+      range: NSRange(location: index + name.count, length: 1)
+    )
+
+    return mutableAttributedString
+  }
+
+  private func configureAttributed(
+    deletedMessage: Bool,
+    indexUsername: Int,
+    nameCount: Int,
+    message: String
+  ) -> NSMutableAttributedString {
+    let mutableAttributedString = NSMutableAttributedString(string: fullMessage)
+
+    if deletedMessage {
+      mutableAttributedString.addAttribute(
+        NSAttributedString.Key.font,
+        value: UIFont.italicSystemFont(ofSize: 12),
+        range: NSRange(location: indexUsername + nameCount + 1, length: message.count)
+      )
+
+      mutableAttributedString.addAttribute(
+        NSAttributedString.Key.foregroundColor,
+        value: UIColor.Zeplin.grayLight,
+        range: NSRange(
+          location: indexUsername + nameCount + 1,
+          length: message.utf16.count
+        )
+      )
+      //
+    } else {
+      mutableAttributedString.addAttribute(
+        NSAttributedString.Key.font,
+        value: UIFont.systemFont(ofSize: 12, weight: .regular),
+        range: NSRange(location: indexUsername + nameCount + 1, length: message.count)
+      )
+
+      mutableAttributedString.addAttribute(
+        NSAttributedString.Key.foregroundColor,
+        value: UIColor.Zeplin.black,
+        range: NSRange(location: indexUsername + nameCount + 1, length: message.utf16.count)
+      )
+    }
+
+    return mutableAttributedString
   }
 }
 
