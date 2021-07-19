@@ -24,6 +24,7 @@
 		C134F7C22672FB3D00BF9858 /* YDSpaceyInnerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */; };
 		C13CCBA52693F81D007DB05F /* YDNextLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */; };
 		C13CCBA726940559007DB05F /* YDNextLiveSpaceyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */; };
+		C1480AFD26A5F4810034B80E /* YDMessageChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1480AFC26A5F4810034B80E /* YDMessageChatTableViewCell.swift */; };
 		C149E7FE268205430057F33E /* YDSpaceyCustomTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */; };
 		C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158CD612616252500A9A370 /* PopOverMessage.swift */; };
 		C15D4175267C12D900DD10A7 /* YDCustomErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */; };
@@ -81,6 +82,7 @@
 		C134F7C12672FB3D00BF9858 /* YDSpaceyInnerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyInnerCardView.swift; sourceTree = "<group>"; };
 		C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDNextLiveView.swift; sourceTree = "<group>"; };
 		C13CCBA626940559007DB05F /* YDNextLiveSpaceyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDNextLiveSpaceyCell.swift; sourceTree = "<group>"; };
+		C1480AFC26A5F4810034B80E /* YDMessageChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMessageChatTableViewCell.swift; sourceTree = "<group>"; };
 		C149E7FD268205430057F33E /* YDSpaceyCustomTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSpaceyCustomTitleCell.swift; sourceTree = "<group>"; };
 		C158CD612616252500A9A370 /* PopOverMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverMessage.swift; sourceTree = "<group>"; };
 		C15D4174267C12D900DD10A7 /* YDCustomErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDCustomErrorView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E7BF9325641299008F747A /* AnimationBlock */,
+				C1480AFA26A5F4060034B80E /* Chat */,
 				C15D4173267C12B800DD10A7 /* CustomErrorView */,
 				C1E7C11225647431008F747A /* Dialog */,
 				C12418CB258795B9006227D6 /* ErrorView */,
@@ -314,6 +317,22 @@
 				C13CCBA42693F81D007DB05F /* YDNextLiveView.swift */,
 			);
 			path = NextLive;
+			sourceTree = "<group>";
+		};
+		C1480AFA26A5F4060034B80E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				C1480AFB26A5F4110034B80E /* MessageCell */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		C1480AFB26A5F4110034B80E /* MessageCell */ = {
+			isa = PBXGroup;
+			children = (
+				C1480AFC26A5F4810034B80E /* YDMessageChatTableViewCell.swift */,
+			);
+			path = MessageCell;
 			sourceTree = "<group>";
 		};
 		C149E7FB2682007E0057F33E /* Spacey */ = {
@@ -841,6 +860,7 @@
 				C158CD622616252500A9A370 /* PopOverMessage.swift in Sources */,
 				C1AB4F33260D8D7100A8B889 /* StoreAndProductView+TableView.swift in Sources */,
 				C1E7C11A256476B8008F747A /* YDDialogViewModel.swift in Sources */,
+				C1480AFD26A5F4810034B80E /* YDMessageChatTableViewCell.swift in Sources */,
 				C1FA6843261E56550063C21E /* YDStoreNameAddressView+UIState.swift in Sources */,
 				C1FC70FD2541EC080036AFD7 /* YDMessageFieldDelegate.swift in Sources */,
 				C1FC70F72541D4330036AFD7 /* YDMessageField.swift in Sources */,
