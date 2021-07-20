@@ -85,17 +85,16 @@ public class YDMessageChatReplyTableViewCell: UITableViewCell {
     paragraphStyle.lineSpacing = 1
     paragraphStyle.lineHeightMultiple = 0
 
-    let attributedString = NSMutableAttributedString(
+    var attributedString = NSMutableAttributedString(
       string: fullMessage,
       attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle]
     )
 
     // Time
-    if let hourAndMinutesAttributedString = configureAttributed(
-        hourAndMinutes: chat.hourAndMinutes
-    ) {
-      attributedString.append(hourAndMinutesAttributedString)
-    }
+    configureAttributed(
+      &attributedString,
+      hourAndMinutes: chat.hourAndMinutes
+    )
 
     // Username
     guard let rangeUsername: Range<String.Index> = fullMessage.range(of: name)
@@ -109,22 +108,22 @@ public class YDMessageChatReplyTableViewCell: UITableViewCell {
       to: rangeUsername.lowerBound
     )
 
-    let nameAttributedString = configureAttributed(
+    configureAttributed(
+      &attributedString,
       name: name,
       onIndex: indexUsername,
       withColor: getStageStyle(id: chat.sender.id, moderatorsIds: chatModerators),
       senderId: chat.sender.id
     )
-    attributedString.append(nameAttributedString)
 
     // Message
-    let messageAttributedString = configureAttributed(
+    configureAttributed(
+      &attributedString,
       deletedMessage: chat.deletedMessage,
       indexUsername: indexUsername,
       nameCount: name.count,
       message: chat.message
     )
-    attributedString.append(messageAttributedString)
 
     messageLabel.attributedText = attributedString
   }
@@ -159,13 +158,12 @@ public class YDMessageChatReplyTableViewCell: UITableViewCell {
 // MARK: Attributed String
 extension YDMessageChatReplyTableViewCell {
   private func configureAttributed(
+    _ attributedString: inout NSMutableAttributedString,
     hourAndMinutes: String
-  ) -> NSMutableAttributedString? {
+  ) {
     guard let rangeTime: Range<String.Index> = fullMessage.range(of: hourAndMinutes) else {
-      return nil
+      return
     }
-
-    let mutableAttributeString = NSMutableAttributedString(string: fullMessage)
 
     let indexTime: Int = fullMessage.distance(
       from: fullMessage.startIndex,
@@ -174,72 +172,66 @@ extension YDMessageChatReplyTableViewCell {
 
     let commonRange = NSRange(location: indexTime, length: hourAndMinutes.count)
 
-    mutableAttributeString.addAttribute(
+    attributedString.addAttribute(
       NSAttributedString.Key.font,
       value: UIFont.systemFont(ofSize: 10, weight: .regular),
       range: commonRange
     )
 
-    mutableAttributeString.addAttribute(
+    attributedString.addAttribute(
       NSAttributedString.Key.foregroundColor,
       value: Zeplin.grayLight,
       range: commonRange
     )
 
-    mutableAttributeString.addAttribute(
+    attributedString.addAttribute(
       NSAttributedString.Key.kern,
       value: 4,
       range: NSRange(location: indexTime + hourAndMinutes.count, length: 1)
     )
-
-    return mutableAttributeString
   }
 
   private func configureAttributed(
+    _ attributedString: inout NSMutableAttributedString,
     name: String,
     onIndex index: Int,
     withColor color: UIColor,
     senderId: String
-  ) -> NSMutableAttributedString {
-    let mutableAttributedString = NSMutableAttributedString(string: fullMessage)
-
-    mutableAttributedString.addAttribute(
+  ) {
+    attributedString.addAttribute(
       NSAttributedString.Key.font,
       value: UIFont.systemFont(ofSize: 12, weight: .bold),
       range: NSRange(location: index, length: name.count)
     )
 
-    mutableAttributedString.addAttribute(
+    attributedString.addAttribute(
       NSAttributedString.Key.foregroundColor,
       value: color,
       range: NSRange(location: index, length: name.count)
     )
 
-    mutableAttributedString.addAttribute(
+    attributedString.addAttribute(
       NSAttributedString.Key.kern,
       value: 6,
       range: NSRange(location: index + name.count, length: 1)
     )
-
-    return mutableAttributedString
   }
 
   private func configureAttributed(
+    _ attributedString: inout NSMutableAttributedString,
     deletedMessage: Bool,
     indexUsername: Int,
     nameCount: Int,
     message: String
-  ) -> NSMutableAttributedString {
-    let mutableAttributedString = NSMutableAttributedString(string: fullMessage)
-
+  ) {
     if deletedMessage {
-      mutableAttributedString.addAttribute(
+      attributedString.addAttribute(
         NSAttributedString.Key.font,
         value: UIFont.italicSystemFont(ofSize: 12),
         range: NSRange(location: indexUsername + nameCount + 1, length: message.count)
       )
 
-      mutableAttributedString.addAttribute(
+      attributedString.addAttribute(
         NSAttributedString.Key.foregroundColor,
         value: UIColor.Zeplin.grayLight,
         range: NSRange(
@@ -249,20 +241,18 @@ extension YDMessageChatReplyTableViewCell {
       )
       //
     } else {
-      mutableAttributedString.addAttribute(
+      attributedString.addAttribute(
         NSAttributedString.Key.font,
         value: UIFont.systemFont(ofSize: 12, weight: .regular),
         range: NSRange(location: indexUsername + nameCount + 1, length: message.count)
       )
 
-      mutableAttributedString.addAttribute(
+      attributedString.addAttribute(
         NSAttributedString.Key.foregroundColor,
         value: UIColor.Zeplin.black,
         range: NSRange(location: indexUsername + nameCount + 1, length: message.utf16.count)
       )
     }
-
-    return mutableAttributedString
   }
 }
 
