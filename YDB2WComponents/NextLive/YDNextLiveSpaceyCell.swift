@@ -28,7 +28,7 @@ public class YDNextLiveSpaceyCell: UICollectionViewCell {
     width.isActive = true
     return width
   }()
-  let nextLiveView = YDNextLiveView()
+  let nextLiveView = YDNextLiveView(hasButton: false)
   let button = YDWireButton(withTitle: "confira nossa programação completa")
 
   // MARK: Init
