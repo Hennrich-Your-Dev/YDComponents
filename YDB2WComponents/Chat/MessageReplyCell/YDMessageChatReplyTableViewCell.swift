@@ -304,7 +304,7 @@ extension YDMessageChatReplyTableViewCell {
   func configureActivityIndicator() {
     contentView.addSubview(activityIndicator)
     activityIndicator.hidesWhenStopped = true
-    // activityIndicator.color = Zeplin.redBranding
+    activityIndicator.isHidden = true
 
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([

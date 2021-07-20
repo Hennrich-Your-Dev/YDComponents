@@ -301,6 +301,7 @@ extension YDMessageChatTableViewCell {
   func configureActivityIndicator() {
     contentView.addSubview(activityIndicator)
     activityIndicator.hidesWhenStopped = true
+    activityIndicator.isHidden = true
 
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
