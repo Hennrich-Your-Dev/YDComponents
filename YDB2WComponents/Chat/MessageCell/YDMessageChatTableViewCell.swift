@@ -24,17 +24,6 @@ public class YDMessageChatTableViewCell: UITableViewCell {
 
   // MARK: Components
   let messageLabel = UILabel()
-  let replyMessageComponent = YDReplyMessageComponent()
-  lazy var replyMessageTop: NSLayoutConstraint = {
-    let top = replyMessageComponent.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 6)
-    top.isActive = true
-    return top
-  }()
-  lazy var replyMessageHeight: NSLayoutConstraint = {
-    let height = replyMessageComponent.heightAnchor.constraint(equalToConstant: 34)
-    height.isActive = true
-    return height
-  }()
   let activityIndicator = UIActivityIndicatorView(style: .gray)
 
   // MARK: Life cycle
@@ -82,12 +71,6 @@ public class YDMessageChatTableViewCell: UITableViewCell {
   }
 
   // MARK: Actions Public
-  public func hasReplyMessage(message: YDChatMessage) {
-    replyMessageTop.constant = 6
-    replyMessageHeight.constant = 34
-    replyMessageComponent.configure(with: message)
-  }
-
   public func showActivity() {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
@@ -297,22 +280,8 @@ extension YDMessageChatTableViewCell {
 // MARK: Layout
 extension YDMessageChatTableViewCell {
   func configureLayout() {
-    configureReplyMessageComponent()
     configureMessageLabel()
     configureActivityIndicator()
-  }
-
-  func configureReplyMessageComponent() {
-    contentView.addSubview(replyMessageComponent)
-    replyMessageComponent.stage = .replied
-
-    replyMessageComponent.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      replyMessageComponent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      replyMessageComponent.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-    ])
-    replyMessageTop.constant = 0
-    replyMessageHeight.constant = 0
   }
 
   func configureMessageLabel() {
@@ -325,7 +294,7 @@ extension YDMessageChatTableViewCell {
     messageLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       messageLabel.topAnchor.constraint(
-        equalTo: replyMessageComponent.bottomAnchor,
+        equalTo: contentView.topAnchor,
         constant: 6
       ),
       messageLabel.leadingAnchor.constraint(
@@ -342,7 +311,6 @@ extension YDMessageChatTableViewCell {
   func configureActivityIndicator() {
     contentView.addSubview(activityIndicator)
     activityIndicator.hidesWhenStopped = true
-    // activityIndicator.color = Zeplin.redBranding
 
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
